@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613163218) do
+ActiveRecord::Schema.define(version: 20160613163947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "street"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "teacher_id"
+    t.string   "status"
+    t.integer  "min_students"
+    t.integer  "max_students"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.string   "city"
+    t.string   "country"
+    t.string   "zip_code"
+    t.string   "location_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.integer  "experience"
@@ -44,5 +65,6 @@ ActiveRecord::Schema.define(version: 20160613163218) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "lessons", "teachers"
   add_foreign_key "teachers", "users"
 end
