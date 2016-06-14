@@ -1,16 +1,31 @@
 <div id="footer">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-3">
+        <%= link_to root_path, class: "navbar-wagon-brand" do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+      </div>
+      <div class="col-xs-3">
+        <h3> <%= t('.social_links') %> </h3>
         <ul class="list-inline">
-          <li><a href=""><i class="fa fa-youtube"></i></a></li>
           <li><a href=""><i class="fa fa-instagram"></i></a></li>
           <li><a href=""><i class="fa fa-facebook"></i></a></li>
           <li><a href=""><i class="fa fa-twitter"></i></a></li>
         </ul>
       </div>
-      <div class="col-xs-8 text-right">
-        <p>Created @ LeWagon</p>
+      <div class="col-xs-3">
+        <h3> <%= t('.contact') %> </h3>
+        <ul>
+          <li> contact@yogastory.fr </li>
+        </ul>
+      </div>
+      <div class="col-xs-3">
+        <h3> <%= t('.help') %> </h3>
+        <ul>
+          <li> <%= t('.faq') %> </li>
+          <li> <%= t('.cgv') %> </li>
+        </ul>
       </div>
     </div>
   </div>

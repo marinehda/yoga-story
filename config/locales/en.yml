@@ -10,3 +10,10 @@ en:
   pages:
     home:
       tagline: "Yoga is for Everyone. Everywhere."
+  shared:
+    footer:
+      social_links: "Follow us"
+      contact: "Contact us"
+      help: "Help"
+      faq: "FAQ"
+      cgv: "General conditions of use"
