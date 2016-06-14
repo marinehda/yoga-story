@@ -1,13 +1,12 @@
 fr:
-  hello: "Bonjour"
-
   shared:
     navbar:
-      sign_in: "Connexion"
-      profile: "mon profil"
+      sign_in: "Se connecter"
+      help: "Comment ça marche"
+      profile: "Mon profil"
       sign_out: "Déconnexion"
-      top_call_to_action: "Envoyer un truc"
-      placeholder: "Rechercher"
+      blog: "Blog"
+      sign_up: "S'inscrire"
   devise:
     shared:
       links:
@@ -15,3 +14,6 @@ fr:
         hello: "Bonjour"
         sign_in: "Se connecter"
         sign_up: "S'enregistrer"
+  pages:
+    home:
+      tagline: "Yoga is for Everyone. Everywhere."

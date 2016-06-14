@@ -1,0 +1,30 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 80vh;
+  background-image:url(https://res.cloudinary.com/dj8owx8ry/image/upload/v1465905273/rqsbnhlvd5z9oqtcccj8.jpg);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+#navbar-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
