@@ -22,6 +22,8 @@ gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem 'carrierwave'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 group :development, :test do
   gem 'binding_of_caller'
