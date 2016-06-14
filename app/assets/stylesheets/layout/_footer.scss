@@ -2,22 +2,16 @@
   background: $red;
   color: #CCCCCC;
   display: flex;
-  position: fixed;
   left: 0px;
   bottom: 0px;
   width: 100%;
   padding: 20px;
 }
 
-#footer p {
-  margin-bottom: 0px;
-}
-
 #footer a {
-  color: #CCCCCC;
   font-size: 30px;
-  letter-spacing: 20px;
   transition: color 0.5s ease;
+  color: #CCCCCC;
 }
 
 #footer a:hover{
