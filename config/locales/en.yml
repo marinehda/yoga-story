@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+
+  shared:
+    navbar:
+      sign_in: "Login"
+      profile: "my profile"
+      sign_out: "Log out"
+      top_call_to_action: "Post some stuff"
+      placeholder: "Search something"
