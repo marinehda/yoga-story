@@ -1,0 +1,17 @@
+fr:
+  hello: "Bonjour"
+
+  shared:
+    navbar:
+      sign_in: "Connexion"
+      profile: "mon profil"
+      sign_out: "Déconnexion"
+      top_call_to_action: "Envoyer un truc"
+      placeholder: "Rechercher"
+  devise:
+    shared:
+      links:
+        forgot_your_password?: "Mot de passe oublié ?"
+        hello: "Bonjour"
+        sign_in: "Se connecter"
+        sign_up: "S'enregistrer"

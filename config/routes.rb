@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: 'pages#home'
+  scope '(:locale)', locale: /fr|en/ do
+    devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    resources :users, :teachers, :lessons, :bookings
+    root to: 'pages#home'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
