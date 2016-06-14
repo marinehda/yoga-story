@@ -24,6 +24,7 @@ gem "coffee-rails"
 gem 'carrierwave'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'rolify'
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
   before_action :set_teacher, only: [:edit, :show]
 
   def index
-    @teachers = Teacher.all
+    @teachers = policy_scope(Teacher)
   end
 
   def show
@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
+    authorize @teacher
   end
 
   def create

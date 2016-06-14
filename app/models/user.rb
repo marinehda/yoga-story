@@ -1,10 +1,23 @@
 class User < ActiveRecord::Base
+  rolify
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :photo, PhotoUploader
+
+  def teacher?
+    has_role? :teacher
+  end
+
+  def set_as_teacher!
+    add_role :teacher
+  end
+
+  def admin?
+    has_role? :admin
+  end
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
