@@ -45,4 +45,5 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(:name, :start_date, :end_date, :address, :street_number, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
   end
+  
 end
