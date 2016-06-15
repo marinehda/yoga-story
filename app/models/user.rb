@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  rolify
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -17,15 +16,15 @@ class User < ActiveRecord::Base
   # end
 
   def teacher?
-    has_role? :teacher
+    type == 'Teacher'
   end
 
-  def set_as_teacher!
-    add_role :teacher
+  def set_as_teacher
+    self.type = 'Teacher'
   end
 
-  def downgrade_teacher!
-    remove_role :teacher
+  def set_as_user
+    self.type = nil
   end
 
   def self.find_for_facebook_oauth(auth)
