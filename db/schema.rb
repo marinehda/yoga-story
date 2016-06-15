@@ -85,12 +85,9 @@ ActiveRecord::Schema.define(version: 20160615125001) do
     t.datetime "token_expiry"
     t.integer  "experience"
     t.text     "description"
-<<<<<<< HEAD
     t.string   "address"
     t.string   "street_number"
-=======
     t.string   "type"
->>>>>>> 9900b77343abf71803bd11ca13a5200ee8b71798
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
