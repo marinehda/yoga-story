@@ -6,6 +6,9 @@
     </div>
     <div class="col-xs-6">
       <%= render 'form_user' %>
+      <% unless @user.teacher? %>
+        <%= link_to 'Become a teacher', root_path %>
+      <% end %>
     </div>
   </div>
 </div>

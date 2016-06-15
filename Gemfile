@@ -18,9 +18,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem 'cloudinary'
-gem "attachinary"
-gem "jquery-fileupload-rails"
-gem "coffee-rails"
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 gem 'carrierwave'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
