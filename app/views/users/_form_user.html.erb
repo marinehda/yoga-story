@@ -14,7 +14,13 @@
   <%= f.input :street %>
   <%= f.input :city %>
   <%= f.input :zipcode %>
-  <%= f.input :country %>
+
+  <% if @user.teacher? %>
+    <%= f.input :experience %>
+    <%= f.input :description %>
+    
+  <% end %>
+
   <div class="text-center">
   <%= f.button :submit %></div>
 <% end %>

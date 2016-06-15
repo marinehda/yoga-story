@@ -14,7 +14,10 @@ en:
         hello: "Hello"
         sign_in: "Log in"
         sign_up: "Sign up"
-  user:
+  users:
+    show:
+      view_public_profile: "View my public profile"
+      become_teacher: "Become a teacher"
     update:
       flash_alert: "Profile not updated"
   pages:
@@ -28,4 +31,3 @@ en:
       help: "Help"
       faq: "FAQ"
       cgv: "General conditions of use"
-

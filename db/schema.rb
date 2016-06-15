@@ -94,9 +94,10 @@ ActiveRecord::Schema.define(version: 20160614160016) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.integer  "heir_id"
+    t.string   "heir_type"
     t.integer  "experience"
     t.text     "description"
-    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

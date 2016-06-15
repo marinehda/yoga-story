@@ -6,6 +6,15 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :photo, PhotoUploader
+  #
+  # validate :birth_date_cannot_be_in_the_future
+  #
+  # def birth_date_cannot_be_in_the_future
+  #   if birth_date.present? && birth_date > Date.today
+  #     # errors.add(:birth_date, "can't be in the future")
+  #     flash[:alert] = t('.flash_alert')
+  #   end
+  # end
 
   def teacher?
     has_role? :teacher
@@ -15,8 +24,8 @@ class User < ActiveRecord::Base
     add_role :teacher
   end
 
-  def admin?
-    has_role? :admin
+  def downgrade_teacher!
+    remove_role :teacher
   end
 
   def self.find_for_facebook_oauth(auth)
