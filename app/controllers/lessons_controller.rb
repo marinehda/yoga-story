@@ -16,11 +16,11 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Teacher.find_by_id(current_user).lessons.build(lesson_params)
-    @lesson.teacher_id = current_user.id
     authorize @lesson
-
     if @lesson.save
       redirect_to @lesson
+    else
+      flash[:alert] = t('.flash_alert')
     end
   end
 
@@ -28,6 +28,11 @@ class LessonsController < ApplicationController
   end
 
   def update
+    if @lesson.update(lesson_params)
+      redirect_to lesson_path
+    else
+      flash[:alert] = t('.flash_alert')
+    end
   end
 
   private
@@ -38,6 +43,6 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:name, :start_date, :end_date, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
+    params.require(:lesson).permit(:name, :start_date, :end_date, :address, :street_number, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
   end
 end

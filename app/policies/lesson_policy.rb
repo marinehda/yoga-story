@@ -20,9 +20,12 @@ class LessonPolicy < ApplicationPolicy
     user.teacher?
   end
 
-  def update?
-    record.user == user && user.teacher?
+  def edit
+    update?
   end
 
+  def update?
+    lesson.teacher_id == user.id && user.teacher?
+  end
 
 end
