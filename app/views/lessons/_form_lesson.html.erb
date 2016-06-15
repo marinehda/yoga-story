@@ -1,0 +1,17 @@
+<%= simple_form_for(@lesson) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :street %>
+  <%= f.input :city %>
+  <%= f.input :zip_code %>
+  <%= f.input :min_students %>
+  <%= f.input :max_students %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :location_name %>
+
+  <div class="text-center">
+  <%= f.button :submit %></div>
+<% end %>
