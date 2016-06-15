@@ -13,9 +13,12 @@ fr:
         forgot_your_password?: "Mot de passe oublié ?"
         hello: "Bonjour"
         sign_in: "Se connecter"
-  user:
+  users:
+    show:
+      view_public_profile: "Voir mon profil public"
+      become_teacher: "Devenez professeur"
     update:
-      flash_alert: "Mise à jpur du profil non-enregistrée"
+      flash_alert: "Mise à jour du profil non-enregistrée"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
@@ -27,4 +30,3 @@ fr:
       help: "Aide"
       faq: "FAQ"
       cgv: "Conditions générales d'utilisation"
-
