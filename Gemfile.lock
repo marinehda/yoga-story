@@ -84,6 +84,8 @@ GEM
     devise-i18n-views (0.3.7)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     figaro (1.1.1)
@@ -241,6 +243,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  faker
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
