@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   after_action :verify_authorized
 
-  def index
-    @users = User.all
-  end
-
   def show
     @user = current_user
   end
