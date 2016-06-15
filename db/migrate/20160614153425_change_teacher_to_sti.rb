@@ -4,8 +4,6 @@ class ChangeTeacherToSti < ActiveRecord::Migration
     add_column :users, :experience, :integer
     add_column :users, :description, :text
     add_column :users, :type, :string
-    remove_column :users, :heir_id
-    remove_column :users, :heir_type
     remove_foreign_key :teachers, :users
     remove_foreign_key :lessons, :teachers
     add_foreign_key :lessons, :users, column: :teacher_id
