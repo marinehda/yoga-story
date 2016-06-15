@@ -1,12 +1,4 @@
 fr:
-  shared:
-    navbar:
-      sign_in: "Se connecter"
-      help: "Comment ça marche"
-      profile: "Mon profil"
-      sign_out: "Déconnexion"
-      blog: "Blog"
-      sign_up: "S'inscrire"
   devise:
     shared:
       links:
@@ -22,8 +14,16 @@ fr:
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
+      sub_title: "Trouver un cours"
       help: "Comment ça marche"
   shared:
+    navbar:
+      sign_in: "Se connecter"
+      help: "Comment ça marche"
+      profile: "Mon profil"
+      sign_out: "Déconnexion"
+      blog: "Blog"
+      sign_up: "S'inscrire"
     footer:
       social_links: "Suivez-nous"
       contact: "Contactez-nous"
