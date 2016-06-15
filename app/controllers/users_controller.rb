@@ -2,23 +2,19 @@ class UsersController < ApplicationController
   after_action :verify_authorized
 
   def show
-    @user = current_user
-  end
-
-  def edit
+    authorize User.find(params[:id])
     @user = current_user
   end
 
   def update
     @user = User.find(params[:id])
-    authorize user
+    authorize @user
     if @user.update(user_params)
       redirect_to user_path
     else
       flash[:alert] = t('.flash_alert')
     end
   end
-
 
 private
 

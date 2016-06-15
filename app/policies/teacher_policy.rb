@@ -7,7 +7,7 @@ class TeacherPolicy < ApplicationPolicy
     end
   end
 
-  def initialize(user, post)
+  def initialize(user, teacher)
     @user = user
     @teacher = teacher
   end

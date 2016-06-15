@@ -14,7 +14,9 @@
   <%= f.input :street %>
   <%= f.input :city %>
   <%= f.input :zipcode %>
-  <%= f.input :country %>
+
   <div class="text-center">
   <%= f.button :submit %></div>
 <% end %>
+
+= country_form.input :country :as => :select

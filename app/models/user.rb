@@ -7,6 +7,15 @@ class User < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
+  # validate :birth_date_cannot_be_in_the_future
+
+  # def birth_date_cannot_be_in_the_future
+  #   if birth_date.present? && birth_date > Date.today
+  #     errors.add(:birth_date, "can't be in the future")
+  #     # flash[:alert] = "You were not born tomorrow!"
+  #   end
+  # end
+
   def teacher?
     has_role? :teacher
   end

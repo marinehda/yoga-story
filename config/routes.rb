@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'teachers/index'
-
-  get 'teachers/show'
-
-  get 'teachers/new'
-
-  get 'teachers/create'
-
-  get 'teachers/edit'
-
-  get 'teachers/update'
-
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
