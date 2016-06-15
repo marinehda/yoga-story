@@ -1,6 +1,4 @@
 fr:
-  hello: "Bonjour"
-
   shared:
     navbar:
       sign_in: "Connexion"
@@ -15,3 +13,6 @@ fr:
         hello: "Bonjour"
         sign_in: "Se connecter"
         sign_up: "S'enregistrer"
+  user:
+    update:
+      flash_alert: "Mise à jpur du profil non-enregistrée"
