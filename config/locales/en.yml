@@ -2,10 +2,11 @@ en:
   shared:
     navbar:
       sign_in: "Login"
-      profile: "my profile"
+      help: "How it works"
+      profile: "My profile"
       sign_out: "Log out"
-      top_call_to_action: "Post some stuff"
-      placeholder: "Search something"
+      blog: "Blog"
+      sign-up: "Sign Up"
   devise:
     shared:
       links:
@@ -16,3 +17,15 @@ en:
   user:
     update:
       flash_alert: "Profile not updated"
+  pages:
+    home:
+      tagline: "Yoga for Everyone. Everywhere."
+      help: "How it works"
+  shared:
+    footer:
+      social_links: "Follow us"
+      contact: "Contact us"
+      help: "Help"
+      faq: "FAQ"
+      cgv: "General conditions of use"
+

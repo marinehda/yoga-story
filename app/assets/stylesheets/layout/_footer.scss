@@ -1,1 +1,24 @@
-// Your footer style
+#footer {
+  background: $red;
+  color: #CCCCCC;
+  display: flex;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 20px;
+}
+
+#footer a {
+  font-size: 30px;
+  transition: color 0.5s ease;
+  color: #CCCCCC;
+}
+
+#footer a:hover{
+  color: $yellow;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
