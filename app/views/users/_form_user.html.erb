@@ -11,14 +11,17 @@
   <%= f.input :yoga_type %>
   <%= f.input :level %>
   <%= f.select :level, ['Débutant', 'Confirmé', 'Expert'] %>
-  <%= f.input :street %>
-  <%= f.input :city %>
-  <%= f.input :zipcode %>
+  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
+  <%= f.input :street_number, input_html: { id: 'street_number'} %>
+  <%= f.input :street, input_html: { id: 'route'} %>
+  <%= f.input :city, input_html: { id: 'locality'} %>
+  <%= f.input :zipcode, input_html: { id: 'postal_code'} %>
+
 
   <% if @user.teacher? %>
     <%= f.input :experience %>
     <%= f.input :description %>
-    
+
   <% end %>
 
   <div class="text-center">

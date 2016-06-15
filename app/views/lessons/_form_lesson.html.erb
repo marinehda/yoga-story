@@ -3,13 +3,15 @@
   <%= f.input :name %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.input :street %>
-  <%= f.input :city %>
-  <%= f.input :zip_code %>
   <%= f.input :min_students %>
   <%= f.input :max_students %>
   <%= f.input :description %>
   <%= f.input :price %>
+  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
+  <%= f.input :street_number, input_html: { id: 'street_number'} %>
+  <%= f.input :street, input_html: { id: 'route'} %>
+  <%= f.input :city, input_html: { id: 'locality'} %>
+  <%= f.input :zip_code, input_html: { id: 'postal_code'} %>
   <%= f.input :location_name %>
 
   <div class="text-center">
