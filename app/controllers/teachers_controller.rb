@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:edit, :show]
+  after_action :verify_authorized
 
   def index
     @teachers = policy_scope(Teacher)
