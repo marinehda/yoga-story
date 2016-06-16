@@ -25,13 +25,14 @@
                       <% if current_user.teacher? %>
                       <li><%= link_to t(".offer", default: "My classes proposal"), root_path %></li>
                       <% else %>
+                       <% end %>
                       <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
                       <li>
                         <%= link_to destroy_user_session_path, method: :delete do %>
                           <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
-                      <% end %>
+
                     <% end %>
                     </li>
                     <li class="button-nav"><%= link_to t(".lessons", default: "My lessons"), root_path %>
