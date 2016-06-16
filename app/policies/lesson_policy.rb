@@ -1,5 +1,4 @@
 class LessonPolicy < ApplicationPolicy
-  attr_reader :user, :lesson
 
   class Scope < Scope
     def resolve
@@ -7,9 +6,12 @@ class LessonPolicy < ApplicationPolicy
     end
   end
 
-  def initialize(user, lesson)
-    @user = user
-    @lesson = lesson
+  def index?
+    true
+  end
+
+  def my_index?
+    record.teacher == user
   end
 
   def show?
