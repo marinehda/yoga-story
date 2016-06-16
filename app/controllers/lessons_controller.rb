@@ -28,6 +28,7 @@ class LessonsController < ApplicationController
     @lesson = @teacher.lessons.build(lesson_params)
     authorize @lesson
     if @lesson.save
+      LessonMailer.creation_confirmation(@lesson).deliver_now
       redirect_to my_lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
