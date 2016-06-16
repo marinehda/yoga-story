@@ -1,11 +1,16 @@
-  <%= @lesson.name %>
-  <%= @lesson.start_date %>
-  <%= @lesson.end_date %>
-  <%= @lesson.location_name %>
-
 <!-- Include Google Maps JS API -->
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBK0ypmAk4cPq30qJgeKeY7VczWKzH2tr0">
 </script>
 
 <script type="text/javascript" src="autocomplete.js"></script>
+
+
+<%= @lesson.name %>
+<%= @lesson.start_date %>
+<%= @lesson.end_date %>
+<%= @lesson.location_name %>
+
+<% if @lesson.teacher == current_user %>
+  <%= link_to t('.edit_lesson'), edit_lesson_path(@lesson) %>
+<% end %>
