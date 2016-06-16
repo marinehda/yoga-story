@@ -19,7 +19,7 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def create?
-    user.teacher?
+    user.teacher? && record.teacher == user
   end
 
   def edit

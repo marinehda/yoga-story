@@ -15,12 +15,23 @@ class LessonsController < ApplicationController
   end
 
   def show
+    authorize Lesson.find(params[:id])
   end
 
   def new
+    @lesson = Lesson.new
+    authorize @lesson
   end
 
   def create
+    @teacher = current_user
+    @lesson = @teacher.lessons.build(lesson_params)
+    authorize @lesson
+    if @lesson.save
+      redirect_to lesson_path(@lesson)
+    else
+      flash[:alert] = t('.flash_alert')
+    end
   end
 
   def edit

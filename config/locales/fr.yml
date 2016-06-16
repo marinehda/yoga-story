@@ -15,6 +15,7 @@ fr:
   lessons:
     my_index:
       my_lessons: "Mes cours en tant que professeur"
+      add_lesson: "Proposer un nouveau cours"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
