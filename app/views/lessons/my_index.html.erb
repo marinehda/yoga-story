@@ -4,7 +4,9 @@
   <%= lesson.name %>
   <%= lesson.start_date %>
   <%= lesson.end_date %>
-  <%= lesson.location_name %>
+  <%= lesson.status %>
+  <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
+  <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson) %>
 <% end %>
 
 <%= link_to t('.add_lesson'), new_lesson_path %>

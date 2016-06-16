@@ -13,7 +13,11 @@ Rails.application.routes.draw do
         get '/lessons', to: 'lessons#my_index', as: :my_lessons
       end
     end
-    resources :lessons
+    resources :lessons do
+      member do
+        get '/cancel', to: 'lessons#cancel', as: :cancel
+      end
+    end
     resources  :bookings
     root to: 'pages#home'
   end

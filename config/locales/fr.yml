@@ -16,6 +16,10 @@ fr:
     my_index:
       my_lessons: "Mes cours en tant que professeur"
       add_lesson: "Proposer un nouveau cours"
+      edit_lesson: "Modifier ce cours"
+      cancel_lesson: "Annuler ce cours"
+    show:
+      edit_lesson: "Modifier ce cours"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

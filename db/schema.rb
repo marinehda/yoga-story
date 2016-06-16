@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160616122048) do
+=======
+ActiveRecord::Schema.define(version: 20160616134319) do
+>>>>>>> origin/lessons_suite
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160616122048) do
 
   create_table "lessons", force: :cascade do |t|
     t.string   "street"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer  "teacher_id"
-    t.string   "status"
+    t.string   "status",        default: "confirmed"
     t.integer  "min_students"
     t.integer  "max_students"
     t.string   "name"
@@ -62,8 +66,8 @@ ActiveRecord::Schema.define(version: 20160616122048) do
     t.string   "country"
     t.string   "zip_code"
     t.string   "location_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "address"
     t.string   "street_number"
   end

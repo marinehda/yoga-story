@@ -1,22 +1,21 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update]
+  before_action :set_lesson, only: [:show, :edit, :update, :cancel]
   after_action :verify_authorized
 
   def index
-    @lessons = Lesson.all
     @lessons = policy_scope(Lesson)
   end
 
   def my_index
     @lessons = Teacher.find(params[:id]).lessons
-    @lessons.each do |lesson|
-      authorize lesson
+    if @lessons == []
+      authorize Teacher.find(params[:id]).lessons.new
+    else
+      @lessons.each { |i| authorize i, :my_index? }
     end
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
-    authorize @lesson
   end
 
   def new
@@ -29,7 +28,7 @@ class LessonsController < ApplicationController
     @lesson = @teacher.lessons.build(lesson_params)
     authorize @lesson
     if @lesson.save
-      redirect_to lesson_path(@lesson)
+      redirect_to my_lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -40,10 +39,15 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update(lesson_params)
-      redirect_to lesson_path
+      redirect_to my_lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end
+  end
+
+  def cancel
+    @lesson.update_attribute(:status, "cancelled")
+    redirect_to my_lessons_teacher_path(current_user)
   end
 
   private

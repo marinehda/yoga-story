@@ -14,9 +14,13 @@ en:
     update:
       flash_alert: "Profile not updated"
   lessons:
+    show:
+      edit_lesson: "Modify this class"
     my_index:
       my_lessons: "My classes as a teacher"
       add_lesson: "Add a class"
+      edit_lesson: "Modify this class"
+      cancel_lesson: "Cancel this class"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
