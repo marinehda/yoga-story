@@ -15,11 +15,12 @@ class LessonsController < ApplicationController
   end
 
   def show
-    authorize Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
   end
 
   def new
-    @lesson = Lesson.new
+    @lesson = current_user.lessons.new
     authorize @lesson
   end
 
