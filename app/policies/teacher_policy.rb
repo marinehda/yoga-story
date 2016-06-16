@@ -6,11 +6,11 @@ class TeacherPolicy < UserPolicy
   # end
   #
   def new?
-    user
+    user == record
   end
 
   def update?
-    user
+    record == user
   end
   #
   # def show?
