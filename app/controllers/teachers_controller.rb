@@ -1,49 +1,53 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:edit, :show]
+  #before_action :set_teacher, only: [:update]
   after_action :verify_authorized
 
-  def index
-    @teachers = policy_scope(Teacher)
-  end
-
-  def show
-  end
+#   def index
+#     @teachers = policy_scope(Teacher)
+#   end
+#
+#   def show
+#     authorize Teacher.find(params[:id])
+#     @teacher = current_user
+#   end
+#
 
   def new
-    @teacher = Teacher.new
+    @teacher = current_user.becomes(Teacher)
     authorize @teacher
   end
 
-  def create
-    @user = current_user
-    @teacher = current_user.teacher.build(boat_params)
-    @teacher.user_id = current_user.id if current_user
-    if @teacher.save
-      flash[:notice] = "Your teacher profile was successfully created"
-      # TO uncomment after mailer creation:
-      # TeacherMailer.creation_confirmation(@teacher, @user).deliver_now
-      redirect_to teacher
-    else
-      flash[:alert] = "Your teacher profile was not created!"
-    end
-  end
-
-  def edit
-  end
-
+  # def create
+  #   @teacher = User.find(params[:id]).set_as_teacher
+  #   if @teacher.save
+  #     # TO uncomment after mailer creation:
+  #     # TeacherMailer.creation_confirmation(@teacher, @user).deliver_now
+  #     redirect_to user_path(@teacher)
+  #   else
+  #     flash[:alert] = t('.flash_alert')
+  #   end
+  # end
+#
+  # def edit
+  #   @teacher = User.find(params[:id])
+  #   authorize @teacher
+  # end
+#
   def update
-    teacher = current_user.teacher.find(params[:id])
-    if teacher.update!(teacher_params)
-      redirect_to teacher
+    @teacher = User.find(params[:id]).becomes(Teacher)
+    authorize @teacher
+    if @teacher.update(teacher_params)
+      @teacher.set_as_teacher
+      redirect_to user_path(@teacher)
     else
-      flash[:alert] = "Your profile was not updated!"
+      flash[:alert] = t('.flash_alert')
     end
   end
-
-  private
-
+#
+#   private
+#
   def teacher_params
-    params.require(:teacher).permit(:experience, :description)
+    params.require(:teacher).permit(:first_name, :last_name, :password, :email, :street, :city, :zipcode, :country, :phone, :gender, :birth_date, :photo, :photo_cache, :yoga_type, :level, :address, :street_number, :experience, :description, photos: [])
   end
 
   def set_teacher
