@@ -22,16 +22,17 @@ fr:
       sub_title: "Trouver un cours"
       help: "Comment ça marche"
   shared:
-    navbar:
+    navbar_theme:
       sign_in: "Se connecter"
       help: "Comment ça marche"
       profile: "Mon profil"
       sign_out: "Déconnexion"
       blog: "Blog"
       sign_up: "S'inscrire"
-    footer:
+    footer_theme:
       social_links: "Suivez-nous"
       contact: "Contactez-nous"
       help: "Aide"
       faq: "FAQ"
       cgv: "Conditions générales d'utilisation"
+      try: "Trouvez votre cours!"

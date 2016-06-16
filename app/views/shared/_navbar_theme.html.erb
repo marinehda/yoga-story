@@ -1,0 +1,28 @@
+<!-- Static navbar -->
+        <nav class="navbar header-v1 header-transparent navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header scroll-to">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Yoga Story</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+
+                    <ul class="nav scroll-to navbar-nav">
+                        <li class="active"><a href="#home">home</a></li>
+                        <li><a href="#features">features</a></li>
+                        <li><a href="#pricing">pricing</a></li>
+                        <li><a href="#newsletter">Subscribe </a></li>
+
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="button-nav"><a <%= link_to t(".help", default: "How it works"), root_path %></a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav><!--navigation end here-->

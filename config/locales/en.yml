@@ -1,12 +1,4 @@
 en:
-  shared:
-    navbar:
-      sign_in: "Login"
-      help: "How it works"
-      profile: "My profile"
-      sign_out: "Log out"
-      blog: "Blog"
-      sign-up: "Sign Up"
   devise:
     shared:
       links:
@@ -31,9 +23,17 @@ en:
       sub_title: "Find a yoga class"
       help: "How it works"
   shared:
-    footer:
+    navbar_theme:
+      sign_in: "Login"
+      help: "How it works"
+      profile: "My profile"
+      sign_out: "Log out"
+      blog: "Blog"
+      sign-up: "Sign Up"
+    footer_theme:
       social_links: "Follow us"
       contact: "Contact us"
       help: "Help"
       faq: "FAQ"
       cgv: "General conditions of use"
+      try: "Find your lesson!"
