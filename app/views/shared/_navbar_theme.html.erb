@@ -19,48 +19,45 @@
                     <!-- <li><a href="#features">features</a></li>
                     <li><a href="#pricing">pricing</a></li>
                     <li><a href="#newsletter">Subscribe </a></li> -->
-                      <% if user_signed_in? %>
+                    <% if user_signed_in? %>
 
-
-
-      <!-- dropdown -->
-        <li class="dropdown">
-          <%= link_to t(".profile", default: "Profile"), root_path, class: "dropdown-toggle", "data-toggle" => "dropdown" %><i class="fa fa-angle-down"></i>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-calendar-check-o"></i> <%= t(".lessons", default: "My lessons") %>
-              <% end %>
-            </li>
-
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
-              <% end %>
-            </li>
-
-          </ul>
-      </li>
-
-    <% else %>
-
-      <!-- Login text link -->
-      <li>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </li>
-
-    <% end %>
-
+                    <li><%= link_to t(".profile", default: "Profile"), root_path %></li>
+                      <% if current_user.teacher? %>
+                      <li><%= link_to t(".offer", default: "My classes proposal"), root_path %></li>
+                      <% else %>
+                      <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li>
+                        <%= link_to destroy_user_session_path, method: :delete do %>
+                          <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+                      <% end %>
+                    <% end %>
+                    </li>
+                    <li class="button-nav"><%= link_to t(".lessons", default: "My lessons"), root_path %>
+                    </li>
                   </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
+                    <% else %>
+
+
+                    <li>
+                      <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+                    </li>
+                    <li>
+                      <%= link_to t(".blog", default: "Blog"), root_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Contact', root_path %>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
                         <li class="button-nav"><a <%= link_to t(".help", default: "How it works"), root_path %></a></li>
-                    </ul>
+                  </ul>
+
+
+                    <% end %>
+
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
         </nav><!--navigation end here-->

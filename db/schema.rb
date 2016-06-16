@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160616122048) do
-=======
 ActiveRecord::Schema.define(version: 20160616134319) do
->>>>>>> origin/lessons_suite
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
