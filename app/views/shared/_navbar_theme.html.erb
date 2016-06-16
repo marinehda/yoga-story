@@ -12,14 +12,15 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
-                    <ul class="nav scroll-to navbar-nav">
-                        <li class="active"><a href="#home">home</a></li>
-                        <li><a href="#features">features</a></li>
-                        <li><a href="#pricing">pricing</a></li>
-                        <li><a href="#newsletter">Subscribe </a></li>
+                  <ul class="nav scroll-to navbar-nav">
 
+                    <li class="active"><%= link_to 'home', root_path %></li>
 
-                    </ul>
+                    <li><a href="#features">features</a></li>
+                    <li><a href="#pricing">pricing</a></li>
+                    <li><a href="#newsletter">Subscribe </a></li>
+                  </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="button-nav"><a <%= link_to t(".help", default: "How it works"), root_path %></a></li>
                     </ul>
