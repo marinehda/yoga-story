@@ -3,22 +3,33 @@ class LessonsController < ApplicationController
   after_action :verify_authorized
 
   def index
+    @lessons = Lesson.all
     @lessons = policy_scope(Lesson)
   end
 
+  def my_index
+    @lessons = Teacher.find(params[:id]).lessons
+    @lessons.each do |lesson|
+      authorize lesson
+    end
+  end
+
   def show
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
   end
 
   def new
-    @lesson = Lesson.new
+    @lesson = current_user.lessons.new
     authorize @lesson
   end
 
   def create
-    @lesson = Teacher.find_by_id(current_user).lessons.build(lesson_params)
+    @teacher = current_user
+    @lesson = @teacher.lessons.build(lesson_params)
     authorize @lesson
     if @lesson.save
-      redirect_to @lesson
+      redirect_to lesson_path(@lesson)
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -28,22 +39,15 @@ class LessonsController < ApplicationController
   end
 
   def update
-    if @lesson.update(lesson_params)
-      redirect_to lesson_path
-    else
-      flash[:alert] = t('.flash_alert')
-    end
   end
 
   private
 
   def set_lesson
-    @lesson = Lesson.find(params[:id])
-    authorize @lesson
   end
 
   def lesson_params
     params.require(:lesson).permit(:name, :start_date, :end_date, :address, :street_number, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
   end
-  
+
 end

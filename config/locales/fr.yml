@@ -9,8 +9,13 @@ fr:
     show:
       view_public_profile: "Voir mon profil public"
       become_teacher: "Devenez professeur"
+      my_lessons: "Mes cours en tant que professeur"
     update:
       flash_alert: "Mise à jour du profil non-enregistrée"
+  lessons:
+    my_index:
+      my_lessons: "Mes cours en tant que professeur"
+      add_lesson: "Proposer un nouveau cours"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
