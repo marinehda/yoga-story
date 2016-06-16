@@ -9,16 +9,20 @@ Lesson.delete_all
 (1..10).each do |i|
   user = User.new(
     email: 'user' + i.to_s + '@yogastory.com',
-    password: '123456'
+    password: 'aaaaaa'
     )
   user.save!
   p 'user' + i.to_s
 end
 
+user1 = User.first
+user1.is_admin = true
+user1.save
+
 (11..15).each do |i|
   user = User.new(
     email: 'user' + i.to_s + '@yogastory.com',
-    password: '123456',
+    password: 'aaaaaa',
     type: 'Teacher'
     )
   user.save!
