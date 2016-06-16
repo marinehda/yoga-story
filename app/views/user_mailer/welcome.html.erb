@@ -1,0 +1,13 @@
+<% if @user.first_name %>
+<h3><%= t('.greeting') %> <%= @user.first_name %>,</h3>
+<% else %>
+<h3><%= t('.greeting') %></h3>
+<% end %>
+
+<p>
+  <%= t('.mail_content') %>
+</p>
+
+<p>
+  <%= t('.signature') %>
+</p>
