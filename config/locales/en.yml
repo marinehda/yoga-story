@@ -18,8 +18,13 @@ en:
     show:
       view_public_profile: "View my public profile"
       become_teacher: "Become a teacher"
+      my_lessons: "My classes as a teacher"
     update:
       flash_alert: "Profile not updated"
+  lessons:
+    my_index:
+      my_lessons: "My classes as a teacher"
+      add_lesson: "Add a class"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

@@ -1,0 +1,10 @@
+<h1><%= t('.my_lessons') %></h1>
+
+<% @lessons.each do |lesson| %>
+  <%= lesson.name %>
+  <%= lesson.start_date %>
+  <%= lesson.end_date %>
+  <%= lesson.location_name %>
+<% end %>
+
+<%= link_to t('.add_lesson'), new_lesson_path %>
