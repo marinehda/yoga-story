@@ -21,6 +21,7 @@
   <% if @user.teacher? %>
     <%= f.input :experience %>
     <%= f.input :description %>
+    <%= f.input :photos, as: :attachinary %>
 
   <% end %>
 

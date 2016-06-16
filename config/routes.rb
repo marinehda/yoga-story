@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /fr|en/ do
     devise_for :users, skip: :omniauth_callbacks
-    resources :users, :teachers, :lessons, :bookings
+    resources :users, only: [:show, :update]
+
+    resources :teachers
+    resources :lessons
+    resources  :bookings
     root to: 'pages#home'
   end
 

@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 
   def set_as_teacher
     self.type = 'Teacher'
+    save
   end
 
   def set_as_user
