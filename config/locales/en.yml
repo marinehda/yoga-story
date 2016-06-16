@@ -20,6 +20,7 @@ en:
       my_lessons: "My classes as a teacher"
       add_lesson: "Add a class"
       edit_lesson: "Modify this class"
+      cancel_lesson: "Cancel this class"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

@@ -9,8 +9,4 @@
 <%= @lesson.name %>
 <%= @lesson.start_date %>
 <%= @lesson.end_date %>
-<%= @lesson.location_name %>
-
-<% if @lesson.teacher == current_user %>
-  <%= link_to t('.edit_lesson'), edit_lesson_path(@lesson) %>
-<% end %>
+<%= @lesson.status %>

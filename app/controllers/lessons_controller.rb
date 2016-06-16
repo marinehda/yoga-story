@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update]
+  before_action :set_lesson, only: [:show, :edit, :update, :cancel]
   after_action :verify_authorized
 
   def index
@@ -38,12 +38,16 @@ class LessonsController < ApplicationController
   end
 
   def update
-    authorize @lesson
     if @lesson.update(lesson_params)
       redirect_to my_lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end
+  end
+
+  def cancel
+    @lesson.update_attribute(:status, "cancelled")
+    redirect_to my_lessons_teacher_path(current_user)
   end
 
   private

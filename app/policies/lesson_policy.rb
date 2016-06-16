@@ -26,4 +26,8 @@ class LessonPolicy < ApplicationPolicy
     record.teacher == user
   end
 
+  def cancel?
+    record.teacher == user
+  end
+
 end
