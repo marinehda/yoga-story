@@ -6,11 +6,11 @@ class TeacherPolicy < UserPolicy
   # end
   #
   def new?
-    user == record
+    user.id == record.id
   end
 
   def update?
-    record == user
+    record.id == user.id
   end
   #
   # def show?

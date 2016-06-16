@@ -6,7 +6,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user == record or user.is_admin?
+    user.id == record.id or user.is_admin?
   end
 
   def update?
