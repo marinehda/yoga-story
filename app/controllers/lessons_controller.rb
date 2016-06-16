@@ -39,11 +39,18 @@ class LessonsController < ApplicationController
   end
 
   def update
+    if @lesson.update(lesson_params)
+      redirect_to lesson_path
+    else
+      flash[:alert] = t('.flash_alert')
+    end
   end
 
   private
 
   def set_lesson
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
   end
 
   def lesson_params
