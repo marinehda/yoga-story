@@ -1,13 +1,13 @@
 <% if @user.first_name %>
-<h3>Hi <%= @user.first_name %>,</h3>
+<h3><%= t('.greeting') %> <%= @user.first_name %>,</h3>
 <% else %>
-<h3>Hi</h3>
+<h3><%= t('.greeting') %></h3>
 <% end %>
 
 <p>
-  Thanks for signing up to Yoga Story
+  <%= t('.mail_content') %>
 </p>
 
 <p>
-  Alexandra, Marine and Nathaly.
+  <%= t('.signature') %>
 </p>

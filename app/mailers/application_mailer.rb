@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "alexis.quesney@ecota.co"
+  default from: "contact@yogastory.fr"
   layout 'mailer'
 end

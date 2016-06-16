@@ -1,9 +1,9 @@
 <% if @user.first_name %>
-Hi <%= @user.first_name %>,
+<%= t('.greeting') %> <%= @user.first_name %>,
 <% else %>
-Hi
+<%= t('.greeting') %>
 <% end %>
 
-Thanks for signing up to Yoga Story
+<%= t('.mail_content') %>
 
-Alexandra, Marine and Nathaly.
+<%= t('.signature') %>

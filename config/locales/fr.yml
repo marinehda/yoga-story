@@ -34,6 +34,7 @@ fr:
       blog: "Blog"
       sign_up: "S'inscrire"
       lessons: "Mes cours"
+      offer: "Mon offre de cours"
     footer_theme:
       social_links: "Suivez-nous"
       contact: "Contactez-nous"
@@ -41,3 +42,12 @@ fr:
       faq: "FAQ"
       cgv: "Conditions générales d'utilisation"
       try: "Trouvez votre cours!"
+  user_mailer:
+    welcome:
+      greeting: "Bonjour"
+      mail_content: "Merci de vous être inscrits à Yoga Story"
+      signature: "Alexandra, Marine and Nathaly."
+  lesson_mailer:
+    creation_confirmation:
+      mail_content: "Votre cours a bien été enregistré. Merci de votre confiance."
+      signature: "Alexandra, Marine and Nathaly."
