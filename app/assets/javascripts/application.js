@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
@@ -16,3 +15,8 @@
 //= require parallax.min
 //= require smoothscroll
 //= require vimeo
+//= require underscore
+//= require gmaps/google
+//= require wow
+
+//= require_tree .

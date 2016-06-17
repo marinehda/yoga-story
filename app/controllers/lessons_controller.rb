@@ -16,6 +16,10 @@ class LessonsController < ApplicationController
   end
 
   def show
+    @marker = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
+      marker.lat lesson.latitude
+      marker.lng lesson.longitude
+    end
   end
 
   def new

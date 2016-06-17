@@ -17,6 +17,13 @@ class PagesController < ApplicationController
    if params[:start_date].present?
      @lessons = @lessons.where(start_date: params[:start_date].to_date.beginning_of_day..params[:start_date].to_date.end_of_day)
    end
+   @markers = Gmaps4rails.build_markers(@lessons) do |lesson, marker|
+     marker.lat lesson.latitude
+     marker.lng lesson.longitude
+   end
  end
 
+ def teachers
+   @teachers = User.where(type: 'Teacher')
+ end
 end

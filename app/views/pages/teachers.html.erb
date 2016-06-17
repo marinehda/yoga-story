@@ -1,0 +1,9 @@
+<% @teachers.each do |teacher| %>
+  <%= teacher.id %> <br>
+  <%= teacher.first_name %> <br>
+  <%= teacher.last_name %> <br>
+  <%= teacher.description %> <br>
+  <% teacher.lessons.each do |lesson| %>
+    <%= link_to lesson.name, lesson_path(lesson) %> <br>
+  <% end %>
+<% end %>

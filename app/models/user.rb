@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :photo, PhotoUploader
+
   #
   # validate :birth_date_cannot_be_in_the_future
   #
@@ -41,12 +41,6 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
-  end
-
-  private
-
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
   end
 
 end

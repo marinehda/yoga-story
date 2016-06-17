@@ -15,8 +15,8 @@ $(document).ready(function () {
         fade: 750,
         duration: 3000
     });
-    
-    //animated fixed header   
+
+    //animated fixed header
     $(window).scroll(function () {
         "use strict";
         var scroll = $(window).scrollTop();
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 //smooth scroll
     $(function () {
-        $('.scroll-to a[href*=#]:not([href=#])').click(function () {
+        $('.scroll-to a[href*="#"]:not([href="#"])').click(function () {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
