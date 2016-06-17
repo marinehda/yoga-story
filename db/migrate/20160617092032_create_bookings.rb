@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration
       t.references :lesson, index: true, foreign_key: true
       t.string :review_content
       t.string :review_rating
-      t.string :status
+      t.string :status, :default => 'confirmed'
 
       t.timestamps null: false
     end

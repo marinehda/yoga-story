@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20160617092032) do
     t.integer  "lesson_id"
     t.string   "review_content"
     t.string   "review_rating"
-    t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "status",         default: "confirmed"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "bookings", ["lesson_id"], name: "index_bookings_on_lesson_id", using: :btree

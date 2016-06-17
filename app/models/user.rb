@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :bookings
+  
   after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
