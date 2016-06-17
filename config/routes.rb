@@ -13,13 +13,14 @@ Rails.application.routes.draw do
         get '/lessons', to: 'lessons#my_index', as: :my_lessons
       end
     end
-    resources :lessons do
+    resources :lessons, except: [:index, :destroy] do
       member do
         get '/cancel', to: 'lessons#cancel', as: :cancel
       end
     end
     resources  :bookings
     root to: 'pages#home'
+    get '/lessons', to: 'pages#lessons', as: :all_lessons
   end
 
 end

@@ -7,5 +7,15 @@ class PagesController < ApplicationController
   def home
     @disable_nav = true
   end
-  
+
+  def lessons
+    @lessons = Lesson.all
+   if params[:address].present?
+     @lessons = @lessons.where(address: params[:address])
+   end
+   if params[:start_date].present?
+     @lessons = @lessons.where(start_date: params[:start_date].to_date.beginning_of_day..params[:start_date].to_date.end_of_day)
+   end
+ end
+
 end
