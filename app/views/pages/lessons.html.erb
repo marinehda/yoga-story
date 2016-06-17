@@ -7,12 +7,19 @@
 
 <%= render 'search' %>
 
-<% @lessons.each do |lesson| %>
-  <%= lesson.name %>
-  <%= lesson.start_date %>
-  <%= lesson.address %>
-  <%= lesson.longitude %>
-  <%= lesson.latitude %>
+<% if @lessons == [] %>
+  <p> <%= t('.no_result') %> </p>
+  <% Lesson.all.each do |lesson| %>
+    <%= link_to lesson.name, lesson_path(lesson) %>
+    <%= lesson.start_date %>
+    <%= lesson.address %>
+  <% end %>
+<% else %>
+  <% @lessons.each do |lesson| %>
+    <%= link_to lesson.name, lesson_path(lesson) %>
+    <%= lesson.start_date %>
+    <%= lesson.address %>
+  <% end %>
 <% end %>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
