@@ -8,15 +8,15 @@ $(document).ready(function () {
            $('.home-contact').parallax("50%", 0.5);
     }
     //backstretch background slideshow using for banner intro
-    $('.banner-slider').backstretch([
-        "images/bg-1.jpg",
-        "images/bg-2.jpg"
-    ], {
-        fade: 750,
-        duration: 3000
-    });
-    
-    //animated fixed header   
+    // $('.banner-slider').backstretch([
+    //     "images/bg-1.jpg",
+    //     "images/bg-2.jpg"
+    // ], {
+    //     fade: 750,
+    //     duration: 3000
+    // });
+
+    //animated fixed header
     $(window).scroll(function () {
         "use strict";
         var scroll = $(window).scrollTop();

@@ -8,12 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-  <body data-spy="scroll">
+  <body class="<%= params[:controller] %>-<%= params[:action] %>" data-spy="scroll">
     <%= render 'shared/navbar_theme' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer_theme' %>
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+    <%= yield :js %>
   </body>
 </html>

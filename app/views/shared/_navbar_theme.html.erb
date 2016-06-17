@@ -8,22 +8,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Yoga Story</a>
+                    <div class="navbar-brand"><%= link_to 'Yoga Story', root_path %></div>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
                   <ul class="nav scroll-to navbar-nav">
 
-                    <li class="active"><%= link_to 'home', root_path %></li>
+
 
                     <!-- <li><a href="#features">features</a></li>
                     <li><a href="#pricing">pricing</a></li>
                     <li><a href="#newsletter">Subscribe </a></li> -->
                     <% if user_signed_in? %>
 
-                    <li><%= link_to t(".profile", default: "Profile"), root_path %></li>
+                    <li class="active"><%= link_to t(".profile", default: "Profile"), user_path(current_user) %></li>
                       <% if current_user.teacher? %>
-                      <li><%= link_to t(".offer", default: "My classes proposal"), root_path %></li>
+                      <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
                       <% else %>
                        <% end %>
                       <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
@@ -31,7 +31,7 @@
                   <ul class="nav navbar-nav navbar-right">
                       <li>
                         <%= link_to destroy_user_session_path, method: :delete do %>
-                          <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+                          <i class="fa fa-sign-out" title=<%= t(".sign_out", default: "Log out") %>></i>
 
                     <% end %>
                     </li>
@@ -42,7 +42,7 @@
                     <% else %>
 
 
-                    <li>
+                    <li class="active">
                       <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
                     </li>
                     <li>
