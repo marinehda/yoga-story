@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616134319) do
+ActiveRecord::Schema.define(version: 20160617092032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 20160616134319) do
   end
 
   add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.string   "review_content"
+    t.string   "review_rating"
+    t.string   "status",         default: "confirmed"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "bookings", ["lesson_id"], name: "index_bookings_on_lesson_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
     t.string   "street"
@@ -128,5 +141,7 @@ ActiveRecord::Schema.define(version: 20160616134319) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "bookings", "lessons"
+  add_foreign_key "bookings", "users"
   add_foreign_key "lessons", "users", column: "teacher_id"
 end
