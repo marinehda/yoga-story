@@ -27,6 +27,7 @@ gem 'devise-i18n-views'
 gem 'rolify'
 gem 'rails-i18n'
 gem 'activeadmin', github: 'activeadmin'
+gem "geocoder"
 
 group :development, :test do
   gem 'binding_of_caller'

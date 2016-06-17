@@ -1,3 +1,10 @@
+<!-- Include Google Maps JS API -->
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBK0ypmAk4cPq30qJgeKeY7VczWKzH2tr0">
+</script>
+
+<script type="text/javascript" src="autocomplete.js"></script>
+
   <div class="banner">
     <div id="navbar-transparent">
 
@@ -11,8 +18,4 @@
     <h2><%= t('.help') %></h2>
   </div>
 
-  <form action='/lessons' class="form-inline">
-      <input name="start_date" type="date" class="form-control" >
-      <input name="address" type="text" class="form-control" >
-      <input type="submit" class="btn btn-info" value="Search">
-  </form>
+<%= render 'search' %>

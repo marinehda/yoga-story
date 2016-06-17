@@ -1,6 +1,22 @@
+<!-- Include Google Maps JS API -->
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBK0ypmAk4cPq30qJgeKeY7VczWKzH2tr0">
+</script>
+
+<script type="text/javascript" src="autocomplete.js"></script>
+
+<%= render 'search' %>
+
 <% @lessons.each do |lesson| %>
   <%= lesson.name %>
   <%= lesson.start_date %>
   <%= lesson.end_date %>
   <%= lesson.address %>
 <% end %>
+
+
+<!-- <form action='/lessons' class="form-inline">
+    <input name="start_date" type="date" class="form-control" value= <%= params[:start_date] %> >
+    <input id="user_input_autocomplete_address" placeholder="Votre adresse..." value= <%= params[:address] %> >
+    <input type="submit" class="btn btn-info" value="Search">
+</form> -->
