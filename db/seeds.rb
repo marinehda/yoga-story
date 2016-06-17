@@ -33,9 +33,7 @@ end
   lesson = Lesson.new(
     name: 'lesson' + i.to_s,
     teacher_id: (11..15).to_a.sample,
-    start_date: Faker::Time.forward(30, :morning)
-    min_students: 2,
-    max_students: 5,    
+    start_date: Faker::Time.forward(30, :morning) 
     )
   lesson.save!
   p 'lesson' + i.to_s
