@@ -16,5 +16,8 @@
 //= require parallax.min
 //= require smoothscroll
 //= require vimeo
+//= require underscore
+//= require gmaps/google
+//= require wow
 
 //= require_tree .

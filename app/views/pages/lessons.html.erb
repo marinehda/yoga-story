@@ -1,0 +1,29 @@
+<!-- Include Google Maps JS API -->
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBK0ypmAk4cPq30qJgeKeY7VczWKzH2tr0">
+</script>
+
+<script type="text/javascript" src="autocomplete.js"></script>
+
+<%= render 'search' %>
+
+<% @lessons.each do |lesson| %>
+  <%= lesson.name %>
+  <%= lesson.start_date %>
+  <%= lesson.address %>
+  <%= lesson.longitude %>
+  <%= lesson.latitude %>
+<% end %>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      });
+    })
+  <% end %>
+<% end %>

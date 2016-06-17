@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /fr|en/ do
     devise_for :users, skip: :omniauth_callbacks
     resources :users, only: [:show, :update]
-    resources :teachers do
+    resources :teachers, only: [:new, :update, :show] do
       member do
         get '/lessons', to: 'lessons#my_index', as: :my_lessons
       end
@@ -22,8 +22,10 @@ Rails.application.routes.draw do
         get '/cancel', to: 'lessons#cancel', as: :cancel
       end
     end
-    resources  :bookings, only: [:index, :edit, :update]
+    resources  :bookings, only: [:index]
     root to: 'pages#home'
+    get '/lessons', to: 'pages#lessons', as: :all_lessons
+    get '/teachers', to: 'pages#teachers', as: :all_teachers
   end
 
 end

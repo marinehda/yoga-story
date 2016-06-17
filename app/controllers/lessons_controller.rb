@@ -18,6 +18,10 @@ class LessonsController < ApplicationController
   def show
     @booking = current_user.bookings.new
     authorize @booking
+    @marker = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
+      marker.lat lesson.latitude
+      marker.lng lesson.longitude
+    end
   end
 
   def new

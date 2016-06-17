@@ -8,6 +8,7 @@ $(document).ready(function () {
            $('.home-contact').parallax("50%", 0.5);
     }
     //backstretch background slideshow using for banner intro
+
     // $('.banner-slider').backstretch([
     //     "images/bg-1.jpg",
     //     "images/bg-2.jpg"
@@ -28,7 +29,7 @@ $(document).ready(function () {
     });
 //smooth scroll
     $(function () {
-        $('.scroll-to a[href*=#]:not([href=#])').click(function () {
+        $('.scroll-to a[href*="#"]:not([href="#"])').click(function () {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');

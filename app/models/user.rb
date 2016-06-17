@@ -1,22 +1,10 @@
 class User < ActiveRecord::Base
   has_many :bookings
-  
   after_create :send_welcome_email
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-
   mount_uploader :photo, PhotoUploader
-  #
-  # validate :birth_date_cannot_be_in_the_future
-  #
-  # def birth_date_cannot_be_in_the_future
-  #   if birth_date.present? && birth_date > Date.today
-  #     # errors.add(:birth_date, "can't be in the future")
-  #     flash[:alert] = t('.flash_alert')
-  #   end
-  # end
 
   def teacher?
     type == 'Teacher'
@@ -44,11 +32,4 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
-
-  private
-
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
-
 end
