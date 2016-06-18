@@ -21,6 +21,10 @@ en:
       add_lesson: "Add a class"
       edit_lesson: "Modify this class"
       cancel_lesson: "Cancel this class"
+  bookings:
+    my_student_index:
+      new_lesson: "Find a new class"
+      cancel_booking: "Cancel this booking"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

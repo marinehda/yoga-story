@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def cancel
     if @booking.update_attribute(:status, 'cancelled')
-      redirect_to my_student_index_path(current_user)
+      redirect_to bookings_my_student_index_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end

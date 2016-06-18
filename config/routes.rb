@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'bookings/my_teacher_index'
   get 'bookings/my_student_index'
-  
+
   ActiveAdmin.routes(self)
   mount Attachinary::Engine => "/attachinary"
 
@@ -17,15 +17,16 @@ Rails.application.routes.draw do
       end
     end
     resources :lessons, only: [:show, :new, :create, :edit, :update] do
-      resources :bookings, only: [:new, :create]
       member do
         get '/cancel', to: 'lessons#cancel', as: :cancel
       end
+      resources :bookings, only: [:new, :create]
     end
-    resources  :bookings, only: [:index]
+    #resources  :bookings, only: [:index]
     root to: 'pages#home'
     get '/lessons', to: 'pages#lessons', as: :all_lessons
     get '/teachers', to: 'pages#teachers', as: :all_teachers
+    get '/bookings/:id', to: 'bookings#cancel', as: :cancel_booking
   end
 
 end

@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def lessons
     @lessons = Lesson.all
    if params[:address].present?
-     @lessons = @lessons.near(params[:address], 10)
+     @lessons = @lessons.near(params[:address], 3)
    end
    if params[:start_date].present?
      @lessons = @lessons.where(start_date: params[:start_date].to_date.beginning_of_day..params[:start_date].to_date.end_of_day)
@@ -26,6 +26,7 @@ class PagesController < ApplicationController
        marker.lat lesson.latitude
        marker.lng lesson.longitude
      end
+
    end
  end
 

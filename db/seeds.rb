@@ -5,6 +5,7 @@ require 'faker'
 
 User.delete_all
 Lesson.delete_all
+Booking.delete_all
 
 (1..10).each do |i|
   user = User.new(
@@ -33,7 +34,11 @@ end
   lesson = Lesson.new(
     name: 'lesson' + i.to_s,
     teacher_id: (11..15).to_a.sample,
-    start_date: Faker::Time.forward(30, :morning) 
+    start_date: Faker::Time.forward(30, :morning),
+    min_students: 2,
+    max_students: 5,
+    latitude: 48.8151555 + (0.0..0.1).step(0.001).map { |x| x.round(2) }.sample,
+    longitude: 2.2077263 + (0.0..0.2).step(0.001).map { |x| x.round(2) }.sample
     )
   lesson.save!
   p 'lesson' + i.to_s
