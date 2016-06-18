@@ -19,6 +19,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def cancel?
-    record.teacher == user
+    record.user == user
   end
 end

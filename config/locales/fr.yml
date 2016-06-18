@@ -20,6 +20,10 @@ fr:
       cancel_lesson: "Annuler ce cours"
     show:
       edit_lesson: "Modifier ce cours"
+  bookings:
+    my_student_index:
+      new_lesson: "Chercher un nouveau cours"
+      cancel_booking: "Annuler cette réservation"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
