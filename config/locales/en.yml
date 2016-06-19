@@ -9,7 +9,7 @@ en:
   users:
     show:
       view_public_profile: "View my public profile"
-      become_teacher: "Become a teacher"
+      become_teacher: "Subscribe as a teacher"
       my_lessons: "My classes as a teacher"
     update:
       flash_alert: "Profile not updated"
@@ -21,6 +21,7 @@ en:
       add_lesson: "Add a class"
       edit_lesson: "Modify this class"
       cancel_lesson: "Cancel this class"
+      reoffer_lesson: "Reschedule this class"
   bookings:
     my_student_index:
       new_lesson: "Find a new class"

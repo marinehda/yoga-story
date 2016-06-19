@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'bookings/my_teacher_index'
-  get 'bookings/my_student_index'
-
   ActiveAdmin.routes(self)
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
+  get 'bookings/my_teacher_index'
+  get 'bookings/my_student_index'
+  
   scope '(:locale)', locale: /fr|en/ do
     devise_for :users, skip: :omniauth_callbacks
     resources :users, only: [:show, :update]
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/lessons', to: 'pages#lessons', as: :all_lessons
     get '/teachers', to: 'pages#teachers', as: :all_teachers
     get '/bookings/:id', to: 'bookings#cancel', as: :cancel_booking
+
   end
 
 end

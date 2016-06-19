@@ -8,6 +8,8 @@
   <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
   <% if lesson.status == 'confirmed' %>
     <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson) %>
+  <% else %>
+    <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %>
   <% end %><br>
 <% end %>
 
