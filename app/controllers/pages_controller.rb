@@ -9,7 +9,6 @@ class PagesController < ApplicationController
   end
 
   def lessons
-    @markers
     @lessons = Lesson.all.where(status: 'confirmed')
     if params[:address].present?
      @lessons = @lessons.near(params[:address], 3)

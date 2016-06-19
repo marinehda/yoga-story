@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update, :cancel, :reoffer]
+  before_action :set_lesson, only: [:show, :edit, :update, :cancel]
   after_action :verify_authorized
 
   def index
