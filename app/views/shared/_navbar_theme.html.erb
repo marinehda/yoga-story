@@ -22,21 +22,22 @@
                     <% if user_signed_in? %>
 
                     <li class="active"><%= link_to t(".profile", default: "Profile"), user_path(current_user) %></li>
+                    <li><%= link_to t(".lessons", default: "My lessons"), root_path %>
+                    </li>
                       <% if current_user.teacher? %>
                       <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
                       <% else %>
                        <% end %>
-                      <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
                       <li>
                         <%= link_to destroy_user_session_path, method: :delete do %>
-                          <i class="fa fa-sign-out" title=<%= t(".sign_out", default: "Log out") %>></i>
+                          <i><%= t(".sign_out", default: "Log out") %></i>
 
                     <% end %>
                     </li>
-                    <li class="button-nav"><%= link_to t(".lessons", default: "My lessons"), root_path %>
-                    </li>
+
                   </ul>
 
                     <% else %>
