@@ -1,0 +1,7 @@
+<p><b>Review id:</b> <%= @booking.id %></p>
+
+<p><b>Review Content:</b> <%= @booking.review_content %></p>
+
+<p><b>Review Rating:</b> <%= @booking.review_rating %></p>
+
+<%= link_to 'Add review', lesson_booking_path(@booking) %>

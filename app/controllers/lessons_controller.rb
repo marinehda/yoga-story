@@ -6,15 +6,6 @@ class LessonsController < ApplicationController
     @lessons = policy_scope(Lesson)
   end
 
-  def my_index
-    @lessons = Teacher.find(params[:id]).lessons
-    if @lessons == []
-      authorize Teacher.find(params[:id]).lessons.new
-    else
-      @lessons.each { |i| authorize i, :my_index? }
-    end
-  end
-
   def show
     @booking = current_user.bookings.new
     authorize @booking
