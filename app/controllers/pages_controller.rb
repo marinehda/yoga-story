@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def lessons
-    @lessons = Lesson.all.where(status: 'confirmed')
+    @lessons = Lesson.all.where(status: 'confirmed').where('start_date >= ?', DateTime.now).order(:start_date)
     if params[:address].present?
      @lessons = @lessons.near(params[:address], 3)
     end
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
      @lessons = @lessons.where(start_date: params[:start_date].to_date.beginning_of_day..params[:start_date].to_date.end_of_day)
     end
     if @lessons == []
-     @markers = Gmaps4rails.build_markers(Lesson.all.where(status: 'confirmed')) do |lesson, marker|
+     @markers = Gmaps4rails.build_markers(Lesson.all.where(status: 'confirmed').where('start_date >= ?', DateTime.now)) do |lesson, marker|
        marker.lat lesson.latitude
        marker.lng lesson.longitude
        marker.infowindow lesson.name

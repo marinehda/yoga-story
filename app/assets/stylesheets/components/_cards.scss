@@ -1,0 +1,16 @@
+.price-box {
+  display: block;
+  word-wrap:break-word;
+  height: 300px;
+  position: relative;
+}
+
+#date p {
+  margin-bottom: 0px;
+}
+
+#price {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
