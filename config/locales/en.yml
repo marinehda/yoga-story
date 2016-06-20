@@ -11,6 +11,7 @@ en:
       view_public_profile: "View my public profile"
       become_teacher: "Subscribe as a teacher"
       my_lessons: "My classes as a teacher"
+      profile: "My profile"
     update:
       flash_alert: "Profile not updated"
   lessons:
@@ -64,3 +65,68 @@ en:
     creation_confirmation:
       mail_content: "Your class has been added to your course offering, well done."
       signature: "Alexandra, Marine and Nathaly."
+  simple_form:
+    labels:
+      user:
+        first_name: 'First name'
+        last_name: 'Last name'
+        birth_date: 'Birth date'
+        gender: 'Gender'
+        phone: 'Phone number'
+        yoga_type: 'Favorite Yoga type(s)'
+        level: 'Level'
+        address: 'Address'
+        street_number: 'Street number'
+        street: 'Street'
+        city: 'City'
+        zipcode: 'Zipcode'
+      teacher:
+        first_name: 'First name'
+        last_name: 'Last name'
+        birth_date: 'Birth date'
+        gender: 'Gender'
+        phone: 'Phone number'
+        yoga_type: 'Favorite Yoga type(s)'
+        level: 'Level'
+        address: 'Address'
+        street_number: 'Street number'
+        street: 'Street'
+        city: 'City'
+        zipcode: 'Zipcode'
+        experience: 'Experience'
+        description: 'Description'
+      lesson:
+        name: 'Name'
+        start_date: 'Start date'
+        end_date: 'End date'
+        min_students: 'Minimum of students'
+        max_students: 'Maximum of students'
+        description: 'Description'
+        price: 'Price'
+        address: 'Address'
+        street_number: 'Street number'
+        street: 'Street'
+        city: 'City'
+        zip_code: 'Zipcode'
+        location_name: 'Location name'
+      booking:
+        submit: 'Book now'
+    options:
+      user:
+        gender:
+          male: 'Male'
+          female: 'Female'
+        level:
+          beginner: 'Beginner'
+          confirmed: 'Confirmed'
+          expert: 'Expert'
+      teacher:
+        gender:
+          male: 'Male'
+          female: 'Female'
+        level:
+          beginner: 'Beginner'
+          confirmed: 'Confirmed'
+          expert: 'Expert'
+
+

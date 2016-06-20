@@ -6,11 +6,10 @@
   <%= f.input :last_name %>
   <%= f.input :email %>
   <%= f.input :birth_date %>
-  <%= f.select :gender, ['Femme', 'Homme', 'Non-défini', 'Je choisirai plus tard', 'Ne se prononce pas', 'Evolutif'] %>
+  <%= f.input :gender, collection: [:male, :female]%>
   <%= f.input :phone %>
   <%= f.input :yoga_type %>
-  <%= f.input :level %>
-  <%= f.select :level, ['Débutant', 'Confirmé', 'Expert'] %>
+  <%= f.input :level, collection: [:beginner, :confirmed, :expert]%>
   <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
   <%= f.input :street_number, input_html: { id: 'street_number'} %>
   <%= f.input :street, input_html: { id: 'route'} %>

@@ -10,6 +10,7 @@ fr:
       view_public_profile: "Voir mon profil public"
       become_teacher: "S'inscrire en tant que professeur"
       my_lessons: "Mes cours en tant que professeur"
+      profile: "Mon profil"
     update:
       flash_alert: "Mise à jour du profil non-enregistrée"
   lessons:
@@ -63,3 +64,66 @@ fr:
     creation_confirmation:
       mail_content: "Votre cours a bien été enregistré. Merci de votre confiance."
       signature: "Alexandra, Marine and Nathaly."
+  simple_form:
+    labels:
+      user:
+        first_name: 'Prénom'
+        last_name: 'Nom'
+        birth_date: 'Date de naissance'
+        gender: 'Sexe'
+        phone: 'Téléphone'
+        yoga_type: 'Type(s) de yoga préféré(s)'
+        level: 'Niveau'
+        address: 'Adresse'
+        street_number: 'Numéro de rue'
+        street: 'Rue'
+        city: 'Ville'
+        zipcode: 'Code postal'
+      teacher:
+        first_name: 'Prénom'
+        last_name: 'Nom'
+        birth_date: 'Date de naissance'
+        gender: 'Sexe'
+        phone: 'Téléphone'
+        yoga_type: 'Type(s) de yoga préféré(s)'
+        level: 'Niveau'
+        address: 'Adresse'
+        street_number: 'Numéro de rue'
+        street: 'Rue'
+        city: 'Ville'
+        zipcode: 'Code postal'
+        experience: 'Expérience'
+        description: 'Description'
+      lesson:
+        name: 'Nom'
+        start_date: 'Date de début'
+        end_date: 'Date de fin'
+        min_students: "Nombre minimum d'élèves"
+        max_students: "Nombre maximum d'élèves"
+        description: 'Description'
+        price: 'Prix'
+        address: 'Adresse'
+        street_number: 'Numéro de rue'
+        street: 'Rue'
+        city: 'Ville'
+        zip_code: 'Code postal'
+        location_name: 'Nom du lieu'
+      booking:
+        submit: 'Réserver'
+    options:
+      user:
+        gender:
+          male: 'Homme'
+          female: 'Femme'
+        level:
+          beginner: 'Débutant'
+          confirmed: 'Confirmé'
+          expert: 'Expert'
+      teacher:
+        gender:
+          male: 'Homme'
+          female: 'Femme'
+        level:
+          beginner: 'Débutant'
+          confirmed: 'Confirmé'
+          expert: 'Expert'

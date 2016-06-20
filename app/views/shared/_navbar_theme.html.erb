@@ -21,7 +21,6 @@
         <li><%= link_to t(".offer", default: "My classes proposal"), lessons_teacher_path(current_user) %></li>
         <% else %>
         <li><%= link_to t(".lessons", default: "My lessons"), my_student_index_bookings_path %>
-        </li>
          <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
