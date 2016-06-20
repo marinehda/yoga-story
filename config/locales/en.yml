@@ -26,6 +26,7 @@ en:
     my_student_index:
       new_lesson: "Find a new class"
       cancel_booking: "Cancel this booking"
+      add_review: "Tell us what you thought of that class!"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
