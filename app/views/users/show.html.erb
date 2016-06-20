@@ -6,7 +6,7 @@
 <script type="text/javascript" src="autocomplete.js"></script>
 
 <div class="container">
-  <h1 class="text-center">My profile</h1>
+  <h1 class="text-center"><%= t(".profile", default: "Profile") %></h1>
   <div class="row">
     <div class="col-xs-offset-2 col-xs-1">
       <%= image_tag @user.photo, class:"avatar avatar-large" %>
