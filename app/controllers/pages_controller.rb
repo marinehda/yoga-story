@@ -20,11 +20,13 @@ class PagesController < ApplicationController
      @markers = Gmaps4rails.build_markers(Lesson.all.where(status: 'confirmed')) do |lesson, marker|
        marker.lat lesson.latitude
        marker.lng lesson.longitude
+       marker.infowindow lesson.name
      end
     else
      @markers = Gmaps4rails.build_markers(@lessons) do |lesson, marker|
        marker.lat lesson.latitude
        marker.lng lesson.longitude
+       marker.infowindow lesson.name
      end
     end
    end
