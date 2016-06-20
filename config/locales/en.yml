@@ -33,6 +33,8 @@ en:
       help: "How it works"
     lessons:
       no_result: "Sorry, no class matches your search. We suggest you extend your possibilities and discover all available classes below."
+    search:
+      sub_title: "Find a yoga class"
   shared:
     navbar_theme:
       sign_in: "Login"

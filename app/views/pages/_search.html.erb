@@ -1,5 +1,16 @@
-<form action='/lessons' class="form-inline">
-    <input name="start_date" type="date" value= <%= params[:start_date] %> >
-    <input name="address" id="user_input_autocomplete_address" placeholder="Start typing your address..." value= <%= params[:address] %> >
-    <input type="submit" class="btn btn-info" value="Search">
-</form>
+<div class="row">
+  <form action='/lessons' class="form">
+    <div class="col-xs-12 col-md-4 ptb-15">
+      <input name="start_date" type="date" class="btn btn-lg btn-radius" value= <%= params[:start_date] %> >
+    </div>
+    <div class="col-xs-12 col-md-4 ptb-15">
+      <input name="address" class="btn btn-lg btn-radius" id="user_input_autocomplete_address" placeholder="Your address..." value= <%= params[:address] %> >
+    </div>
+    <div class="col-xs-12 col-md-4 ptb-15">
+      <input type="submit" class="btn btn-lg btn-skin btn-radius" value= <%= t('.sub_title') %> >
+    </div>
+  </form>
+</div>
+
+
+.
