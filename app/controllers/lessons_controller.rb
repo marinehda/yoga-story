@@ -12,6 +12,7 @@ class LessonsController < ApplicationController
     @marker = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
       marker.lat lesson.latitude
       marker.lng lesson.longitude
+      marker.infowindow lesson.name
     end
   end
 
