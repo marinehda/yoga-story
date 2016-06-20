@@ -19,6 +19,8 @@ fr:
       edit_lesson: "Modifier ce cours"
       cancel_lesson: "Annuler ce cours"
       reoffer_lesson: "Reproposer ce cours"
+      next_lessons: "Cours à venir"
+      past_lessons: "Cours passés"
     show:
       edit_lesson: "Modifier ce cours"
   bookings:
