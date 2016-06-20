@@ -25,7 +25,7 @@
                     <li><%= link_to t(".lessons", default: "My lessons"), root_path %>
                     </li>
                       <% if current_user.teacher? %>
-                      <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
+                      <li><%= link_to t(".offer", default: "My classes proposal"), lessons_teacher_path(current_user) %></li>
                       <% else %>
                        <% end %>
                   </ul>

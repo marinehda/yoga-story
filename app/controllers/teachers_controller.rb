@@ -22,6 +22,15 @@ class TeachersController < ApplicationController
     end
   end
 
+  def lessons
+    @lessons = Teacher.find(params[:id]).lessons
+    if @lessons == []
+      authorize Teacher.find(params[:id]).lessons.new
+    else
+      @lessons.each { |i| authorize i, :my_index? }
+    end
+  end
+
   private
 
   def teacher_params

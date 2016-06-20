@@ -6,6 +6,11 @@ class BookingsController < ApplicationController
 
   def my_student_index
     @bookings = policy_scope(Booking).bookings
+    respond_to do |format|
+      format.html # my_student_index.html.erb
+      format.js # my_student_index.js.erb
+      format.json { render json: @bookings }
+    end
   end
 
   def my_teacher_index
@@ -23,7 +28,7 @@ class BookingsController < ApplicationController
       @booking.lesson = @lesson
       if @booking.save
         # LessonMailer.booking_confirmation(@booking).deliver_now
-        redirect_to my_student_index_path
+        redirect_to my_student_index_bookings_path
       else
         flash[:alert] = t('.flash_alert')
       end
@@ -37,7 +42,7 @@ class BookingsController < ApplicationController
 
   def update ##pas besoin sauf si on gère le nombre de place par booking
     if @booking.update(booking_params)
-      redirect_to my_student_index_path
+      redirect_to my_student_index_bookings_path
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -45,7 +50,7 @@ class BookingsController < ApplicationController
 
   def cancel
     if @booking.update_attribute(:status, 'cancelled')
-      redirect_to my_student_index_path
+      redirect_to my_student_index_bookings_path
     else
       flash[:alert] = t('.flash_alert')
     end

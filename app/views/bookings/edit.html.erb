@@ -1,2 +1,10 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<h1>Add a review</h1>
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :review_content %>
+  <%= f.input :review_rating %>
+  <div class="text-center">
+    <%= f.button :submit %>
+  </div>
+<% end %>

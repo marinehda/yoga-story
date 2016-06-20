@@ -3,10 +3,12 @@ booking: <%= booking.id %> <br>
 lesson: <%= booking.lesson_id %> <br>
 lesson: <%= booking.status %> <br>
   <% if booking.status == 'confirmed' %>
-    <%= link_to t('.cancel_booking'), cancel_booking_path(booking) %>
-    <% if (booking.lesson.start_date + 14400) < Time.now %>
-    <%= link_to t('.add_review'), cancel_booking_path(booking) %>
+    <%= link_to t('.cancel_booking'), cancel_booking_path(booking) %> <br>
+    <% if (booking.lesson.start_date + 14400) < Time.now && booking.review_content == nil && booking.review_rating == nil %>
+      <%= link_to t('.add_review'), edit_booking_path(booking) %>
     <% end %>
   <% end %><br>
 <% end %>
 <%= link_to t('.new_lesson'), all_lessons_path %>
+
+<%= render "layouts/modal" %>

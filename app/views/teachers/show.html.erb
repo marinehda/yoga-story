@@ -3,9 +3,18 @@
 <%= @teacher.first_name %> <br>
 <%= @teacher.last_name %> <br>
 <%= @teacher.description %> <br>
+Available lessons: <br>
 <% @teacher.lessons.each do |lesson| %>
   <%= link_to lesson.name, lesson_path(lesson) %> <br>
 <% end %>
 <% @teacher.photos.each do |photo| %>
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+Reviews: <br>
+<% @teacher.lessons.each do |lesson| %>
+  <% lesson.bookings.each do |booking| %>
+    <% if booking.review_rating != nil && booking.review_content != nil %>
+    <%= booking.review_rating %> <%= booking.review_content %> <br>
+    <% end %>  
+  <% end %>
 <% end %>

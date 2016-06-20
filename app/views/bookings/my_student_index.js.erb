@@ -1,0 +1,6 @@
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-heading');
+$modalHeading.html("<%= @booking.id %>");
+$modalBody.html("<%= escape_javascript(render @booking) %>");
+$modal.modal();
