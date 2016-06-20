@@ -13,10 +13,8 @@ en:
       my_lessons: "My classes as a teacher"
     update:
       flash_alert: "Profile not updated"
-  lessons:
-    show:
-      edit_lesson: "Modify this class"
-    my_index:
+  teachers:
+    lessons:
       my_lessons: "My classes as a teacher"
       add_lesson: "Add a class"
       edit_lesson: "Modify this class"
@@ -24,6 +22,9 @@ en:
       reoffer_lesson: "Reschedule this class"
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
+  lessons:
+    show:
+      edit_lesson: "Modify this class"
   bookings:
     my_student_index:
       new_lesson: "Find a new class"
@@ -36,6 +37,7 @@ en:
       help: "How it works"
     lessons:
       no_result: "Sorry, no class matches your search. We suggest you extend your possibilities and discover all available classes below."
+      more: "More"
     search:
       sub_title: "Find a yoga class"
   shared:
