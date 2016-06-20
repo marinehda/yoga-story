@@ -1,16 +1,29 @@
 <h1><%= t('.my_lessons') %></h1>
 
-<% @lessons.each do |lesson| %>
+<%= link_to t('.add_lesson'), new_lesson_path %>
+
+<h3><%= t('.next_lessons') %></h3>
+
+<% @lessons.where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
   <%= link_to lesson.name, lesson_path(lesson) %>
   <%= lesson.start_date %>
   <%= lesson.end_date %>
   <%= lesson.status %>
   <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
   <% if lesson.status == 'confirmed' %>
-    <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson) %>
+    <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson) %> <br>
   <% else %>
-    <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %>
-  <% end %><br>
+    <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %> <br>
+  <% end %>
 <% end %>
 
-<%= link_to t('.add_lesson'), new_lesson_path %>
+<h3><%= t('.past_lessons') %></h3>
+
+<% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
+  <%= link_to lesson.name, lesson_path(lesson) %>
+  <%= lesson.start_date %>
+  <%= lesson.end_date %>
+  <%= lesson.status %>
+  <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
+  <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %> <br>
+<% end %>

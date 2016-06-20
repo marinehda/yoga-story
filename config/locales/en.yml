@@ -22,6 +22,8 @@ en:
       edit_lesson: "Modify this class"
       cancel_lesson: "Cancel this class"
       reoffer_lesson: "Reschedule this class"
+      next_lessons: "Upcoming classes"
+      past_lessons: "Past classes"
   bookings:
     my_student_index:
       new_lesson: "Find a new class"
