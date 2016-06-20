@@ -20,7 +20,7 @@
         <% if current_user.teacher? %>
         <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
         <% else %>
-        <li><%= link_to t(".lessons", default: "My lessons"), bookings_my_student_index_path %>
+        <li><%= link_to t(".lessons", default: "My lessons"), my_student_index_path %>
         </li>
          <% end %>
       </ul>
