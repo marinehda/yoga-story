@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :cancel]
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:show]
 
   def index
     @lessons = policy_scope(Lesson)

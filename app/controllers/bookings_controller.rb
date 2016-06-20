@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
       @booking.lesson = @lesson
       if @booking.save
         # LessonMailer.booking_confirmation(@booking).deliver_now
-        redirect_to bookings_my_student_index_path(current_user)
+        redirect_to my_student_index_path
       else
         flash[:alert] = t('.flash_alert')
       end
@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
 
   def update ##pas besoin sauf si on gère le nombre de place par booking
     if @booking.update(booking_params)
-      redirect_to my_student_index_path(current_user)
+      redirect_to my_student_index_path
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def cancel
     if @booking.update_attribute(:status, 'cancelled')
-      redirect_to bookings_my_student_index_path(current_user)
+      redirect_to my_student_index_path
     else
       flash[:alert] = t('.flash_alert')
     end
