@@ -33,6 +33,8 @@ fr:
       help: "Comment ça marche"
     lessons:
       no_result: "Désolé, aucun cours ne correspond à votre recherche. Nous vous suggérons d'élargir vos critères et de découvrir tous les cours disponibles ci-dessous."
+    search:
+      sub_title: "Trouver un cours"
   shared:
     navbar_theme:
       sign_in: "Se connecter"

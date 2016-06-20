@@ -1,65 +1,55 @@
 <!-- Static navbar -->
-        <nav class="navbar header-v1 header-transparent navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header scroll-to">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="navbar-brand"><%= link_to 'Yoga Story', root_path %></div>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
+<nav class="navbar header-v1 header-transparent navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header scroll-to">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Yoga Story', root_path, class:"navbar-brand", style:"font-size:22px;" %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav scroll-to navbar-nav">
 
-                  <ul class="nav scroll-to navbar-nav">
+    <% if user_signed_in? %>
 
+        <li class="active"><%= link_to t(".profile", default: "Profile"), user_path(current_user) %></li>
 
+        <% if current_user.teacher? %>
+        <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
+        <% else %>
+        <li><%= link_to t(".lessons", default: "My lessons"), bookings_my_student_index_path %>
+        </li>
+         <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i><%= t(".sign_out", default: "Log out") %></i>
+        </li>
+      </ul>
+        <% end %>
 
-                    <!-- <li><a href="#features">features</a></li>
-                    <li><a href="#pricing">pricing</a></li>
-                    <li><a href="#newsletter">Subscribe </a></li> -->
-                    <% if user_signed_in? %>
+    <% else %>
 
-                    <li class="active"><%= link_to t(".profile", default: "Profile"), user_path(current_user) %></li>
-                    <li><%= link_to t(".lessons", default: "My lessons"), root_path %>
-                    </li>
-                      <% if current_user.teacher? %>
-                      <li><%= link_to t(".offer", default: "My classes proposal"), my_lessons_teacher_path(current_user) %></li>
-                      <% else %>
-                       <% end %>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to t(".blog", default: "Blog"), root_path %></li>
-                      <li>
-                        <%= link_to destroy_user_session_path, method: :delete do %>
-                          <i><%= t(".sign_out", default: "Log out") %></i>
+        <li class="active">
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to t(".blog", default: "Blog"), root_path %>
+        </li>
+        <li>
+          <%= link_to 'Contact', root_path %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <li class="button-nav"><a <%= link_to t(".help", default: "How it works"), root_path %></a></li>
+      <% end %>
+      </ul>
 
-                    <% end %>
-                    </li>
-
-                  </ul>
-
-                    <% else %>
-
-
-                    <li class="active">
-                      <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
-                    </li>
-                    <li>
-                      <%= link_to t(".blog", default: "Blog"), root_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'Contact', root_path %>
-                    </li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                        <li class="button-nav"><a <%= link_to t(".help", default: "How it works"), root_path %></a></li>
-                  </ul>
-
-
-                    <% end %>
-
-                </div><!--/.nav-collapse -->
-            </div><!--/.container-fluid -->
-        </nav><!--navigation end here-->
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav><!--navigation end here-->
