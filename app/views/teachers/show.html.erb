@@ -1,2 +1,11 @@
 <h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+
+<%= @teacher.first_name %> <br>
+<%= @teacher.last_name %> <br>
+<%= @teacher.description %> <br>
+<% @teacher.lessons.each do |lesson| %>
+  <%= link_to lesson.name, lesson_path(lesson) %> <br>
+<% end %>
+<% @teacher.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>

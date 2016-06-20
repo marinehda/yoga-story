@@ -14,7 +14,7 @@
     <div class="col-xs-6">
       <%= render 'form_user' %>
       <% if @user.teacher? %>
-        <%= link_to t('.view_public_profile'), root_path %>
+        <%= link_to t('.view_public_profile'), teacher_path(@user) %>
         <%= link_to t('.my_lessons'), my_lessons_teacher_path(@user) %>
       <% else %>
         <%= link_to t('.become_teacher'), new_teacher_path %>

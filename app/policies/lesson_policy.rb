@@ -6,10 +6,6 @@ class LessonPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-  end
-
   def my_index?
     record.teacher == user
   end

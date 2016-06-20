@@ -24,7 +24,9 @@ user1.save
   user = User.new(
     email: 'user' + i.to_s + '@yogastory.com',
     password: 'aaaaaa',
-    type: 'Teacher'
+    type: 'Teacher',
+    experience: (1970..2015).to_a.sample,
+    description: Faker::Lorem.sentence
     )
   user.save!
   p 'teacher' + i.to_s
@@ -35,6 +37,8 @@ end
     name: 'lesson' + i.to_s,
     teacher_id: (11..15).to_a.sample,
     start_date: Faker::Time.forward(30, :morning),
+    price: (0..40).to_a.sample,
+    name: Faker::Hipster.word,
     min_students: 2,
     max_students: 5,
     latitude: 48.8151555 + (0.0..0.1).step(0.001).map { |x| x.round(2) }.sample,
