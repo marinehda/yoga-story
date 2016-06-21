@@ -2,6 +2,7 @@
 <%= @lesson.start_date %>
 <%= @lesson.end_date %>
 <%= @lesson.status %>
+<%= humanized_money_with_symbol(@lesson.price) %>
 
 <%= render 'bookings/form_booking' %>
 

@@ -61,7 +61,7 @@
               <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
             </div>
             <div id="price">
-              <%= lesson.price %> €
+              <%= humanized_money_with_symbol(lesson.price) %>
             </div>
             <%= link_to t('.more'), lesson_path(lesson), class:"btn btn-lg btn-default btn-radius" %>
           </div><!--price box end-->
