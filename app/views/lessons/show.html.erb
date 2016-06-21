@@ -1,8 +1,8 @@
 <%= @lesson.name %> <br>
-<%= @lesson.start_date %> <br>
-<%= @lesson.end_date %> <br>
-<%= @lesson.status %> <br>
-<%= humanized_money_with_symbol(@lesson.price) %> <br>
+horaire: <%= @lesson.start_date %> <br>
+durée: <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %>
+statut: <%= @lesson.status %> <br>
+prix: <%= humanized_money_with_symbol(@lesson.price) %> <br>
 
 <% if @lesson.teacher == current_user %>
   <%= t('.user_cannot_be_teacher') %>
