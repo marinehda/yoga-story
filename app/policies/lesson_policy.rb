@@ -26,4 +26,8 @@ class LessonPolicy < ApplicationPolicy
     record.teacher == user
   end
 
+  def lessons?
+    record.teacher == user
+  end
+
 end
