@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621095808) do
+ActiveRecord::Schema.define(version: 20160621155955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160621095808) do
   create_table "lessons", force: :cascade do |t|
     t.string   "street"
     t.datetime "start_date"
-    t.datetime "end_date"
     t.integer  "teacher_id"
     t.string   "status",        default: "confirmed"
     t.integer  "min_students"
@@ -85,6 +84,8 @@ ActiveRecord::Schema.define(version: 20160621095808) do
     t.float    "longitude"
     t.string   "sku"
     t.integer  "price_cents",   default: 0,           null: false
+    t.integer  "hours"
+    t.integer  "minutes"
   end
 
   add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree
