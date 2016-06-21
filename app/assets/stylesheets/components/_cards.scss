@@ -5,8 +5,24 @@
   position: relative;
 }
 
-#date p {
+#date {
   margin-bottom: 0px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+    p{
+    color:$red;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.description {
+  color: $gray-light;
+}
+
+.address {
+  color: $gray-light;
 }
 
 #price {
@@ -15,13 +31,18 @@
   right: 5px;
 }
 
+#icon {
+  font-size: 20px;
+}
+
 #status {
   position: absolute;
   top: 5px;
   left: 5px;
   border-style: solid;
   border-color: $gray-light;
-  border-radius: 50%;
+  border-radius: 5%;
+  border-width: thin;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 8px;
@@ -44,12 +65,6 @@
   border: 1px solid #eee;
   background-color: $blue;
     @include transition(all 0.3s);
-    i{
-        display: block;
-        font-size: 80px;
-        line-height: 80px;
-        color:#eee;
-    }
     h3{
         font-size: 15px;
         text-transform: uppercase;

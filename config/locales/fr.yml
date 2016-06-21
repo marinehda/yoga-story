@@ -24,6 +24,7 @@ fr:
       next_lessons: "Cours à venir"
       past_lessons: "Cours passés"
       cancelled: "Annulé"
+      no_lesson: "Vous n'avez pas encore proposé de cours."
   lessons:
     show:
       user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
@@ -34,8 +35,13 @@ fr:
   bookings:
     my_student_index:
       new_lesson: "Chercher un nouveau cours"
-      cancel_booking: "Annuler cette réservation"
+      cancel_booking: "Annuler"
       add_review: "Dites-nous ce que vous avez pensé de ce cours"
+      show_lesson: "Voir"
+      next_bookings: "Cours à venir"
+      past_bookings: "Cours passés"
+      no_booking: "Vous n'avez pas encore réservé de cours."
+      my_bookings: "Mes cours"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

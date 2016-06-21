@@ -25,6 +25,7 @@ en:
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
       cancelled: "Cancelled"
+      no_lesson: "You haven't created any class yet."
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
@@ -35,8 +36,13 @@ en:
   bookings:
     my_student_index:
       new_lesson: "Find a new class"
-      cancel_booking: "Cancel this booking"
+      cancel_booking: "Cancel"
       add_review: "Tell us what you thought of that class!"
+      show_lesson: "Show"
+      next_bookings: "Upcoming classes"
+      past_bookings: "Past classes"
+      no_booking: "You have not booked any class yet."
+      my_bookings: "My classes"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
