@@ -1,10 +1,12 @@
-<%= @lesson.name %>
-<%= @lesson.start_date %>
-<%= @lesson.end_date %>
-<%= @lesson.status %>
-<%= humanized_money_with_symbol(@lesson.price) %>
+<%= @lesson.name %> <br>
+<%= @lesson.start_date %> <br>
+<%= @lesson.end_date %> <br>
+<%= @lesson.status %> <br>
+<%= humanized_money_with_symbol(@lesson.price) %> <br>
 
-<%= render 'bookings/form_booking' %>
+<%= form_tag lesson_bookings_path @lesson do %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
