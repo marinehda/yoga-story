@@ -1,6 +1,6 @@
 <%= simple_form_for(@teacher) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :experience %>
+  <%= f.input :experience, collection: 1950..Time.now.year %>
   <%= f.input :description %>
   <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit %>

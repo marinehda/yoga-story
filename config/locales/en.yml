@@ -95,8 +95,9 @@ en:
         street: 'Street'
         city: 'City'
         zipcode: 'Zipcode'
-        experience: 'Experience'
-        description: 'Description'
+        experience: 'What year did you begin practicing yoga?'
+        description: 'Tell us more about yourself and your yoga practice'
+        photos: 'Add pictures to customize your profile'
       lesson:
         name: 'Name'
         start_date: 'Start date'
@@ -130,5 +131,3 @@ en:
           beginner: 'Beginner'
           confirmed: 'Confirmed'
           expert: 'Expert'
-
-

@@ -94,8 +94,9 @@ fr:
         street: 'Rue'
         city: 'Ville'
         zipcode: 'Code postal'
-        experience: 'Expérience'
-        description: 'Description'
+        experience: 'Depuis quand pratiquez-vous le yoga?'
+        description: 'Dites-nous en plus sur vous et votre pratique du yoga'
+        photos: 'Ajoutez des images pour personnaliser votre profil'
       lesson:
         name: 'Nom'
         start_date: 'Date de début'
