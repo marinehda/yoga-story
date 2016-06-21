@@ -30,6 +30,7 @@ fr:
       user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
     update:
       confirmed: "Confirmé"
+      flash_alert: "La mise à jour n'a pu aboutir"
     cancel:
       cancelled: "Annulé"
   bookings:

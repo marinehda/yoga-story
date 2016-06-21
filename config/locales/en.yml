@@ -31,6 +31,7 @@ en:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
     update:
       confirmed: "Confirmed"
+      flash_alert: "Sorry, your class was not updated"
     cancel:
       cancelled: "Cancelled"
   bookings:
