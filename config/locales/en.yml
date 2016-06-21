@@ -24,9 +24,14 @@ en:
       reoffer_lesson: "Reschedule"
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
+      cancelled: "Cancelled"
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
+    update:
+      confirmed: "Confirmed"
+    cancel:
+      cancelled: "Cancelled"
   bookings:
     my_student_index:
       new_lesson: "Find a new class"
