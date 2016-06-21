@@ -13,7 +13,7 @@ src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGL
   </div>
   <div class="row">
     <div class="col-xs-2 col-xs-offset-5 center-title">
-      <%= show_avatar(@user) %>
+      <%= show_avatar %>
     </div>
     <div class="col-xs-2">
       <% unless @user.teacher? %>
@@ -21,7 +21,7 @@ src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGL
       <% end %>
     </div>
   </div>
-  <div class="row form">
+  <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= render 'form_user' %>
     </div>
