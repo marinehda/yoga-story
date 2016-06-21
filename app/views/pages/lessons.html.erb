@@ -46,7 +46,7 @@
         <% @lessons.each do |lesson| %>
         <div class="col-sm-6">
           <div class="price-box text-center wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <%= show_card_avatar(@user) %>
+            <%= show_card_avatar(lesson.teacher) %>
             <p><%= lesson.teacher.first_name %> </p>
             <h3><%= lesson.name%></h3>
             <div class="price" id="date">
