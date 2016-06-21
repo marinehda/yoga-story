@@ -1,23 +1,39 @@
 <!-- Include Google Maps JS API -->
 <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>">
+src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>">
 </script>
 
 <script type="text/javascript" src="autocomplete.js"></script>
 
 <div class="container">
-  <h1 class="text-center"><%= t(".profile", default: "Profile") %></h1>
-  <div class="text-center"><%= show_avatar(@user) %></div>
-
-  <div class="row>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= render 'form_user' %>
-      <% if @user.teacher? %>
-        <%= link_to t('.view_public_profile'), teacher_path(@user) %>
-        <%= link_to t('.my_lessons'), lessons_teacher_path(@user) %>
-      <% else %>
-        <%= link_to t('.become_teacher'), new_teacher_path %>
+  <div class="row">
+    <div class="col-xs-12 center-title">
+      <h2><%= t(".profile", default: "Profile") %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-5 center-title">
+      <%= show_avatar(@user) %>
+    </div>
+    <div class="col-xs-2">
+      <% unless @user.teacher? %>
+      <%= link_to t('.become_teacher'), new_teacher_path, class:"btn btn-lg btn-skin btn-radius" %>
       <% end %>
     </div>
+  </div>
+  <div class="row form">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= render 'form_user' %>
+    </div>
+  </div>
+  <div class="row">
+      <% if @user.teacher? %>
+      <div class="col-sm-2 col-sm-offset-3 center-title">
+        <%= link_to t('.view_public_profile'), teacher_path(@user), class:"btn btn-lg btn-skin btn-radius" %>
+      </div>
+      <div class="col-sm-2 col-sm-offset-1 center-title">
+        <%= link_to t('.my_lessons'), lessons_teacher_path(@user), class:"btn btn-lg btn-skin btn-radius" %>
+      </div>
+      <% end %>
   </div>
 </div>
