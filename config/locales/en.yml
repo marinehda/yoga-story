@@ -131,3 +131,17 @@ en:
           beginner: 'Beginner'
           confirmed: 'Confirmed'
           expert: 'Expert'
+  helpers:
+    submit:
+      user:
+        create: 'Create your profile'
+        update: 'Validate your changes'
+      teacher:
+        create: 'Create your profile'
+        update: 'Validate your changes'
+      lesson:
+        create: 'Create a new lesson'
+        update: 'Modify the lesson'
+      booking:
+        create: 'Book this lesson'
+        update: 'Modify this booking'

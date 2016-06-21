@@ -130,3 +130,17 @@ fr:
           beginner: 'Débutant'
           confirmed: 'Confirmé'
           expert: 'Expert'
+  helpers:
+    submit:
+      user:
+        create: 'Créer votre profil'
+        update: 'Enregistrer vos modifications'
+      teacher:
+        create: 'Créer votre profil'
+        update: 'Enregistrer vos modifications'
+      lesson:
+        create: 'Créer un nouveau cours'
+        update: 'Modifier le cours'
+      booking:
+        create: 'Réserver ce cours'
+        update: 'Modifier cette réservation'
