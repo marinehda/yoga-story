@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
       if @booking.save
         # LessonMailer.booking_confirmation(@booking).deliver_now
         redirect_to new_booking_payment_path(@booking)
-        # redirect_to new_booking_payment_path(order)
       else
         flash[:alert] = t('.flash_alert')
       end
@@ -52,11 +51,15 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-    if @booking.update_attribute(:status, 'cancelled')
-      redirect_to my_student_index_bookings_path
-    else
-      flash[:alert] = t('.flash_alert')
-    end
+
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      refund = Stripe::Charge.retrieve(@booking.payment['id'])
+      refund.refunds.create(:amount => @booking.payment['amount'])
+
+      #update booking.payment
+      @booking.update(payment: refund.to_json, payment_state: 'refunded')
+      @booking.update_attribute(:status, 'cancelled')
+      redirect_to booking_path(@booking)
   end
 
   private

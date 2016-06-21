@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
     resources :bookings, only: [:edit, :update, :show] do
       resources :payments, only: [:new, :create]
+        member do
+          delete 'cancel'
+        end
       member do
         get 'cancel'
       end
