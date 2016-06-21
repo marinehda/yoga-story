@@ -27,8 +27,9 @@ gem 'devise-i18n-views'
 gem 'rolify'
 gem 'rails-i18n'
 gem 'activeadmin', github: 'activeadmin'
-gem "geocoder"
-gem "gmaps4rails"
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'money-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
