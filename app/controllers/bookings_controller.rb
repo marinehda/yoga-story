@@ -6,11 +6,17 @@ class BookingsController < ApplicationController
 
   def my_student_index
     @bookings = policy_scope(Booking).bookings
-    respond_to do |format|
-      format.html # my_student_index.html.erb
-      format.js # my_student_index.js.erb
-      format.json { render json: @bookings }
+    @future_bookings = []
+    @past_bookings =[]
+    @bookings.each do |booking|
+      if booking.lesson.start_date >= DateTime.now
+        @future_bookings << booking
+      else
+        @past_bookings << booking
+      end
     end
+    @future_bookings = @future_bookings.sort_by {|obj| obj.lesson.start_date}
+    @past_bookings = @past_bookings.sort_by {|obj| obj.lesson.start_date}
   end
 
   def my_teacher_index
