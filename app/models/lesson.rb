@@ -3,6 +3,6 @@ class Lesson < ActiveRecord::Base
   has_many :bookings
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  validates_presence_of :start_date, :end_date, :min_students, :max_students, :price, :name, :description, :address
+  validates_presence_of :start_date, :hours, :min_students, :max_students, :price, :name, :description, :address
   monetize :price_cents
 end
