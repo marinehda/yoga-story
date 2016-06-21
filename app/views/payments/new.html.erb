@@ -1,5 +1,5 @@
 <h1>Purchase of lesson <%= @booking.lesson_sku %></h1>
-<%= form_tag order_payments_path(@booking) do %>
+<%= form_tag booking_payments_path(@booking) do %>
   <article>
     <label class="amount">
       <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
@@ -9,8 +9,8 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-name="My Teddy"
-    data-description="Teddy <%= @order.teddy_sku %>"
-    data-amount="<%= @order.amount_cents %>"
+    data-description="Lesson <%= @booking.lesson_sku %>"
+    data-amount="<%= @booking.amount_cents %>"
     data-currency="EUR"></script>
 
 <% end %>
