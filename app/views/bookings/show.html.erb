@@ -1,7 +1,7 @@
 <ul>
   <li>Booking_id: <%= @booking.id %></li>
   <li>Lesson_id: <%= @booking.lesson_id %></li>
-  <li>Status: <%= @booking.payment_state %></li>
+  <li>Payment status: <%= @booking.payment_state %></li>
   <li>Item: <%= @booking.lesson_sku %></li>
   <li>Amount: <%= humanized_money_with_symbol(@booking.amount) %></li>
   <li>Review: <%= @booking.review_content %></li>
