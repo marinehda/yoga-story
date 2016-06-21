@@ -10,7 +10,7 @@
                              order: [:day, :month, :year], :default => {:year => 1980 } %>
   <%= f.input :gender, collection: [:male, :female]%>
   <%= f.input :phone %>
-  <%= f.input :yoga_type %>
+  <%= f.input :yoga_type, as: :check_boxes, collection: ['Ashtanga Vinyasa Yoga', 'Iyengar Yoga', 'Vinyasa Yoga', 'Hatha Yoga', 'Yoga Chamanique', 'Yin Yoga', 'Pranayama (respiration)'] %>
   <%= f.input :level, collection: [:beginner, :confirmed, :expert]%>
   <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
   <%= f.input :street_number, input_html: { id: 'street_number'} %>
