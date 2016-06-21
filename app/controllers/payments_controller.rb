@@ -30,6 +30,20 @@ class PaymentsController < ApplicationController
     redirect_to new_booking_payment_path(@booking)
   end
 
+  def cancel
+    #authorization
+    authorize @booking
+
+    #refund
+    Stripe.api_key = STRIPE_SECRET_KEY
+    refund = Stripe::Charge.retrieve(@booking.payment[:id])
+    refund.refunds.create(:amount => @booking.payment[:amount])
+
+    #update booking.payment
+    @booking.update(payment: refund.to_json, payment_state: 'refunded')
+    redirect_to booking_path(@booking)
+  end
+
   private
 
   def set_booking
