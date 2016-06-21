@@ -1,7 +1,9 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-
-Booking_id: <%= @booking.id %> <br>
-Lesson_id: <%= @booking.lesson_id %> <br>
-Review: <%= @booking.review_content %> <br>
-Rating: <%= @booking.review_rating %> <br>
+<ul>
+  <li>Booking_id: <%= @booking.id %></li>
+  <li>Lesson_id: <%= @booking.lesson_id %></li>
+  <li>Payment status: <%= @booking.payment_state %></li>
+  <li>Item: <%= @booking.lesson_sku %></li>
+  <li>Amount: <%= humanized_money_with_symbol(@booking.amount) %></li>
+  <li>Review: <%= @booking.review_content %></li>
+  <li>Rating: <%= @booking.review_rating %></li>
+<ul>

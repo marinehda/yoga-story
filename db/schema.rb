@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620105132) do
+ActiveRecord::Schema.define(version: 20160621095808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20160620105132) do
     t.string   "status",         default: "confirmed"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "payment_state"
+    t.string   "lesson_sku"
+    t.integer  "amount_cents",   default: 0,           null: false
+    t.json     "payment"
   end
 
   add_index "bookings", ["lesson_id"], name: "index_bookings_on_lesson_id", using: :btree
@@ -70,7 +74,6 @@ ActiveRecord::Schema.define(version: 20160620105132) do
     t.integer  "max_students"
     t.string   "name"
     t.text     "description"
-    t.integer  "price"
     t.string   "city"
     t.string   "zip_code"
     t.string   "location_name"
@@ -80,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160620105132) do
     t.string   "street_number"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "sku"
+    t.integer  "price_cents",   default: 0,           null: false
   end
 
   add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree

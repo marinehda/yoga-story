@@ -4,4 +4,5 @@ class Lesson < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   validates_presence_of :start_date, :end_date, :min_students, :max_students, :price, :name, :description, :address
+  monetize :price_cents
 end

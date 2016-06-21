@@ -26,9 +26,12 @@ class BookingsController < ApplicationController
     authorize @booking
     if check_availability == true
       @booking.lesson = @lesson
+      @booking.lesson_sku = @lesson.sku
+      @booking.update_attributes(lesson_sku: @lesson.sku, amount: @lesson.price, payment_state: 'pending')
       if @booking.save
         # LessonMailer.booking_confirmation(@booking).deliver_now
-        redirect_to my_student_index_bookings_path
+        redirect_to new_booking_payment_path(@booking)
+        # redirect_to new_booking_payment_path(order)
       else
         flash[:alert] = t('.flash_alert')
       end

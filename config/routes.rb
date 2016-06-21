@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
   ActiveAdmin.routes(self)
   mount Attachinary::Engine => "/attachinary"
 
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :bookings, only: [:edit, :update, :show] do
+      resources :payments, only: [:new, :create]
       member do
         get 'cancel'
       end

@@ -1,7 +1,8 @@
 <% @bookings.each do |booking| %>
 booking: <%= booking.id %> <br>
 lesson: <%= link_to booking.lesson_id, lesson_path(booking.lesson) %> <br>
-lesson: <%= booking.status %> <br>
+lesson status: <%= booking.status %> <br>
+payment status: <%= booking.payment_state %> <br>
   <% if booking.status == 'confirmed' %>
     <%= link_to t('.cancel_booking'), cancel_booking_path(booking) %> <br>
     <% if (booking.lesson.start_date + 14400) < Time.now && booking.review_content == nil && booking.review_rating == nil %>
