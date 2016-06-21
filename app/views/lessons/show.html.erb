@@ -22,6 +22,7 @@
         markers = handler.addMarkers(<%= raw @marker.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
+        handler.getMap().setZoom(14);
       });
     })
   <% end %>
