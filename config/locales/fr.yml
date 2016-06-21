@@ -9,17 +9,18 @@ fr:
     show:
       view_public_profile: "Voir mon profil public"
       become_teacher: "S'inscrire en tant que professeur"
-      my_lessons: "Mes cours en tant que professeur"
+      my_lessons: "Mon offre de cours"
       profile: "Mon profil"
     update:
       flash_alert: "Mise à jour du profil non-enregistrée"
   teachers:
     lessons:
-      my_lessons: "Mes cours en tant que professeur"
+      my_lessons: "Mon offre de cours"
       add_lesson: "Proposer un nouveau cours"
-      edit_lesson: "Modifier ce cours"
-      cancel_lesson: "Annuler ce cours"
-      reoffer_lesson: "Reproposer ce cours"
+      edit_lesson: "Modifier"
+      cancel_lesson: "Annuler"
+      show_lesson: "Voir"
+      reoffer_lesson: "Reproposer"
       next_lessons: "Cours à venir"
       past_lessons: "Cours passés"
   lessons:

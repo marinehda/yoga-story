@@ -27,7 +27,7 @@ class LessonsController < ApplicationController
     authorize @lesson
     if @lesson.save
       LessonMailer.creation_confirmation(@lesson).deliver_now
-      redirect_to my_lessons_teacher_path(current_user)
+      redirect_to lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -39,7 +39,7 @@ class LessonsController < ApplicationController
   def update
     if @lesson.update(lesson_params)
       @lesson.update_attribute(:status, "confirmed")
-      redirect_to my_lessons_teacher_path(current_user)
+      redirect_to lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
     end
@@ -47,7 +47,7 @@ class LessonsController < ApplicationController
 
   def cancel
     @lesson.update_attribute(:status, "cancelled")
-    redirect_to my_lessons_teacher_path(current_user)
+    redirect_to lessons_teacher_path(current_user)
   end
 
   private
