@@ -26,7 +26,7 @@ en:
       past_lessons: "Past classes"
   lessons:
     show:
-      edit_lesson: "Modify this class"
+      user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
   bookings:
     my_student_index:
       new_lesson: "Find a new class"

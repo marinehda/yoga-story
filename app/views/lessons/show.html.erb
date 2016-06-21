@@ -4,8 +4,12 @@
 <%= @lesson.status %> <br>
 <%= humanized_money_with_symbol(@lesson.price) %> <br>
 
-<%= form_tag lesson_bookings_path @lesson do %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% if @lesson.teacher == current_user %>
+  <%= t('.user_cannot_be_teacher') %>
+  <% else %>
+  <%= form_tag lesson_bookings_path @lesson do %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
 <% end %>
 
 <div id="map" style="width: 100%; height: 600px;"></div>

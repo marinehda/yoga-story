@@ -25,7 +25,7 @@ fr:
       past_lessons: "Cours passés"
   lessons:
     show:
-      edit_lesson: "Modifier ce cours"
+      user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
   bookings:
     my_student_index:
       new_lesson: "Chercher un nouveau cours"
