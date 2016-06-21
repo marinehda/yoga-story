@@ -1,29 +1,82 @@
-<h1><%= t('.my_lessons') %></h1>
-
-<%= link_to t('.add_lesson'), new_lesson_path %>
-
-<h3><%= t('.next_lessons') %></h3>
-
-<% @lessons.where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
-  <%= link_to lesson.name, lesson_path(lesson) %>
-  <%= lesson.start_date %>
-  <%= lesson.end_date %>
-  <%= lesson.status %>
-  <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
-  <% if lesson.status == 'confirmed' %>
-    <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson) %> <br>
-  <% else %>
-    <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %> <br>
-  <% end %>
-<% end %>
-
-<h3><%= t('.past_lessons') %></h3>
-
-<% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
-  <%= link_to lesson.name, lesson_path(lesson) %>
-  <%= lesson.start_date %>
-  <%= lesson.end_date %>
-  <%= lesson.status %>
-  <%= link_to t('.edit_lesson'), edit_lesson_path(lesson) %>
-  <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson) %> <br>
-<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 center-title">
+        <h2><i class="fa fa-calendar"></i> <%= t('.my_lessons') %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <% if @lessons == [] %>
+      <div class="col-sm-8 col-sm-offset-2 center-title">
+        <p> <%= t('.no_lesson')  %> </p>
+      </div>
+      <% end %>
+      <div class="col-sm-12 center-title">
+        <%= link_to t('.add_lesson'), new_lesson_path, class:"btn btn-lg btn-skin btn-radius" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3><%= t('.next_lessons') %></h3>
+        <% @lessons.where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
+        <div class="col-sm-9">
+          <div >
+            <div class="lesson-box text-center wow  fadeInUp animated" id="<%= 'grayed-out' if lesson.status == 'cancelled' %>" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+              <div class="title">
+                <h3><%= lesson.name%></h3>
+              </div>
+              <div class="date">
+                <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
+              </div>
+              <div id="price">
+                <%= lesson.price %> €
+              </div>
+              <div class="address">
+                <p><%= lesson.address %></p>
+              </div>
+              <% if lesson.status == "cancelled" %>
+                <div id="status">
+                  <p> cancelled </p>
+                </div>
+              <% end %>
+            </div><!--price box end-->
+          </div>
+        </div><!--price col end-->
+        <div class="col-sm-3 options">
+          <% if lesson.status == 'confirmed' %>
+            <%= link_to t('.show_lesson'), lesson_path(lesson), class:"btn btn-default btn-radius option" %>
+            <%= link_to t('.edit_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
+            <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
+          <% else %>
+            <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3><%= t('.past_lessons') %></h3>
+        <% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
+          <div class="col-sm-9">
+            <div class="lesson-box text-center wow  fadeInUp animated" id="grayed-out" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+              <div class="title">
+                <h3><%= lesson.name%></h3>
+              </div>
+              <div class="date">
+                <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
+              </div>
+              <div class="address">
+                <p><%= lesson.address %></p>
+              </div>
+              <div id="price">
+                <%= lesson.price %> €
+              </div>
+            </div><!--price box end-->
+          </div>
+          <div class="col-sm-3 options">
+            <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -18,9 +18,10 @@ en:
     lessons:
       my_lessons: "My classes as a teacher"
       add_lesson: "Add a class"
-      edit_lesson: "Modify this class"
-      cancel_lesson: "Cancel this class"
-      reoffer_lesson: "Reschedule this class"
+      edit_lesson: "Modify"
+      cancel_lesson: "Cancel"
+      show_lesson: "Show"
+      reoffer_lesson: "Reschedule"
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
   lessons:

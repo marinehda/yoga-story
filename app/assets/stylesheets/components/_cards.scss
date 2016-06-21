@@ -14,3 +14,75 @@
   top: 5px;
   right: 5px;
 }
+
+#status {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-style: solid;
+  border-color: $gray-light;
+  border-radius: 50%;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 8px;
+}
+
+#grayed-out {
+  background-color: $gray-lighter;
+  opacity: 50%;
+  color: $gray-light;
+  font-style: italic;
+  &:hover {
+    background-color: $gray-lighter;
+  }
+}
+
+.lesson-box {
+  position: relative;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  background-color: $blue;
+    @include transition(all 0.3s);
+    i{
+        display: block;
+        font-size: 80px;
+        line-height: 80px;
+        color:#eee;
+    }
+    h3{
+        font-size: 15px;
+        text-transform: uppercase;
+        color:#666;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    .date{
+        color:$red;
+        font-size:70px;
+        line-height: 70px;
+        font-weight: 900;
+        margin: 10px 0;
+        sup,sub{
+            font-size: 13px;
+        }
+        sup{
+            vertical-align: top;
+            top:10px;
+        }
+    }
+    p{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  flex: 0 0 20%;
+  margin-top: 10px;
+}
