@@ -114,9 +114,10 @@ fr:
       lesson:
         name: 'Nom du cours'
         start_date: 'Date de début'
-        end_date: 'Date de fin'
-        min_students: "Nombre minimum d'élèves"
-        max_students: "Nombre maximum d'élèves"
+        hours: 'Heure(s)'
+        minutes: 'Minute(s)'
+        min_students: "Minimum"
+        max_students: "Maximum"
         description: 'Description'
         price: 'Prix'
         address: 'Adresse'
