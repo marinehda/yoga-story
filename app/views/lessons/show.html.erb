@@ -3,6 +3,7 @@ horaire: <%= @lesson.start_date %> <br>
 durée: <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %>
 statut: <%= @lesson.status %> <br>
 prix: <%= humanized_money_with_symbol(@lesson.price) %> <br>
+<%= cl_image_tag @lesson.photo %>
 
 <% if @lesson.teacher == current_user %>
   <%= t('.user_cannot_be_teacher') %>
