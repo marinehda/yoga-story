@@ -1,61 +1,63 @@
 <div class="wrapper-grey">
   <div class="container">
-    <%= render 'search' %>
+    <div class="row">
+      <div class="col-sm-8  col-sm-offset-2 text-center wow animated bounceIn">
+        <div class="scroll-to banner-buttons">
+        <%= render 'search' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<section id="pricing" class="pricing-section">
+<section class="blog" id="search">
   <div class="container">
     <% if @lessons == [] %>
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 center-title">
+      <div class="col-sm-12 center-title">
         <p> <%= t('.no_result') %> </p>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-12 col-md-8 scroll">
         <% Lesson.all.where(status: 'confirmed').where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
         <div class="col-sm-6">
-          <div class="price-box text-center wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <%= show_card_avatar(@user) %>
-            <p><%= lesson.teacher.first_name %> </p>
-            <h3><%= lesson.name%></h3>
-            <div class="price" id="date">
-              <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
-            </div>
-            <div id="price">
-              <%= lesson.price %> €
-            </div>
-            <%= link_to t('.more'), lesson_path(lesson), class:"btn btn-lg btn-default btn-radius" %>
-          </div><!--price box end-->
-        </div><!--price col end-->
+          <div class="item" id='search-item'>
+            <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>
+            <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
+            <ul class="list-inline">
+              <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
+              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+              <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            </ul>
+            <a href="/lessons/<%= lesson.id%>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
         <% end %>
       </div>
-      <div class="col-sm-6">
-        <div id="map" style="width: 100%; height: 600px;"></div>
+      <div class="col-sm-12 col-md-4">
+        <div id="map" style="width: 100%; height: 430px;"></div>
       </div>
     </div>
     <% else %>
     <div class="row">
-      <div class="col-sm-6 scroll">
+      <div class="col-sm-8 scroll">
         <% @lessons.each do |lesson| %>
         <div class="col-sm-6">
-          <div class="price-box text-center wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <%= show_card_avatar(lesson.teacher) %>
-            <p><%= lesson.teacher.first_name %> </p>
-            <h3><%= lesson.name%></h3>
-            <div class="price" id="date">
-              <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
-            </div>
-            <div id="price">
-              <%= humanized_money_with_symbol(lesson.price) %>
-            </div>
-            <%= link_to t('.more'), lesson_path(lesson), class:"btn btn-lg btn-default btn-radius" %>
-          </div><!--price box end-->
+          <div class="item" id="search-item">
+            <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>
+            <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
+            <ul class="list-inline">
+              <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
+              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+              <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            </ul>
+            <a href="/lessons/<%= lesson.id%>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+          </div>
         </div><!--price col end-->
         <% end %>
       </div>
-      <div class="col-sm-6">
-        <div id="map" style="width: 100%; height: 600px;"></div>
+      <div class="col-sm-4">
+        <div id="map" style="width: 100%; height: 430px;"></div>
       </div>
     </div>
     <% end %>
