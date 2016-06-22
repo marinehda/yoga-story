@@ -6,10 +6,56 @@ body.pages-home {
   position: relative;
 }
 
-// #home h1 {
-//   font-size: 40px;
-// }
-
 .alert {
   margin-top: 70px;
 }
+
+.home {
+	margin-top: 17px;
+	font-size: 22px;
+}
+
+.card {
+	margin-top: 20px;
+}
+
+.blog {
+  padding-top: 100px;
+  padding-bottom: 70px;
+  background-color: #f1f1f1; }
+  .blog .item {
+    background-color: #fff;
+    padding: 15px;
+    margin: 0px 15px;
+    text-align: center;
+	height: 450px;
+     }
+
+.news-col img {
+  width: 100%;
+  margin-bottom: 15px; }
+.news-col h3 {
+  font-size: 15px;
+  font-weight: 400; }
+  .news-col h3 a {
+    color: #000;
+    text-transform: uppercase; }
+    .news-col h3 a:hover {
+      color: #32c5d2; }
+.news-col ul li {
+  font-size: 12px; }
+  .news-col ul li i {
+    margin-right: 5px; }
+.news-col p {
+  margin-bottom: 20px; }
+
+.owl-theme .owl-controls .owl-buttons div {
+  padding: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  font-size: 30px;
+  color: #32c5d2; }
+
