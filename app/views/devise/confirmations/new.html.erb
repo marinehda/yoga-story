@@ -1,12 +1,20 @@
-<h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
+<div class="wrapper-grey padded">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="contact-home-form">
+        <h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email %></div>
 
-  <div><%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></div>
-<% end %>
+          <div><%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions'), class:"btn btn-skin btn-radius" %></div>
+        <% end %>
 
-<%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
