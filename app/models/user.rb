@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :bookings
+  has_many :messages
   after_create :send_welcome_email
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
