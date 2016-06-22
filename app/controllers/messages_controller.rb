@@ -1,5 +1,13 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show]
+  #before_action :set_message, only: [:show]
+
+  def list
+    recipient_id = params[:id]
+    @messages = policy_scope(Message)
+               .where("(recipient_id = :recipient_id AND user_id = :user_id) OR (user_id = :recipient_id AND recipient_id = :user_id)", recipient_id: recipient_id, user_id: current_user)
+    @messages = @messages.order(created_at: :desc)
+    authorize @messages
+  end
 
   def index
     #All messages for which current_user is user or recipient
@@ -10,9 +18,9 @@ class MessagesController < ApplicationController
     @messages_intro = []
     @recipients.each do |recipient|
       #last message when recipient
-      last_sent = Message.where("recipient_id = ? AND user_id = ?", recipient, current_user).last
+      last_sent = @messages.where("recipient_id = ? AND user_id = ?", recipient, current_user).last
       #last message when sender
-      last_received = Message.where("recipient_id = ? AND user_id = ?", current_user, recipient).last
+      last_received = @messages.where("recipient_id = ? AND user_id = ?", current_user, recipient).last
       #most recent goes into @messages_intro
       #check if only one message exchanged between users
       if last_sent && last_received
@@ -29,6 +37,8 @@ class MessagesController < ApplicationController
         @messages_intro << last_sent
       end
     end
+    @messages_intro = @messages_intro.sort_by! &:created_at
+    @messages_intro = @messages_intro.reverse!
   end
 
   def new

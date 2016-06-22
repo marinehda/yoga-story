@@ -11,9 +11,11 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     get '/lessons', to: 'pages#lessons', as: :all_lessons
     get '/teachers', to: 'pages#teachers', as: :all_teachers
+    get '/list/:id', to: 'messages#list', as: :conversation
 
     devise_for :users, skip: :omniauth_callbacks
     resources :users, only: [:show, :update] do
+      #get '/list', to: 'messages#list', as: :conversation
     end
     resources :messages, only: [:index, :new]
 
