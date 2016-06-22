@@ -112,7 +112,7 @@ fr:
         description: 'Dites-nous en plus sur vous et votre pratique du yoga'
         photos: 'Ajoutez des images pour personnaliser votre profil'
       lesson:
-        name: 'Nom'
+        name: 'Nom du cours'
         start_date: 'Date de début'
         end_date: 'Date de fin'
         min_students: "Nombre minimum d'élèves"

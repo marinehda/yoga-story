@@ -1,5 +1,5 @@
 
-/* 
+/*
     Created on : 2 Oct, 2015, 7:52:36 AM
     Author     : RAKESH
     File       : Assan  landing template
@@ -37,7 +37,7 @@
         color:#fff;
         font-weight: 700;
         text-transform: uppercase;
-        font-size: 45px; 
+        font-size: 45px;
         line-height: 60px;
     }
     p.lead{
@@ -416,10 +416,12 @@
     font-size: 13px;
 }
 }
+
+
 @media(max-width:375px){
     .input-group .form-control, .input-group-addon, .input-group-btn {
     display: inherit;
-}   
+}
 .assan-newsletter .form-control{
     margin-bottom: 10px;
     font-size: 13px;
@@ -427,4 +429,38 @@
 .footer .footer-bottom .list-inline li a{
     font-size: 12px;
 }
+}
+
+/**contact form**/
+.assan-contact{
+    .form-control{
+        min-height: 48px;
+        @include border-radius(0px);
+        @include box-shadow(none);
+        border: 1px solid #eee;
+        margin-bottom:15px;
+        &:focus{
+            border-color: $skincolor;
+        }
+    }
+    .alert-danger{
+        border: 0px;
+        background-color: transparent;
+        @include border-radius(0px);
+        color:#e44a4a;
+        padding:0px;
+        i{
+            color:#e44a4a;
+        }
+    }
+    .alert-success{
+        border: 0px;
+        background-color: transparent;
+        @include border-radius(0px);
+        color:$skincolor;
+        padding:0px;
+        i{
+            color:$skincolor;
+        }
+    }
 }

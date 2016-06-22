@@ -1,20 +1,65 @@
-<%= simple_form_for(@lesson) do |f| %>
+<%= simple_form_for(@lesson, html: { class: 'assan-contact'}) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :name %>
-  <%= f.input :start_date %>
-  <%= f.input :hours, collection: 0..4 %>
-  <%= f.input :minutes, collection: [0, 15, 30, 45] %>
-  <%= f.input :min_students %>
-  <%= f.input :max_students %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
-  <%= f.input :street_number, input_html: { id: 'street_number'} %>
-  <%= f.input :street, input_html: { id: 'route'} %>
-  <%= f.input :city, input_html: { id: 'locality'} %>
-  <%= f.input :zip_code, input_html: { id: 'postal_code'} %>
-  <%= f.input :location_name %>
-
-  <div class="text-center">
-  <%= f.button :submit %></div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :name, input_html: { class: 'form-control'}, placeholder: 'Nom du cours' %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :start_date, input_html: { class: 'form-control'} %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :hours, collection: 0..4, input_html: { class: 'form-control'} %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :minutes, collection: [0, 15, 30, 45], input_html: { class: 'form-control'} %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :min_students, input_html: { class: 'form-control'} %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :max_students, input_html: { class: 'form-control'} %>
+        </div>
+        <div class="col-sm-12 margin-b-20">
+          <%= f.input :description, input_html: { class: 'form-control'} %>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :price, input_html: { class: 'form-control'} %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', class: 'form-control' } %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :street_number, input_html: { id: 'street_number', class: 'form-control' } %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :street, input_html: { id: 'route', class: 'form-control' } %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :city, input_html: { id: 'locality', class: 'form-control' } %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :zip_code, input_html: { id: 'postal_code', class: 'form-control' } %>
+      </div>
+      <div class="col-sm-12 margin-b-20">
+        <%= f.input :location_name, input_html: { class: 'form-control'} %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="data-status animated fadeInDown"></div> <!-- data submit status -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 text-center">
+      <%= f.button :submit, class:'btn btn-lg btn-skin btn-radius margin-b-20' %>
+    </div>
+</div>
 <% end %>
