@@ -46,7 +46,7 @@
           </div>
         </div><!--price col end-->
         <div class="col-sm-3 options">
-          <% if lesson.status == 'confirmed' %>
+          <% if lesson.status == t('.confirmed') %>
             <%= link_to t('.show_lesson'), lesson_path(lesson), class:"btn btn-default btn-radius option" %>
             <%= link_to t('.edit_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
             <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson), class:"btn btn-default btn-radius option" %>

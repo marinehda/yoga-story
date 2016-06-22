@@ -26,6 +26,7 @@ en:
       past_lessons: "Past classes"
       cancelled: "Cancelled"
       no_lesson: "You haven't created any class yet."
+      confirmed: "Confirmed"
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
