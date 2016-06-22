@@ -1,0 +1,18 @@
+<%= link_to 'back to all conversation', messages_path, class:"btn btn-md btn-skin btn-radius" %>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @recipient_id } %>
+  <%= f.input :content %>
+  <div class="text-center">
+  <%= f.button :submit %></div>
+<% end %>
+
+<% @messages.each do |message| %>
+  <div class="<%= message.user_status(current_user) %>">
+    created_at: <%= message.created_at %> <br>
+    id: <%= message.id %> <br>
+    content: <%= message.content %> <br>
+    recipient_id: <%= message.recipient_id %> <br>
+  </div>
+  <% end %>

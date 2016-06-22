@@ -10,8 +10,16 @@ prix: <%= humanized_money_with_symbol(@lesson.price) %> <br>
   <% else %>
   <%= form_tag lesson_bookings_path @lesson do %>
     <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-    <% end %>
+  <% end %>
+  <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
+    <%= f.error_notification %>    
+    <%= f.input :content %>
+    <div class="text-center">
+    <%= f.button :submit %></div>
+  <% end %>
 <% end %>
+
+
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 

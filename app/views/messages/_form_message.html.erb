@@ -1,0 +1,7 @@
+<%= simple_form_for([@lesson, @message]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content %>
+
+  <div class="text-center">
+  <%= f.button :submit %></div>
+<% end %>

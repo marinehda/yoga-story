@@ -9,6 +9,8 @@ class LessonsController < ApplicationController
   def show
     @booking = current_user.bookings.new
     authorize @booking
+    @message = current_user.messages.new
+    authorize @message
     @marker = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
       marker.lat lesson.latitude
       marker.lng lesson.longitude
