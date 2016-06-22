@@ -13,9 +13,12 @@ Rails.application.routes.draw do
     get '/teachers', to: 'pages#teachers', as: :all_teachers
 
     devise_for :users, skip: :omniauth_callbacks
-    resources :users, only: [:show, :update]
+    resources :users, only: [:show, :update] do
+    end
+    resources :messages, only: [:index, :new]
 
     resources :teachers, only: [:new, :update, :show] do
+      resources :messages, only: [:create]
       member do
         get 'lessons'
       end

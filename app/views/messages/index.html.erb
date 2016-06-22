@@ -1,0 +1,7 @@
+<% @messages_intro.each do |message| %>
+  <div class="<%= message.user_status(current_user) %>">
+    id: <%= message.id %> <br>
+    content: <%= message.content %> <br>
+    recipient_id: <%= message.recipient_id %> <br>
+  </div>
+  <% end %>
