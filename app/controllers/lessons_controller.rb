@@ -38,7 +38,7 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update(lesson_params)
-      @lesson.update_attribute(:status, t('.confirmed'))
+      @lesson.update_attribute(:status, 'confirmed')
       redirect_to lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
@@ -46,7 +46,7 @@ class LessonsController < ApplicationController
   end
 
   def cancel
-    @lesson.update_attribute(:status, t('.cancelled'))
+    @lesson.update_attribute(:status, 'cancelled')
     redirect_to lessons_teacher_path(current_user)
   end
 
