@@ -44,7 +44,7 @@ photos = ['http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20
   lesson = Lesson.new(
     name: 'lesson' + i.to_s,
     description: Faker::Lorem.sentence,
-    teacher_id: User.where(type: 'Teacher').sample,
+    teacher_id: User.where(type: 'Teacher').sample.id,
     start_date: Faker::Date.between(Date.today, 1.month.from_now),
     hours: [1, 2, 3, 4].sample,
     minutes: [0, 15, 30, 45].sample,
