@@ -6,6 +6,7 @@ class Lesson < ActiveRecord::Base
   validates_presence_of :start_date, :hours, :min_students, :max_students, :price, :name, :description, :address
   monetize :price_cents
   validate :start_date_in_future
+  mount_uploader :photo, PhotoUploader
 
   def start_date_in_future
     if self.start_date < DateTime.now
