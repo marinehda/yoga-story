@@ -39,15 +39,39 @@ address_list = ["rue de l'Abbé Aerts","rue de l'Abbé Bonpain","rue de l'Abbé 
     name: 'lesson' + i.to_s,
     description: Faker::Lorem.sentence,
     teacher_id: (11..15).to_a.sample,
-    start_date: Faker::Time.forward(30, :morning),
+    start_date: Faker::Date.between(1.month.ago, 1.month.from_now),
+    hours: [1, 2, 3, 4].sample,
+    minutes: [0, 15, 30, 45].sample,
     price: (10..40).to_a.sample,
-    min_students: 2,
-    max_students: 5,
+    min_students: 1,
+    max_students: 4,
     address: (1..10).to_a.sample.to_s + ' ' + address_list.sample + ', Lille'
     )
-  lesson.update_attribute(:end_date, lesson.start_date + 3600)
-  lesson.save!
   lesson.address = (1..10).to_a.sample.to_s + ' ' + address_list.sample + ', Lille'
-  lesson.save!
+  #skip validations
+  lesson.save(validate: false)
   p 'lesson' + i.to_s
+end
+
+(1..50).each do |i|
+  booking = Booking.new(
+  user_id: (2..10).to_a.sample,
+  #lesson_id: (1..20).to_a.sample,
+  status: 'confirmed'
+  )
+  #find a lesson with availability
+  while booking.lesson_id == nil do
+    lesson_id = (1..20).to_a.sample
+    if Lesson.find(lesson_id).bookings.count < Lesson.find(lesson_id).max_students
+      booking.lesson_id = lesson_id
+    end
+  end
+
+  if booking.lesson.start_date < DateTime.now
+    booking.update_attributes(review_rating: (0..5).to_a.sample, review_content: Faker::Lorem.sentence, amount_cents: booking.lesson.price_cents)
+  else
+    booking.amount_cents = booking.lesson.price_cents
+  end
+  booking.save!
+  p 'booking' + i.to_s
 end

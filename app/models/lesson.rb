@@ -9,7 +9,7 @@ class Lesson < ActiveRecord::Base
 
   def start_date_in_future
     if self.start_date < DateTime.now
-      errors.add(:start_date, "Start date should be before end date")
+      errors.add(:start_date, "Start date should be in future")
     end
   end
 end
