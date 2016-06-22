@@ -25,6 +25,7 @@ fr:
       past_lessons: "Cours passés"
       cancelled: "Annulé"
       no_lesson: "Vous n'avez pas encore proposé de cours."
+      confirmed: "Confirmé"
   lessons:
     show:
       user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
