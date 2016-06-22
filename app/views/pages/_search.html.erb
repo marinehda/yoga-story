@@ -1,13 +1,22 @@
-<div class="row">
-  <form action='/lessons' class="form">
-    <div class="col-xs-12 col-md-4 ptb-15">
-      <input name="start_date" type="date" class="btn btn-lg btn-radius" value= <%= params[:start_date] %> >
-    </div>
-    <div class="col-xs-12 col-md-4 ptb-15">
-      <input name="address" class="btn btn-lg btn-radius" id="user_input_autocomplete_address" placeholder="Your address..." value= <%= params[:address] %> >
-    </div>
-    <div class="col-xs-12 col-md-4 ptb-15">
-      <input type="submit" class="btn btn-lg btn-skin btn-radius" value= <%= t('.sub_title') %> >
-    </div>
-  </form>
+<div class="row text-center">
+
+    <form action="/lessons" class="form">
+
+      <div class="col-xs-6 col-sm-12 col-md-4 col-lg-4">
+        <input name="end_date" type="date" class="form-control" value= <%= params[:start_date] %> >
+      </div>
+
+      <div class="col-xs-6 col-sm-12 col-md-4 col-lg-4">
+        <input name="address" class="form-control" id="user_input_autocomplete_address" placeholder="Votre adresse" value= <%= params[:address] %> >
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <input type="submit" class="btn btn-skin btn-radius btn-lg" value= <%= t('.sub_title') %> >
+      </div>
+
+    </form>
+
+  </div>
+
 </div>
+
