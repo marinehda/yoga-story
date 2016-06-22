@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :update] do
       #get '/list', to: 'messages#list', as: :conversation
     end
-    resources :messages, only: [:index, :new]
+    resources :messages, only: [:index, :new, :create]
 
     resources :teachers, only: [:new, :update, :show] do
       resources :messages, only: [:create]

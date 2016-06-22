@@ -2,11 +2,14 @@ class MessagesController < ApplicationController
   #before_action :set_message, only: [:show]
 
   def list
-    recipient_id = params[:id]
+    @recipient_id = params[:id]
     @messages = policy_scope(Message)
-               .where("(recipient_id = :recipient_id AND user_id = :user_id) OR (user_id = :recipient_id AND recipient_id = :user_id)", recipient_id: recipient_id, user_id: current_user)
+               .where("(@recipient_id = :recipient_id AND user_id = :user_id) OR (user_id = :recipient_id AND @recipient_id = :user_id)", recipient_id: @recipient_id, user_id: current_user)
     @messages = @messages.order(created_at: :desc)
     authorize @messages
+    #allow replies in conversation view
+    @message = current_user.messages.new
+    authorize @message
   end
 
   def index
@@ -45,12 +48,21 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
+  #creation can occur from lesson show or from conversation view hence a few 'if's...
   def create
     @message = current_user.messages.build(message_params)
-    @message.recipient_id = params[:teacher_id]
+    if params[:teacher_id]
+      @message.recipient_id = params[:teacher_id]
+    else
+      @message.recipient_id = params[:message][:recipient_id]
+    end
     authorize @message
     if @message.save
-      redirect_to messages_path
+      if params[:teacher_id]
+        redirect_to conversation_path(params[:teacher_id])
+      else
+        redirect_to conversation_path(params[:message][:recipient_id])
+      end
     else
       flash[:alert] = t('.flash_alert')
     end
