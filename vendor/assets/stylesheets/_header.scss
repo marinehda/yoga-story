@@ -127,7 +127,7 @@ font-family: $tri-font;
 .header-v2 .navbar-nav>li>a {
     color: #777;
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-family: $tri-font;
 }
 .header-v2 .navbar-nav>.active>a, .header-v2 .navbar-nav>.active>a:focus, .header-v2 .navbar-nav>.active>a:hover {
