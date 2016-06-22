@@ -31,6 +31,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'money-rails'
 gem 'stripe'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
