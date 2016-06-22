@@ -22,123 +22,103 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 center-title">
-        <h2><%= t('.help') %></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus, adipisci aliquid inventore et quaerat alias.</p>
+        <h2 class="text"><%= t('.help') %></h2>
     </div>
   </div><!--center title row end-->
   <div class="row">
     <div class="col-sm-4">
       <div class="feature-box wow animated fadeInDown" data-wow-delay="0.1s">
-        <i ><%= cl_image_tag("logo_ywbqkh.png", :color=>"#fff", :effect=>"grayscale", :opacity=>32, :width=>50, :crop=>"scale") %></i>
-        <h3>Mobile friendly</h3>
+        <i class="fa fa-search"></i>
+        <h3>Rechercher</h3>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
+            Vous recherchez un cours qui correspond à vos besoins.
+            Avec Yoga Story, trouvez le cours le plus proche de chez vous!
         </p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box wow animated fadeInDown" data-wow-delay="0.2s">
-        <i class="icon-chat red"></i>
-        <h3>24/7 support</h3>
+        <i class="fa fa-check"></i>
+        <h3>Réserver</h3>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
+            Je réserve mon cours et je paie en ligne.
+            Avec Yoga Story, trouvez le cours le plus proche de chez vous!
         </p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box wow animated fadeInDown" data-wow-delay="0.3s">
-        <i class="icon-layers green"></i>
-        <h3>SASS preprocessors </h3>
+        <i class="fa fa-heart"></i>
+        <h3>Participer</h3>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
+            Je me rends à mon cours et passe un super moment.
+            Avec Yoga Story, trouvez le cours le plus proche de chez vous!
         </p>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="feature-box wow animated fadeInDown" data-wow-delay="0.4s">
-        <i class="icon-pencil blue"></i>
-        <h3>Easy to use</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="feature-box wow animated fadeInDown" data-wow-delay="0.5s">
-        <i class="icon-gears yellow"></i>
-        <h3>Free updates</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="feature-box wow animated fadeInDown" data-wow-delay="0.6s">
-        <i class="icon-browser gold"></i>
-        <h3>Cross Browser</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!--pricing start-->
-<section id="pricing" class="pricing-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 center-title">
-        <i class="icon-pricetags"></i>
-        <h2>Les prochains cours</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quas necessitatibus nesciunt temporibus, adipisci aliquid inventore et quaerat alias.</p>
-      </div>
-    </div><!--center title row end-->
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="price-box text-center wow animated fadeInUp" data-wow-delay="0.1s">
-          <i class="icon-phone"></i>
-          <h3>Single Application</h3>
-          <div class="price">
-              <sup>$</sup>19
-          </div>
-          <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </p>
-          <a href="#" class="btn btn-lg btn-default btn-radius">Learn More</a>
-        </div><!--price box end-->
-      </div><!--price col end-->
-      <div class="col-sm-4">
-        <div class="price-box text-center wow animated fadeInUp" data-wow-delay="0.2s">
-          <i class="icon-tablet"></i>
-          <h3>Multi Application</h3>
-          <div class="price">
-              <sup>$</sup>40
-          </div>
-          <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </p>
-          <a href="#" class="btn btn-lg btn-default btn-radius">Learn More</a>
-        </div><!--price box end-->
-      </div><!--price col end-->
-      <div class="col-sm-4">
-        <div class="price-box text-center wow animated fadeInUp" data-wow-delay="0.3s">
-          <i class="icon-laptop"></i>
-          <h3>Extended</h3>
-          <div class="price">
-              <sup>$</sup>599
-          </div>
-          <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </p>
-          <a href="#" class="btn btn-lg btn-default btn-radius">Learn More</a>
-        </div><!--price box end-->
-      </div><!--price col end-->
+    <section class="blog">
+            <div class="container">
+            <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 center-title">
+        <h2>Notre sélection du mois</h2>
     </div>
-  </div>
-</section>
+  </div><!--center title row end-->
+
+              <div class="row">
+                    <div id="owl-news">
+                      <div class="col-md-4">
+                          <div class="item">
+                              <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>                
+                                <h3 class="home"><a href='#'>Amazing Updates</a></h3>
+                                <ul class="list-inline">
+                                    <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
+                                    <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
+                                    <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
+                                </ul>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
+                                </p>                                
+                                <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div class="item">
+                                <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466590530/Photo%20cours/cours1.jpg") %>
+                                <h3 class="home"><a href='#'>Easy to customize</a></h3>
+                                <ul class="list-inline">
+                                    <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
+                                    <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
+                                    <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
+                                </ul>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
+                                </p>                               
+                                <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div class="item">
+                                <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591276/Photo%20cours/cours20.jpg") %>
+                                <h3 class="home"><a href='#'>Waiting for New</a></h3>
+                                <ul class="list-inline">
+                                    <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
+                                    <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
+                                    <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
+                                </ul>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
+                                </p>                               
+                                <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <% content_for :js do %>
 <script>
