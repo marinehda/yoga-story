@@ -1,35 +1,34 @@
+<div class="container padded">
 <div class="col-md-10 col-md-offset-1">
-  <h2>Détails du cours</h2>
   <div class="row">
     <div id="owl-news">
       <div class="col-md-4">
-        <div class="w3-container w3-light-grey text-center">
-
           <div class="item">
-            <h3 class="home text-center red"><%= @lesson.name %></h3>
-              <ul class="list-inline">
-                <li><%= cl_image_tag @lesson.photo %></li>
-                <li>
-                <%= link_to show_avatar, teacher_path(@lesson.teacher)%>
+            <div class="col-md-12 text-center nopadding-top photo-padding">
+            <h3 class="home text-center red "><%= @lesson.name %></h3>
+                <%= cl_image_tag @lesson.photo %>
+            </div>
+            <div class="col-md-4">
+                <%= link_to show_card_avatar(@lesson.teacher), teacher_path(@lesson.teacher)%>
+            </div>
+            <div class="col-md-7">
                 <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
                 <%= f.error_notification %>
-                <%= f.input :content %>
+                <%= f.input :content, label: false %>
                 <div class="text-center">
                 <%= f.button :submit %></div>
                 <% end %>
-                </li>
-              </ul>
+            </div>
           </div>
-        </div>
       </div>
       <div class="col-md-6">
-        <h4>Informations supplémentaires</h4>
+        <h4><%= t('.info') %></h4>
 
         <blockquote class="w3-container w3-leftbar w3-light-grey">
 
           <div class="list-group">
-            <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.strftime("%d/%M/%Y à %Hh%M") %></h6>
-            <h6 class="list-group-item"><span class="red">Place(s) disponible(s): </span><%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
+            <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.strftime("%d/%M/%Y - %Hh%M") %></h6>
+            <h6 class="list-group-item"><span class="red"><%= t('.places') %></span>&nbsp; <%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
             <h6 class="list-group-item"><i class="fa fa-spinner fa-pulse fa-lg fa-fw red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
 
             <h6 class="list-group-item"><i class="fa fa-map-marker fa-lg red"></i>&nbsp; <%= @lesson.location_name %>
@@ -40,16 +39,17 @@
 
 
             <h6 class="list-group-item"><span class="red">Description : </span><%= @lesson.description %></h6>
-            <span>
-            <% if @lesson.teacher == current_user %>
-              <%= t('.user_cannot_be_teacher') %>
-              <% else %>
-              <%= form_tag lesson_bookings_path @lesson do %>
-                <%= submit_tag 'Purchase', class: 'btn btn-primary pull-right' %>
-                <% end %>
-            <% end %>
-            </span>
+
           </div>
+          <span class='text-center'>
+          <% if @lesson.teacher == current_user %>
+            <%= t('.user_cannot_be_teacher') %>
+            <% else %>
+            <%= form_tag lesson_bookings_path @lesson do %>
+              <%= submit_tag t('.purchase'), class: 'btn btn-skin' %>
+              <% end %>
+          <% end %>
+          </span>
 
 
 
@@ -57,6 +57,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

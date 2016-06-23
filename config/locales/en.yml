@@ -31,6 +31,9 @@ en:
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
+      purchase: 'Book now'
+      info: 'More details'
+      places: 'Availability :'
     update:
       confirmed: "Confirmed"
       flash_alert: "Sorry, your class was not updated"
