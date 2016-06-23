@@ -1,20 +1,96 @@
-<h1>Teachers#show</h1>
+<div class="container">
+  <div class="row padded">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-3 center-title">
+        <%= show_card_avatar(@teacher) %>
+      </div>
+      <div class="col-sm-6">
+        <% if @teacher.first_name %>
+          <h2> <%= @teacher.first_name %> </h2>
+        <% else %>
+          <h2> Profil </h2>
+        <% end %>
+        <p> Pratique le yoga depuis <%= @teacher.experience %> <p>
+        <p> " <%= @teacher.description %> " </p>
+      </div>
+      <div class="col-sm-3 text-center">
+        <%= simple_form_for([@teacher, @message]) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :content, label: false, placeholder:'Message...' %>
+          <%= button_tag(type: 'submit', class: "btn btn-skin btn-radius text-center") do %>
+            <i class="fa fa-envelope-o"></i> Contacter
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= @teacher.first_name %> <br>
-<%= @teacher.last_name %> <br>
-<%= @teacher.description %> <br>
-Available lessons: <br>
-<% @teacher.lessons.each do |lesson| %>
-  <%= link_to lesson.name, lesson_path(lesson) %> <br>
-<% end %>
-<% @teacher.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-Reviews: <br>
-<% @teacher.lessons.each do |lesson| %>
-  <% lesson.bookings.each do |booking| %>
-    <% if booking.review_rating != nil && booking.review_content != nil %>
-    <%= booking.review_rating %> <%= booking.review_content %> <br>
-    <% end %>
-  <% end %>
-<% end %>
+<section class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 center-title">
+        <i class="fa fa-calendar-o"></i>
+        <h2>Les prochains cours</h2>
+      </div>
+    </div><!--center title row end-->
+
+    <div class="row">
+      <div id="owl-news">
+        <% @teacher.lessons.first(3).each do |lesson| %>
+        <div class="col-md-4">
+          <div class="item">
+            <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>
+            <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
+            <ul class="list-inline">
+              <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
+              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+              <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            </ul>
+            <p>
+              <%= lesson.description %>
+            </p>
+            <a href="/lessons/<%= lesson.id %>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 center-title">
+                <i class="fa fa-quote-right"></i>
+                <h2>Témoignages</h2>
+            </div>
+        </div><!--center title row end-->
+        <div class="row">
+            <% @teacher.lessons.each do |lesson| %>
+              <% lesson.bookings.each do |booking| %>
+              <% if booking.review_rating != nil && booking.review_content != nil %>
+            <div class="col-sm-6">
+                <div class="testi-box left clearfix wow animated fadeInDown" data-wow-delay="0.1s">
+                    <span class="thumb">
+                      <%= show_card_avatar(booking.user) %>
+                    </span>
+                    <div class="testi-text">
+                        <p>"<%= booking.review_content %> <br>
+                        </p>
+                        <h4><%= booking.user.first_name %></h4>
+                        <span class="rating">
+                          <% booking.review_rating.to_i.times do %>
+                            <i class="fa fa-star"></i>
+                          <% end %>
+                        </span>
+                    </div>
+                </div><!--testi box end-->
+            </div><!--col end-->
+            <% end %>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</section>
