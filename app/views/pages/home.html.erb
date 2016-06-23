@@ -75,53 +75,24 @@
 
       <div class="row">
         <div id="owl-news">
+          <% @lessons.all.first(3).each do |lesson| %>
           <div class="col-md-4">
             <div class="item">
-              <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>                
-              <h3 class="home"><a href='#'>Amazing Updates</a></h3>
+              <%= cl_image_tag(lesson.photo) %>
+              <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
                 <ul class="list-inline">
-                  <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
-                  <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
-                  <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
-                </ul>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. <S> </S>malesuada facilisis.
-                  </p>                                
-                  <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-                        
-          <div class="col-md-4">
-            <div class="item">
-              <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466590530/Photo%20cours/cours1.jpg") %>
-              <h3 class="home"><a href='#'>Easy to customize</a></h3>
-                <ul class="list-inline">
-                  <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
-                  <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
-                  <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
-                </ul>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
-                  </p>                               
-                  <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
 
-          <div class="col-md-4">
-            <div class="item">
-              <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591276/Photo%20cours/cours20.jpg") %>
-              <h3 class="home"><a href='#'>Waiting for New</a></h3>
-                <ul class="list-inline">
-                  <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
-                  <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
-                  <li><i class="ti-calendar"></i> 27 Sep. 2015</li>
+                  <li class="ti-user"><a href="/teachers/<%= lesson.teacher_id %>"><i class="ti-user"></i> By &nbsp;<%= lesson.teacher.first_name %></a></li>
+                  <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+                  <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
                 </ul>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
-                  </p>                               
-                  <a href="#" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+                    <%= lesson.description %>
+                  </p>
+                  <a href="/lessons/<%= lesson.id%>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

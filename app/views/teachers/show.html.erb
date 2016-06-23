@@ -1,24 +1,35 @@
-<div class="container">
+
+<section id="home" class="home-newsletter">
+    <div class="row">
+        <div class="col-sm-12 center-title">
+            <h2><i class="fa fa-user"></i> <%= t('.first_name') %></h2>
+        </div>
+    </div>
+</section>
+
+<div class="container teacher-show">
   <div class="row padded">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="col-sm-3 center-title">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="col-sm-2 center-title">
         <%= show_big_avatar(@teacher) %>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <% if @teacher.first_name %>
           <h2> <%= @teacher.first_name %> </h2>
         <% else %>
           <h2> Profil </h2>
         <% end %>
-        <p> Pratique le yoga depuis <%= @teacher.experience %> <p>
-        <p> " <%= @teacher.description %> " </p>
+        <div class="teacher_description">
+          <p> Pratique le yoga depuis <strong><%= @teacher.experience %></strong> <p>
+          <p> <i class="fa fa-quote-left"></i> <%= @teacher.description %> <i class="fa fa-quote-right"></i></p>
+        </div>
       </div>
       <div class="col-sm-3 text-center">
         <%= simple_form_for([@teacher, @message]) do |f| %>
           <%= f.error_notification %>
-          <%= f.input :content, label: false, placeholder:'Message...' %>
-          <%= button_tag(type: 'submit', class: "btn btn-skin btn-radius text-center") do %>
-            <i class="fa fa-envelope-o"></i> Contacter
+          <%= f.input :content, label: false, as: :text, placeholder:'Ecrire un message à ce professeur...', input_html: { class: 'message' } %>
+          <%= button_tag(type: 'submit', class: "btn btn-default btn-radius text-center") do %>
+            <i class="fa fa-envelope-o"></i> Envoyer
           <% end %>
         <% end %>
       </div>

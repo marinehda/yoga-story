@@ -1,3 +1,11 @@
+<section id="home" class="home-newsletter">
+    <div class="row">
+        <div class="col-sm-12 center-title">
+            <h2><i class="fa fa-calendar"></i> <%= t('.recherche de cours') %></h2>
+        </div>
+    </div>
+</section>
+
 <div class="wrapper-grey">
   <div class="container">
     <div class="row">
@@ -26,8 +34,8 @@
             <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
             <ul class="list-inline">
               <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
-              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
               <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
             </ul>
             <a href="/lessons/<%= lesson.id%>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
           </div>
@@ -44,12 +52,12 @@
         <% @lessons.each do |lesson| %>
         <div class="col-sm-6">
           <div class="item" id="search-item">
-            <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>
+            <%= cl_image_tag(lesson.photo) %>
             <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
             <ul class="list-inline">
-              <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
-              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+              <li class="ti-user"><a href="/teachers/<%= lesson.teacher_id %>"><i class="ti-user"></i> By &nbsp;<%= lesson.teacher.first_name %></a></li>
               <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+              <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
             </ul>
             <a href="/lessons/<%= lesson.id%>" class="btn btn-default card"> Participer <i class="fa fa-angle-right"></i></a>
           </div>

@@ -1,6 +1,6 @@
 <section id="home" class="home-newsletter">
     <div class="row">
-        <div class="col-sm-12 center-title"> 
+        <div class="col-sm-12 center-title">
           <h2><i class="fa fa-user"></i><%= t(".profile", default: "Profile") %></h2>
         </div>
     </div>
@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 center-title">
-        
+
         <div class="col-sm-4">
           <% unless @user.teacher? %>
           <%= link_to t('.become_teacher'), new_teacher_path, class:"btn btn-lg btn-skin btn-radius teacher" %>
