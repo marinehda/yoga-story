@@ -106,6 +106,7 @@ fr:
         street: 'Rue'
         city: 'Ville'
         zipcode: 'Code postal'
+        email: 'Email'
       teacher:
         first_name: 'Prénom'
         last_name: 'Nom'

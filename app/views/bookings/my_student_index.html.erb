@@ -3,94 +3,69 @@
         <div class="col-sm-12 center-title">
             <h2><i class="fa fa-calendar"></i> <%= t('.my_bookings') %></h2>
         </div>
+        <div class="col-sm-12 text-center">
+          <%= link_to t('.new_lesson'), all_lessons_path, class:"btn btn-lg btn-skin btn-radius" %>
+        </div>
     </div>
 </section>
 
-<div class="container">
-  <div class="row">
-    <% if @bookings == [] %>
-    <div class="col-sm-8 col-sm-offset-2 center-title">
-      <p> <%= t('.no_booking')  %> </p>
+<section class="blog" id="search">
+  <div class="container">
+
+    <div class="row">
+      <% if @bookings == [] %>
+      <div class="col-sm-8  col-sm-offset-2 text-center wow animated bounceIn">
+        <p> <%= t('.no_booking')  %> </p>
+      </div>
+      <% end %>
+    </div>
+
+    <% if @future_bookings != [] %>
+    <div class="row">
+      <div class="col-sm-12 center-title wow animated bounceIn padded-custom">
+        <h2><%= t('.next_bookings') %></h2>
+      </div>
+        <% @future_bookings.each do |booking| %>
+      <div class="col-sm-4">
+        <div class="item" id='search-item-list'>
+          <h3 class="home"><a href='/lessons/<%=booking.lesson.id%>'><%= booking.lesson.name%></a></h3>
+          <ul class="list-inline">
+            <li><a href="#"><i class="ti-user"></i>By <%= booking.lesson.teacher.first_name %> </a></li>
+            <li><i class="ti-calendar"></i><%= booking.lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            <li><a href="#"><i class="ti-comments"></i><%= booking.lesson.price %> €</a></li>
+          </ul>
+          <% if booking.status == 'confirmed' %>
+          <a href="/bookings/<%= booking.id%>/cancel" class="btn btn-default card"> Annuler </a>
+          <% else %>
+          <a href="#" class="btn btn-black card"> Annulé </a>
+          <a href="/lessons/<%= booking.lesson.id%>" class="btn btn-default card"> Se réinscrire </a>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
     <% end %>
-    <div class="col-sm-12 center-title">
-      <%= link_to t('.new_lesson'), all_lessons_path, class:"btn btn-lg btn-skin btn-radius" %>
+
+    <% if @past_bookings != [] %>
+    <div class="row">
+      <div class="col-sm-12 center-title wow animated bounceIn padded-custom">
+        <h2><%= t('.past_bookings') %></h2>
+      </div>
+      <% @past_bookings.each do |booking| %>
+      <div class="col-sm-4">
+        <div class="item" id='search-item-list'>
+          <h3 class="home"><a href="/lessons/<%=booking.lesson.id%>"> <%= booking.lesson.name%></a></h3>
+          <ul class="list-inline">
+            <li><a href="#"><i class="ti-user"></i>By <%= booking.lesson.teacher.first_name %> </a></li>
+            <li><i class="ti-calendar"></i><%= booking.lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            <li><a href="#"><i class="ti-comments"></i><%= booking.lesson.price %> €</a></li>
+          </ul>
+          <a href="#" class="btn btn-default card"> Noter ce cours </a>
+        </div>
+      </div>
+      <% end %>
     </div>
+    <% end %>
+
   </div>
-  <% if @future_bookings != [] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h3><%= t('.next_bookings') %></h3>
-        <% @future_bookings.each do |booking| %>
-        <div class="col-sm-9">
-          <div class="lesson-box text-center wow  fadeInUp animated" id="<%= 'grayed-out' if booking.status == 'cancelled' %>" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <div class="title">
-              <h3><%= booking.lesson.name%></h3>
-            </div>
-            <div id="date">
-              <p><%= booking.lesson.start_date.to_time.to_formatted_s(:short) %></p>
-            </div>
-            <div id="price">
-              <%= booking.lesson.price %> €
-              (<%= booking.payment_state %>)
-            </div>
-            <div class="address">
-              <p><i class="fa fa-map-marker" id="icon"></i>   <%= booking.lesson.address %></p>
-            </div>
-            <div class="description">
-              <p><i class="fa fa-file-text-o" id="icon"></i>   <%= booking.lesson.description %></p>
-            </div>
-            <% if booking.status == "cancelled" %>
-              <div id="status">
-                <p> cancelled </p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-          <%= link_to t('.show_lesson'), lesson_path(booking.lesson), class:"btn btn-default btn-radius option" %>
-          <% if booking.status == 'confirmed' %>
-          <%= link_to t('.cancel_booking'), cancel_booking_path(booking), class:"btn btn-default btn-radius option" %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-  <br>
-  <% if @past_bookings != [] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h3><%= t('.past_bookings') %></h3>
-        <% @past_bookings.each do |booking| %>
-          <div class="col-sm-9">
-            <div class="lesson-box text-center wow  fadeInUp animated" id="grayed-out" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-              <div class="title">
-                <h3><%= booking.lesson.name%></h3>
-              </div>
-              <div class="date">
-                <p><%= booking.lesson.start_date.to_time.to_formatted_s(:short) %></p>
-              </div>
-              <div id="price">
-                <%= booking.lesson.price %> €
-              </div>
-              <div class="address">
-                <p><%= booking.lesson.address %></p>
-              </div>
-              <% if booking.status == "cancelled" %>
-                <div id="status">
-                  <p> cancelled </p>
-                </div>
-              <% end %>
-            </div><!--price box end-->
-          </div>
-          <% if booking.review_content == nil && booking.review_rating == nil %>
-          <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-              <%= link_to t('.review'), edit_booking_path(booking), class:"btn btn-default btn-radius option" %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+</section>

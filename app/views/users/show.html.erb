@@ -10,12 +10,6 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 center-title">
-
-        <div class="col-sm-4">
-          <% unless @user.teacher? %>
-          <%= link_to t('.become_teacher'), new_teacher_path, class:"btn btn-lg btn-skin btn-radius teacher" %>
-          <% end %>
-        </div>
       </div>
     </div>
     <div class="row">
@@ -29,6 +23,10 @@
         </div>
         <div class="col-sm-6 center-title">
           <%= link_to t('.my_lessons'), lessons_teacher_path(@user), class:"link_profile" %>
+        </div>
+        <% else %>
+        <div class="col-sm-12 center-title">
+          <%= link_to t('.become_teacher'), new_teacher_path, class:"link_profile" %>
         </div>
         <% end %>
       </div>
