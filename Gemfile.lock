@@ -76,6 +76,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     bourbon (4.2.7)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -170,6 +172,8 @@ GEM
     mimemagic (0.3.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     monetize (1.4.0)
       money (~> 6.7)
     money (6.7.1)
@@ -316,6 +320,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   carrierwave
   cloudinary
   coffee-rails
@@ -331,6 +336,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   letter_opener
+  momentjs-rails (>= 2.9.0)
   money-rails
   omniauth-facebook
   pg

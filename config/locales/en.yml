@@ -113,9 +113,10 @@ en:
       lesson:
         name: 'Name'
         start_date: 'Start date'
-        end_date: 'End date'
-        min_students: 'Minimum of students'
-        max_students: 'Maximum of students'
+        hours: 'Hour(s)'
+        minutes: 'Minute(s)'
+        min_students: 'Minimum'
+        max_students: 'Maximum'
         description: 'Description'
         price: 'Price'
         address: 'Address'
