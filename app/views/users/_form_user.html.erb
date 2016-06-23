@@ -24,10 +24,14 @@
       <div class="col-sm-12">
         <div class="form-group">
           <div class='input-group date' id='datetimepicker1'>
-            <%= f.input :birth_date, as: :string, input_html: { class: 'form-control'} %>
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+            <div class="col-sm-8 no-padding">
+              <%= f.input :birth_date, as: :string, input_html: { class: 'form-control'} %>
+            </div>
+            <div class="col-sm-4 datepicker-btn-padding">
+              <span class="input-group-addon btn btn-skin btn-radius btn-lg">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
