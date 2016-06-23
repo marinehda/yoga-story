@@ -51,6 +51,10 @@ fr:
     create:
       flash_alert_full: "Désolé ce cours est victime de son succès"
       flash_alert_not_saved: "Désolé, quelquechose ne fonctionne pas comme prévu"
+  payments:
+    new:
+      amount: 'Montant'
+      pay: 'Acheter un cours'
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
