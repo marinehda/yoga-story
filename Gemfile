@@ -33,6 +33,7 @@ gem 'money-rails'
 gem 'stripe'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'faker'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
@@ -45,7 +46,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-  gem 'faker'
 end
 
 group :development do

@@ -13,7 +13,7 @@ yoga_type = [['Ashtanga Vinyasa Yoga'], ['Iyengar Yoga'], ['Vinyasa Yoga'], ['Ha
   user = User.new(
     email: 'user' + i.to_s + '@yogastory.com',
     password: 'aaaaaa',
-    yoga_type: yoga_type.sample
+    #yoga_type: yoga_type.sample
     )
   user.save!
   p 'user' + i.to_s
