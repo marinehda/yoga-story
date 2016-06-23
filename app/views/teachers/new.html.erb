@@ -1,1 +1,19 @@
-<%= render 'form_teacher' %>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 center-title">
+        <div class="col-sm-4 col-sm-offset-4 center-title">
+          <i class="fa fa-user"></i>
+          <h2><%= t(".profile_teacher", default: "Profile") %></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="wrapper-grey">
+          <%= render 'form_teacher' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

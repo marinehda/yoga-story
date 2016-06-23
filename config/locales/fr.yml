@@ -11,6 +11,7 @@ fr:
       become_teacher: "S'inscrire en tant que professeur"
       my_lessons: "Mon offre de cours"
       profile: "Mon profil"
+      profile_teacher: "Mes informations en tant que professeur"
     update:
       flash_alert: "Mise à jour du profil non-enregistrée"
   teachers:
@@ -24,6 +25,8 @@ fr:
       next_lessons: "Cours à venir"
       past_lessons: "Cours passés"
       no_lesson: "Vous n'avez pas encore proposé de cours."
+    new:
+      profile_teacher: "Professeur"
   lessons:
     show:
       user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
