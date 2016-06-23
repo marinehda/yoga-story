@@ -5,4 +5,21 @@
 
 <script type="text/javascript" src="autocomplete.js"></script>
 
-<%= render 'form_lesson' %>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 center-title">
+        <i class="fa fa-file-text-o"></i>
+        <h2><%= t(".lesson", default: "Fiche de cours") %></h2>
+      </div>
+    </div><!--center title row end-->
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="wrapper-grey">
+          <%= render 'form_lesson' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

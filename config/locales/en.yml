@@ -24,9 +24,7 @@ en:
       reoffer_lesson: "Reschedule"
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
-      cancelled: "Cancelled"
       no_lesson: "You haven't created any class yet."
-      confirmed: "Confirmed"
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
@@ -115,9 +113,10 @@ en:
       lesson:
         name: 'Name'
         start_date: 'Start date'
-        end_date: 'End date'
-        min_students: 'Minimum of students'
-        max_students: 'Maximum of students'
+        hours: 'Hour(s)'
+        minutes: 'Minute(s)'
+        min_students: 'Minimum'
+        max_students: 'Maximum'
         description: 'Description'
         price: 'Price'
         address: 'Address'

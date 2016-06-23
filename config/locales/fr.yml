@@ -23,9 +23,7 @@ fr:
       reoffer_lesson: "Reproposer"
       next_lessons: "Cours à venir"
       past_lessons: "Cours passés"
-      cancelled: "Annulé"
       no_lesson: "Vous n'avez pas encore proposé de cours."
-      confirmed: "Confirmé"
   lessons:
     show:
       user_cannot_be_teacher: "Désolé, vous ne pouvez pas réserver ce cours, c'est le votre!"
@@ -114,9 +112,10 @@ fr:
       lesson:
         name: 'Nom du cours'
         start_date: 'Date de début'
-        end_date: 'Date de fin'
-        min_students: "Nombre minimum d'élèves"
-        max_students: "Nombre maximum d'élèves"
+        hours: 'Heure(s)'
+        minutes: 'Minute(s)'
+        min_students: "Minimum"
+        max_students: "Maximum"
         description: 'Description'
         price: 'Prix'
         address: 'Adresse'

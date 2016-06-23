@@ -44,7 +44,7 @@
             <% end %>
           </div>
         </div>
-        <div class="col-sm-3 options">
+        <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
           <%= link_to t('.show_lesson'), lesson_path(booking.lesson), class:"btn btn-default btn-radius option" %>
           <% if booking.status == 'confirmed' %>
           <%= link_to t('.cancel_booking'), cancel_booking_path(booking), class:"btn btn-default btn-radius option" %>
@@ -54,6 +54,7 @@
       </div>
     </div>
   <% end %>
+  <br>
   <% if @past_bookings != [] %>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
@@ -75,13 +76,13 @@
               </div>
               <% if booking.status == "cancelled" %>
                 <div id="status">
-                  <p> <%= booking.status %> </p>
+                  <p> cancelled </p>
                 </div>
               <% end %>
             </div><!--price box end-->
           </div>
           <% if booking.review_content == nil && booking.review_rating == nil %>
-            <div class="col-sm-3 options">
+          <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
               <%= link_to t('.review'), edit_booking_path(booking), class:"btn btn-default btn-radius option" %>
             </div>
           <% end %>

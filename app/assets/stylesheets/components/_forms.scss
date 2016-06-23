@@ -11,12 +11,28 @@
   border: 1px solid #ccc;
 }
 
-.contact-section .form-control {
-  font-size: 14px;
-  border: 1px;
-  width: 100%;
+.contact-section{
+    .form-control {
+    font-size: 14px;
+    border: 1px;
+    width: 100%;
+  }
+
+  .wrapper-grey {
+    padding: 35px;
+  }
+
+  .center-title {
+  margin-bottom: 30px;
+  }
+
+  .btn {
+    background-color: $red;
+    margin-top: 30px;
+    color: $gray-lighter;
+  }
 }
 
-.contact-section .wrapper-grey {
-  width: 80;
+.control-label {
+  font-weight: lighter;
 }
