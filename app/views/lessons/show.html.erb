@@ -1,46 +1,54 @@
 <div class="container padded">
-<div class="col-md-10 col-md-offset-1">
+
   <div class="row">
-    <div id="owl-news">
-      <div class="col-md-4">
+      <div id="owl-news">
+        <div class="col-md-5">
           <div class="item">
-            <div class="col-md-12 text-center nopadding-top photo-padding">
-            <h3 class="home text-center red "><%= @lesson.name %></h3>
-                <%= cl_image_tag @lesson.photo %>
+            <div class="col-md-12">
+              <h3 class="home text-center red "><%= @lesson.name %></h3>
+            <div class="text-center photo-padding">
+              <%= link_to show_card_avatar(@lesson.teacher), teacher_path(@lesson.teacher)%>
             </div>
-            <div class="col-md-4">
-                <%= link_to show_card_avatar(@lesson.teacher), teacher_path(@lesson.teacher)%>
-            </div>
-            <div class="col-md-7">
                 <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
                 <%= f.error_notification %>
                 <%= f.input :content, label: false %>
-                <div class="text-center">
-                <%= f.button :submit %></div>
-                <% end %>
             </div>
           </div>
-      </div>
-      <div class="col-md-6">
-        <h4><%= t('.info') %></h4>
+          </div>
+          <div class="col-md-7">
+            <blockquote class="w3-container w3-leftbar w3-light-grey">
+            <h4><%= t('.info') %></h4>
 
-        <blockquote class="w3-container w3-leftbar w3-light-grey">
+              <div class="list-group">
+                <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.strftime("%d/%m/%Y - %Hh%M") %></h6>
+                <h6 class="list-group-item"><span class="red"><%= t('.places') %></span>&nbsp; <%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
+                <h6 class="list-group-item"><i class="fa fa-clock-o fa-lg red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
 
-          <div class="list-group">
-            <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.strftime("%d/%M/%Y - %Hh%M") %></h6>
-            <h6 class="list-group-item"><span class="red"><%= t('.places') %></span>&nbsp; <%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
-            <h6 class="list-group-item"><i class="fa fa-spinner fa-pulse fa-lg fa-fw red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
+                <h6 class="list-group-item"><i class="fa fa-map-marker fa-lg red"></i>&nbsp; <%= @lesson.location_name %>
+                <%= @lesson.street_number %><%= @lesson.address %>
+                <%= @lesson.zip_code %><%= @lesson.city %>
+                </h6>
+                <h6 class="list-group-item"><i class="fa fa-money fa-lg red" aria-hidden="true"></i>&nbsp; <%= humanized_money_with_symbol(@lesson.price) %></h6>
+                <h6 class="list-group-item"><span class="red">Description : </span><%= @lesson.description %></h6>
+              </div>
+            </blockquote>
 
-            <h6 class="list-group-item"><i class="fa fa-map-marker fa-lg red"></i>&nbsp; <%= @lesson.location_name %>
-            <%= @lesson.street_number %><%= @lesson.address %>
-            <%= @lesson.zip_code %><%= @lesson.city %>
-            </h6>
-            <h6 class="list-group-item"><i class="fa fa-money fa-lg red" aria-hidden="true"></i>&nbsp; <%= humanized_money_with_symbol(@lesson.price) %></h6>
-
-
-            <h6 class="list-group-item"><span class="red">Description : </span><%= @lesson.description %></h6>
 
           </div>
+
+      </div>
+  </div>
+
+    <div class="row">
+      <div id="owl-news">
+        <div class="col-md-5">
+          <div class="item">
+            <div class="text-center">
+              <%= f.button :submit, class:"green" %></div>
+              <% end %>
+          </div>
+        </div>
+        <div class="col-md-7">
           <span class='text-center'>
           <% if @lesson.teacher == current_user %>
             <%= t('.user_cannot_be_teacher') %>
@@ -50,15 +58,13 @@
               <% end %>
           <% end %>
           </span>
-
-
-
-        </blockquote>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+
+
+
 
 
 
