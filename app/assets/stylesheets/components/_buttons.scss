@@ -15,3 +15,12 @@
     color: $gray-lighter;
   }
 }
+
+.btn-greylight {
+  background-color: #FFFFFF;
+  color: $gray;
+  &:hover {
+    background-color: #323a45;
+    color: $gray-lighter;
+  }
+}
