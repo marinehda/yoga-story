@@ -1,10 +1,10 @@
 //= require modernizr.custom.97074
-//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
 //= require jquery-migrate.min
 //= require jquery.backstretch.min
 //= require jquery.easing.1.3.min
+//= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
