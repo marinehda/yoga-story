@@ -32,6 +32,7 @@ class LessonsController < ApplicationController
       redirect_to lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
+      render :new
     end
   end
 
@@ -39,11 +40,12 @@ class LessonsController < ApplicationController
   end
 
   def update
-    if @lesson.update(lesson_params)
+    if params[:lesson][:start_date] != "" && @lesson.update(lesson_params)
       @lesson.update_attribute(:status, 'confirmed')
       redirect_to lessons_teacher_path(current_user)
     else
       flash[:alert] = t('.flash_alert')
+      render :edit
     end
   end
 
@@ -60,7 +62,14 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:name, :start_date, :hours, :minutes, :address, :street_number, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
+    parameters = params.require(:lesson).permit(:name, :start_date, :hours, :minutes, :address, :street_number, :street, :city, :zip_code, :min_students, :max_students, :description, :price, :location_name)
+    if /PM/.match(parameters[:start_date])
+      to_add = 12.0
+    else
+      to_add = 0
+    end
+    parameters[:start_date] =  DateTime.strptime(parameters[:start_date], "%m/%d/%Y %H:%M") + (to_add / 24) - (2.0 / 24)
+    parameters
   end
 
 end
