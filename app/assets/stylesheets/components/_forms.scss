@@ -1,10 +1,21 @@
+.datepicker-btn-padding {
+  padding-top: 29px;
+  @media (max-width: 768px) {
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 .form {
   margin-bottom: 40px;
 }
-
 .form-control {
 	height: 47px;
 	width: 110%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
 
 .assan-contact .form-control {
@@ -12,7 +23,7 @@
 }
 
 .contact-section{
-    .form-control {
+  .form-control {
     font-size: 14px;
     border: 1px;
     width: 100%;
