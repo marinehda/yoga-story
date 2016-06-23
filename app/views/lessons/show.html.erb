@@ -1,23 +1,54 @@
-<%= @lesson.name %> <br>
-horaire: <%= @lesson.start_date %> <br>
-durée: <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %>
-statut: <%= @lesson.status %> <br>
-prix: <%= humanized_money_with_symbol(@lesson.price) %> <br>
-<%= cl_image_tag @lesson.photo %>
+<div class="col-md-10 col-md-offset-1">
+  <h2>Détails du cours</h2>
+  <div class="row">
+    <div id="owl-news">
+      <div class="col-md-4">
 
-<% if @lesson.teacher == current_user %>
-  <%= t('.user_cannot_be_teacher') %>
-  <% else %>
-  <%= form_tag lesson_bookings_path @lesson do %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
-  <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
-    <%= f.error_notification %>    
-    <%= f.input :content %>
-    <div class="text-center">
-    <%= f.button :submit %></div>
-  <% end %>
-<% end %>
+        <div class="item">
+          <%= cl_image_tag @lesson.photo %>
+          <h3 class="home text-center red"><%= @lesson.name %></h3>
+            <ul class="list-inline">
+              <li><a href="#"><i class="ti-user"></i> By Admin</a></li>
+              <li><a href="#"><i class="ti-comments"></i> 4 Comments</a></li>
+
+            </ul>
+            <%= @lesson.teacher.photo %>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Informations supplémentaires</h4>
+
+        <blockquote class="w3-container w3-leftbar w3-light-grey">
+
+          <div class="list-group">
+            <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date %></h6>
+            <h6 class="list-group-item"><span class="red">Nombre de places : </span><%= @lesson.max_students %></h6>
+            <h6 class="list-group-item"><i class="fa fa-spinner fa-pulse fa-lg fa-fw red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
+
+            <h6 class="list-group-item"><i class="fa fa-map-marker lg red"></i>&nbsp; <%= @lesson.location_name %>
+            <%= @lesson.street_number %><%= @lesson.address %>
+            <%= @lesson.zip_code %><%= @lesson.city %>
+            </h6>
+            <h6 class="list-group-item"><i class="fa fa-money fa-lg red" aria-hidden="true"></i>&nbsp; <%= humanized_money_with_symbol(@lesson.price) %></h6>
+
+
+            <h6 class="list-group-item"><span class="red">Description : </span><%= @lesson.description %></h6>
+            <span>
+            <% if @lesson.teacher == current_user %>
+              <%= t('.user_cannot_be_teacher') %>
+              <% else %>
+              <%= form_tag lesson_bookings_path @lesson do %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                <% end %>
+            <% end %>
+          </span>
+        </div>
+      </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
