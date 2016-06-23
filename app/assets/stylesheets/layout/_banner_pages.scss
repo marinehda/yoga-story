@@ -1,0 +1,40 @@
+.home-newsletter {
+  background: url(https://res.cloudinary.com/dj8owx8ry/image/upload/v1466181681/Photo cours/cours18.jpg) no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-attachment: fixed;
+  padding-top: 250px;
+  padding-bottom: 200px;
+}
+.home-newsletter h2 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 50px;
+  text-transform: capitalize;
+}
+.home-newsletter p {
+  color: #fff;
+  font-size: 18px;
+}
+.home-newsletter .form-control {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  border: 0px;
+  height: 47px;
+}
+.home-newsletter .error {
+  border-color: #b92c28;
+  color: #b92c28;
+}
+.home-newsletter .success {
+  border-color: #5cb85c;
+  color: #5cb85c;
+}
