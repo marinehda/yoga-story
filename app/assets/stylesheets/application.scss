@@ -14,14 +14,10 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "users";
 
 // Vendor CSS
 @import "style";
-
-body {
-  padding-top: 80px;
-  padding-bottom: 30px;
-}
 
 .ptb-15 {
   padding-top: 15px;

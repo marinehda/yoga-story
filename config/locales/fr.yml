@@ -9,7 +9,7 @@ fr:
     show:
       view_public_profile: "Voir mon profil public"
       become_teacher: "S'inscrire en tant que professeur"
-      my_lessons: "Mon offre de cours"
+      my_lessons: "Voir mon offre de cours"
       profile: "Mon profil"
       profile_teacher: "Mes informations en tant que professeur"
     update:
@@ -51,6 +51,10 @@ fr:
     create:
       flash_alert_full: "Désolé ce cours est victime de son succès"
       flash_alert_not_saved: "Désolé, quelquechose ne fonctionne pas comme prévu"
+  payments:
+    new:
+      amount: 'Montant'
+      pay: 'Acheter un cours'
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

@@ -1,9 +1,14 @@
-<div class="wrapper-grey padded">
+<section id="home" class="home-newsletter">
+    <div class="row">
+        <div class="col-sm-12 center-title">
+            <h2><i class="fa fa-user"></i> <%= t('.sign_in', :default => "Sign in") %></h2>
+        </div>
+    </div>
+</section>
+
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-
     <div class="contact-home-form">
-      <h2><%= t('.sign_in', :default => "Sign in") %></h2>
 
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
         <div><%= f.label :email %><br />
@@ -23,4 +28,4 @@
     </div>
   </div>
 </div>
-</div>
+
