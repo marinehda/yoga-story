@@ -1,3 +1,18 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#avatar_profil {
+  margin-bottom: 20px;
+}
+
+.link_profile {
+  font-size: 14px;
+  text-align: center;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.form-group {
+  color:$gray;
+}
