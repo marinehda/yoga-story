@@ -7,7 +7,7 @@ Booking.delete_all
 Lesson.delete_all
 User.delete_all
 
-yoga_type = ['Ashtanga Vinyasa Yoga', 'Iyengar Yoga', 'Vinyasa Yoga', 'Hatha Yoga', 'Yoga Chamanique', 'Yin Yoga', 'Pranayama (respiration)']
+yoga_type = [['Ashtanga Vinyasa Yoga'], ['Iyengar Yoga'], ['Vinyasa Yoga'], ['Hatha Yoga'], ['Yoga Chamanique'], ['Yin Yoga'], ['Pranayama (respiration)']]
 
 (1..10).each do |i|
   user = User.new(
