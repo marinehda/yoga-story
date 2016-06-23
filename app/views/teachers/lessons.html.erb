@@ -14,7 +14,7 @@
         <%= link_to t('.add_lesson'), new_lesson_path, class:"btn btn-lg btn-skin btn-radius" %>
       </div>
     </div>
-    <% if @lessons != [] %>
+    <% if @lessons.where('start_date >= ?', DateTime.now) != [] %>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <h3><%= t('.next_lessons') %></h3>
@@ -39,14 +39,14 @@
               </div>
               <% if lesson.status == "cancelled" %>
                 <div id="status">
-                  <%= t('.cancelled') %>
+                  <p> cancelled </p>
                 </div>
               <% end %>
             </div><!--price box end-->
           </div>
         </div><!--price col end-->
-        <div class="col-sm-3 options">
-          <% if lesson.status == t('.confirmed') %>
+        <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+          <% if lesson.status == 'confirmed' %>
             <%= link_to t('.show_lesson'), lesson_path(lesson), class:"btn btn-default btn-radius option" %>
             <%= link_to t('.edit_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
             <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
@@ -57,6 +57,7 @@
         <% end %>
       </div>
     </div>
+    <br>
     <% if @lessons.where('start_date < ?', DateTime.now) != [] %>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
@@ -81,7 +82,7 @@
               </div>
             </div><!--price box end-->
           </div>
-          <div class="col-sm-3 options">
+          <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
           </div>
         <% end %>
