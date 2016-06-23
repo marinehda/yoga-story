@@ -42,7 +42,7 @@
         <%= f.input :phone, input_html: { class: 'form-control'} %>
       </div>
       <div class="col-sm-12">
-        <%= f.input :yoga_type, as: :check_boxes, collection: ['Ashtanga Vinyasa Yoga', 'Iyengar Yoga', 'Vinyasa Yoga', 'Hatha Yoga', 'Yoga Chamanique', 'Yin Yoga', 'Pranayama (respiration)'], item_wrapper_class: 'inline', input_html: { multiple: true } %>
+        <%= f.input :yoga_type, as: :check_boxes, collection: ['Ashtanga Vinyasa Yoga', 'Iyengar Yoga', 'Vinyasa Yoga', 'Hatha Yoga', 'Yoga Chamanique', 'Yin Yoga', 'Pranayama'], item_wrapper_class: 'inline', input_html: { multiple: true } %>
       </div>
       <div class="col-sm-12">
         <%= f.input :level, collection: [:beginner, :confirmed, :expert], input_html: { class: 'form-control'}%>
