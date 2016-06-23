@@ -146,7 +146,7 @@
   <%= javascript_tag do %>
     $(document).on('ready', function() {
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { scrollwheel: false, zoomControl: false }, internal: { id: 'map'} }, function(){
+      handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map'} }, function(){
         markers = handler.addMarkers(<%= raw @marker.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
