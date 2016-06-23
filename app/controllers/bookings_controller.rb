@@ -38,10 +38,11 @@ class BookingsController < ApplicationController
         # LessonMailer.booking_confirmation(@booking).deliver_now
         redirect_to new_booking_payment_path(@booking)
       else
-        flash[:alert] = t('.flash_alert')
+        flash[:alert] = t('.flash_alert_not_saved')
       end
     else
-      flash[:alert] = t('.flash_alert') ##personnaliser => .flash_availability
+      flash[:alert] = t('.flash_alert_full')
+      redirect_to lessons_path
     end
   end
 
@@ -65,7 +66,7 @@ class BookingsController < ApplicationController
       #update booking.payment
       @booking.update(payment: refund.to_json, payment_state: 'refunded')
       @booking.update_attribute(:status, 'cancelled')
-      redirect_to booking_path(@booking)
+      redirect_to my_student_index_bookings_path
   end
 
   private
