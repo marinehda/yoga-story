@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   mount_uploader :photo, PhotoUploader
+  serialize :yoga_type, Array
 
   def teacher?
     type == 'Teacher'

@@ -1,7 +1,23 @@
-<%= simple_form_for(@teacher) do |f| %>
+<%= simple_form_for(@teacher, html: { class: 'assan-contact'}) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :experience, collection: 1950..Time.now.year %>
-  <%= f.input :description %>
-  <%= f.input :photos, as: :attachinary %>
-  <%= f.button :submit %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.input :experience, collection: 1950..Time.now.year %>
+    </div>
+    <div class="col-sm-12">
+      <%= f.input :description %>
+    </div>
+    <div class="col-sm-12">
+    <%= f.input :photos, as: :attachinary %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="data-status animated fadeInDown"></div> <!-- data submit status -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <%= f.button :submit, class:'btn btn-lg btn-skin btn-radius margin-b-20' %>
+      </div>
+    </div>
 <% end %>
