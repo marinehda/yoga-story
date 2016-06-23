@@ -23,7 +23,8 @@ class PaymentsController < ApplicationController
     )
 
     @booking.update(payment: charge.to_json, payment_state: 'paid')
-    redirect_to booking_path(@booking)
+    redirect_to my_student_index_bookings_path
+
 
     rescue Stripe::CardError => e
     flash[:error] = e.message
