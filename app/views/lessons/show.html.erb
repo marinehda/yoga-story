@@ -6,10 +6,72 @@
     </div>
 </section>
 
+<section class="blog" id="search">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-md-6" id="teacher-card">
+            <div class="center-title">
+              <%= link_to show_card_avatar(@lesson.teacher), teacher_path(@lesson.teacher)%>
+            </div>
+            <h3 class="text-center photo-padding red"><%= @lesson.teacher.first_name %></h3>
+            <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :content, label: false, as: :text, placeholder:'Ecrire un message à ce professeur...', input_html: { class: 'message' } %>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="home text-center red "><%= @lesson.name %></h3>
+
+            <div class="list-group" id="description-card">
+              <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.to_time.to_formatted_s(:short) %></h6>
+              <h6 class="list-group-item"><span class="red"><%= t('.places') %></span>&nbsp; <%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
+              <h6 class="list-group-item"><i class="fa fa-clock-o fa-lg red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
+
+              <h6 class="list-group-item"><i class="fa fa-map-marker fa-lg red"></i>&nbsp; <%= @lesson.location_name %>
+                <%= @lesson.street_number %><%= @lesson.address %>
+                <%= @lesson.zip_code %><%= @lesson.city %>
+              </h6>
+              <h6 class="list-group-item"><i class="fa fa-money fa-lg red" aria-hidden="true"></i>&nbsp; <%= humanized_money_with_symbol(@lesson.price) %></h6>
+              <h6 class="list-group-item"><span class="red">Description : </span><%= @lesson.description %></h6>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-md-6">
+        <div class="text-center">
+          <%= button_tag(type: 'submit', class: "btn btn-default btn-radius text-center") do %>
+          <i class="fa fa-envelope-o"></i> Envoyer
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <span class='text-center'>
+          <% if @lesson.teacher == current_user %>
+          <%= t('.user_cannot_be_teacher') %>
+          <% else %>
+          <%= form_tag lesson_bookings_path @lesson do %>
+          <%= submit_tag t('.purchase'), class: 'btn btn-skin' %>
+          <% end %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!--
 <div class="container padded">
   <div class="row">
       <div id="owl-news">
-        <div class="col-md-5">
+
           <div class="item">
             <div class="col-md-12">
 
@@ -19,7 +81,7 @@
             <h5 class="text-center photo-padding red"><%= @lesson.teacher.first_name %></h5>
                 <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
                 <%= f.error_notification %>
-                <%= f.input :content, label: false %>
+                <%= f.input :content, label: false, as: :text, placeholder:'Ecrire un message à ce professeur...', input_html: { class: 'message' } %>
             </div>
           </div>
           </div>
@@ -52,7 +114,9 @@
         <div class="col-md-5">
           <div class="item">
             <div class="text-center">
-              <%= f.button :submit, class:"green" %></div>
+              <%= button_tag(type: 'submit', class: "btn btn-default btn-radius text-center") do %>
+                <i class="fa fa-envelope-o"></i> Envoyer
+                <% end %>
               <% end %>
           </div>
         </div>
@@ -71,7 +135,7 @@
     </div>
   </div>
 
-
+ -->
 
 
 

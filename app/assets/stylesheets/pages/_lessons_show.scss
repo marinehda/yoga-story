@@ -11,3 +11,22 @@
 .list-group-item {
   border-color: white;
 }
+
+.description {
+  list-style-type: none;
+  text-align: left;
+}
+
+#teacher-card {
+  padding-top: 30px;
+  font-family: "Arimo", sans-serif;
+  font-size: 26px;
+  &h3 {
+    color: $gray;
+  }
+}
+
+#description-card {
+  font-weight: lighter;
+  font-family: "Arimo", sans-serif;
+}
