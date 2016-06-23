@@ -12,10 +12,11 @@
         <div class="col-md-5">
           <div class="item">
             <div class="col-md-12">
-              <h3 class="home text-center red "><%= @lesson.name %></h3>
-            <div class="text-center photo-padding">
+
+            <div class="text-center">
               <%= link_to show_card_avatar(@lesson.teacher), teacher_path(@lesson.teacher)%>
             </div>
+            <h5 class="text-center photo-padding red"><%= @lesson.teacher.first_name %></h5>
                 <%= simple_form_for([@lesson.teacher, @message]) do |f| %>
                 <%= f.error_notification %>
                 <%= f.input :content, label: false %>
@@ -24,7 +25,7 @@
           </div>
           <div class="col-md-7">
             <blockquote class="w3-container w3-leftbar w3-light-grey">
-            <h4><%= t('.info') %></h4>
+            <h3 class="home text-center red "><%= @lesson.name %></h3>
 
               <div class="list-group">
                 <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.to_time.to_formatted_s(:short) %></h6>
