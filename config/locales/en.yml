@@ -12,6 +12,7 @@ en:
       become_teacher: "Subscribe as a teacher"
       my_lessons: "My classes as a teacher"
       profile: "My profile"
+      profile_teacher: "My profile as a teacher"
     update:
       flash_alert: "Profile not updated"
   teachers:
@@ -25,6 +26,8 @@ en:
       next_lessons: "Upcoming classes"
       past_lessons: "Past classes"
       no_lesson: "You haven't created any class yet."
+    new:
+      profile_teacher: "Teacher"
   lessons:
     show:
       user_cannot_be_teacher: "Sorry, you cannot book a class in your own class"
