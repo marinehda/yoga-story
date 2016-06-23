@@ -27,7 +27,7 @@
             <h4><%= t('.info') %></h4>
 
               <div class="list-group">
-                <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.strftime("%d/%m/%Y - %Hh%M") %></h6>
+                <h6 class="list-group-item"> <i class="fa fa-calendar fa-lg red"></i>&nbsp; <%= @lesson.start_date.to_time.to_formatted_s(:short) %></h6>
                 <h6 class="list-group-item"><span class="red"><%= t('.places') %></span>&nbsp; <%= @lesson.max_students - @lesson.bookings.size %> / <%= @lesson.max_students %></h6>
                 <h6 class="list-group-item"><i class="fa fa-clock-o fa-lg red"></i>&nbsp; <%= @lesson.hours %> heures <% if @lesson.minutes != 0 %> <%= @lesson.minutes %> minutes <br> <% end %></h6>
 
