@@ -52,6 +52,10 @@ en:
     create:
       flash_alert_full: "Sorry this class is victim of its success"
       flash_alert_not_saved: "Sorry something went wrong"
+  payments:
+    new:
+      amount: 'Amount'
+      pay: 'Buy a lesson'
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."

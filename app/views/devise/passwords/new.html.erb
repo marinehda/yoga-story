@@ -1,8 +1,14 @@
-<div class="wrapper-grey padded">
+<section id="home" class="home-newsletter">
+    <div class="row">
+        <div class="col-sm-12 center-title">
+            <h2><i class="fa fa-user"></i> <%= t('.forgot_your_password', :default => 'Forgot your password?') %></h2>
+        </div>
+    </div>
+</section>
+
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="contact-home-form">
-        <h2><%= t('.forgot_your_password', :default => 'Forgot your password?') %></h2>
 
         <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
           <%= devise_error_messages! %>
@@ -17,4 +23,4 @@
       </div>
     </div>
   </div>
-</div>
+
