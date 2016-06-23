@@ -34,6 +34,7 @@ en:
       purchase: 'Book now'
       info: 'More details'
       places: 'Availability :'
+      lesson: 'Yoga class details'
     update:
       confirmed: "Confirmed"
       flash_alert: "Sorry, your class was not updated"
@@ -64,6 +65,7 @@ en:
     lessons:
       no_result: "Sorry, no class matches your search. We suggest you extend your possibilities and discover all available classes below."
       more: "More"
+      search: 'Yoga class search'
     search:
       sub_title: "Find a yoga class"
   shared:

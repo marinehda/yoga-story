@@ -33,6 +33,7 @@ fr:
       purchase: 'Je réserve'
       info: 'Informations supplémentaires'
       places: 'Place(s) disponible(s) :'
+      lesson: 'Fiche de cours'
     update:
       confirmed: "Confirmé"
       flash_alert: "La mise à jour n'a pu aboutir"
@@ -63,6 +64,7 @@ fr:
     lessons:
       no_result: "Désolé, aucun cours ne correspond à votre recherche. Nous vous suggérons d'élargir vos critères et de découvrir tous les cours disponibles ci-dessous."
       more: "Voir"
+      search: 'Recherche de cours'
     search:
       sub_title: "Trouver un cours"
   shared:
