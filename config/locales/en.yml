@@ -49,6 +49,9 @@ en:
       past_bookings: "Past classes"
       no_booking: "You have not booked any class yet."
       my_bookings: "My classes"
+    create:
+      flash_alert_full: "Sorry this class is victim of its success"
+      flash_alert_not_saved: "Sorry something went wrong"
   pages:
     home:
       tagline: "Yoga for Everyone. Everywhere."
