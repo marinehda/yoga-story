@@ -1,13 +1,26 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="col-sm-4 center-title">
+  <div class="row padded">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-3 center-title">
         <%= show_card_avatar(@teacher) %>
       </div>
-      <div class="col-sm-8">
-        <h2> <%= @teacher.first_name %> </h3>
+      <div class="col-sm-6">
+        <% if @teacher.first_name %>
+          <h2> <%= @teacher.first_name %> </h2>
+        <% else %>
+          <h2> Profil </h2>
+        <% end %>
         <p> Pratique le yoga depuis <%= @teacher.experience %> <p>
         <p> " <%= @teacher.description %> " </p>
+      </div>
+      <div class="col-sm-3 text-center">
+        <%= simple_form_for([@teacher, @message]) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :content, label: false, placeholder:'Message...' %>
+          <%= button_tag(type: 'submit', class: "btn btn-skin btn-radius text-center") do %>
+            <i class="fa fa-envelope-o"></i> Contacter
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
