@@ -8,7 +8,6 @@
     <div class="form-group">
       <div class='input-group date' id='datetimepicker1'>
         <%= f.input :start_date, as: :string, input_html: { class: 'form-control'} %>
-        <input type="hidden" name="time_ms" id="time_ms">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
@@ -68,15 +67,6 @@
 <%= javascript_tag do %>
 $(function () {
   $('#datetimepicker1').datetimepicker();
-  $("#edit_lesson_<%=@lesson.id%>").submit(function(e){
-
-    if ($('#time_ms').val() == "") {
-        e.preventDefault();
-      $('#time_ms').val(Date.parse($('#lesson_start_date').val()));
-      e.submit();
-    }
-  });
-
 });
 <% end %>
 <% end %>
