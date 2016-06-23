@@ -5,3 +5,18 @@
 .teacher{
   padding: 30px;
 }
+
+.message {
+  word-wrap: normal;
+  font-size: 14px;
+}
+
+.teacher-show {
+  .icon {
+    color: $red;
+  }
+}
+
+.teacher_description {
+  font-size: 15px;
+}
