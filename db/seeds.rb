@@ -3,6 +3,7 @@ require 'faker'
 # Run using rake db:reset rather than rake db:seed to not break ids logic in this file
 # When modifying validators in model, amend this file
 
+Message.delete_all
 Booking.delete_all
 Lesson.delete_all
 User.delete_all
