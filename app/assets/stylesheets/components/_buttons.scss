@@ -6,3 +6,12 @@
 .btn-grey {
   background-color: $gray-light;
 }
+
+.btn-black {
+  background-color: #323a45;
+  color: $gray-lighter;
+  &:hover{
+    background-color: #323a45;
+    color: $gray-lighter;
+  }
+}

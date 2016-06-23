@@ -3,7 +3,7 @@
         <div class="col-sm-12 center-title">
             <h2><i class="fa fa-calendar"></i> <%= t('.my_lessons') %></h2>
         </div>
-        <div class="col-sm-8  col-sm-offset-2 text-center wow animated bounceIn">
+        <div class="col-sm-12 text-center">
           <%= link_to t('.add_lesson'), new_lesson_path, class:"btn btn-lg btn-skin btn-radius" %>
         </div>
     </div>
@@ -36,10 +36,11 @@
             <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
           </ul>
           <% if lesson.status == 'confirmed' %>
-          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Modifier <i class="fa fa-angle-right"></i></a>
-          <a href="/lessons/<%= lesson.id%>/cancel" class="btn btn-default card"> Annuler <i class="fa fa-angle-right"></i></a>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Modifier </a>
+          <a href="/lessons/<%= lesson.id%>/cancel" class="btn btn-default card"> Annuler </a>
           <% else %>
-          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer <i class="fa fa-angle-right"></i></a>
+          <a href="#" class="btn btn-black card"> Annulé </a>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer </a>
           <% end %>
         </div>
       </div>
@@ -49,9 +50,10 @@
 
     <% if @lessons.where('start_date < ?', DateTime.now) != [] %>
     <div class="row">
-      <div class="col-sm-12 center-title wow animated bounceIn">
+      <div class="col-sm-12 center-title wow animated bounceIn padded-custom">
         <h2><%= t('.past_lessons') %></h2>
-      </div>      <% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
+      </div>
+      <% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
       <div class="col-sm-4">
         <div class="item" id='search-item-list'>
           <h3 class="home"><a href="/lessons/<%=lesson.id%>"> <%= lesson.name%></a></h3>
@@ -60,7 +62,7 @@
             <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
             <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
           </ul>
-          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer <i class="fa fa-angle-right"></i></a>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer </a>
         </div>
       </div>
       <% end %>
@@ -69,92 +71,3 @@
 
   </div>
 </section>
-<!--
-  <div class="container">
-    <div class="row">
-      <% if @lessons == [] %>
-      <div class="col-sm-8 col-sm-offset-2 center-title">
-        <p> <%= t('.no_lesson')  %> </p>
-      </div>
-      <% end %>
-      <div class="col-sm-12 center-title">
-        <%= link_to t('.add_lesson'), new_lesson_path, class:"btn btn-lg btn-skin btn-radius" %>
-      </div>
-    </div>
-    <% if @lessons.where('start_date >= ?', DateTime.now) != [] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h3><%= t('.next_lessons') %></h3>
-        <% @lessons.where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
-        <div class="col-sm-9">
-          <div >
-            <div class="lesson-box text-center wow  fadeInUp animated" id="<%= 'grayed-out' if lesson.status == 'cancelled' %>" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-              <div class="title">
-                <h3><%= lesson.name%></h3>
-              </div>
-              <div id="date">
-                <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
-              </div>
-              <div id="price">
-                <%= lesson.price %> €
-              </div>
-              <div class="address">
-                <p><i class="fa fa-map-marker" id="icon"></i>   <%= lesson.address %></p>
-              </div>
-              <div class="description">
-                <p><i class="fa fa-file-text-o" id="icon"></i>   <%= lesson.description %></p>
-              </div>
-              <% if lesson.status == "cancelled" %>
-                <div id="status">
-                  <p> cancelled </p>
-                </div>
-              <% end %>
-            </div><!--price box end-->
-          <!-- </div>
-        </div><!--price col end-->
-        <!-- <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-          <% if lesson.status == 'confirmed' %>
-            <%= link_to t('.show_lesson'), lesson_path(lesson), class:"btn btn-default btn-radius option" %>
-            <%= link_to t('.edit_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
-            <%= link_to t('.cancel_lesson'), cancel_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
-          <% else %>
-            <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <br>
-    <% if @lessons.where('start_date < ?', DateTime.now) != [] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h3><%= t('.past_lessons') %></h3>
-        <% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
-          <div class="col-sm-9">
-            <div class="lesson-box text-center wow  fadeInUp animated" id="grayed-out" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-              <div class="title">
-                <h3><%= lesson.name%></h3>
-              </div>
-              <div id="date">
-                <p><%= lesson.start_date.to_time.to_formatted_s(:short) %></p>
-              </div>
-              <div class="address">
-                <p><i class="fa fa-map-marker" id="icon"></i>   <%= lesson.address %></p>
-              </div>
-              <div class="description">
-                <p><i class="fa fa-file-text-o" id="icon"></i>   <%= lesson.description %></p>
-              </div>
-              <div id="price">
-                <%= lesson.price %> €
-              </div>
-            </div><!--price box end-->
-          <!-- </div>
-          <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-  </div> --> --> -->
