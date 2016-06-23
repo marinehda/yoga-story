@@ -1,18 +1,35 @@
 <%= link_to 'back to all conversation', messages_path, class:"btn btn-md btn-skin btn-radius" %>
 
 <%= simple_form_for(@message) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @recipient_id } %>
-  <%= f.input :content %>
-  <div class="text-center">
+<%= f.error_notification %>
+<%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @recipient_id } %>
+<%= f.input :content %>
+<div class="text-center">
   <%= f.button :submit %></div>
-<% end %>
-
-<% @messages.each do |message| %>
-  <div class="<%= message.user_status(current_user) %>">
-    created_at: <%= message.created_at %> <br>
-    id: <%= message.id %> <br>
-    content: <%= message.content %> <br>
-    recipient_id: <%= message.recipient_id %> <br>
-  </div>
   <% end %>
+
+<section class="module">
+  <header class="top-bar">
+    <div class="left">
+      <span class="icon typicons-message"></span>
+      <h1>Message</h1>
+    </div>
+    <div class="right">
+      <span class="icon typicons-minus"></span>
+      <span class="icon typicons-times"></span>
+    </div>
+  </header>
+  <ol class="discussion">
+    <% @messages.each do |message| %>
+      <li class="<%= message.user_status(current_user) %>">
+        <div class="avatar">
+          <img src="<%= message.user.photo%>" />
+        </div>
+        <div class="messages">
+          <p><%= message.content %></p>
+          <time datetime="<%= message.created_at %>"><%= message.user.first_name %> • <%= distance_of_time_in_words(Time.now - message.created_at)%></time>
+        </div>
+      </li>
+    <% end %>
+  </ol>
+</section>
