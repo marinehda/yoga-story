@@ -3,9 +3,73 @@
         <div class="col-sm-12 center-title">
             <h2><i class="fa fa-calendar"></i> <%= t('.my_lessons') %></h2>
         </div>
+        <div class="col-sm-8  col-sm-offset-2 text-center wow animated bounceIn">
+          <%= link_to t('.add_lesson'), new_lesson_path, class:"btn btn-lg btn-skin btn-radius" %>
+        </div>
     </div>
 </section>
 
+<section class="blog" id="search">
+  <div class="container">
+
+    <div class="row">
+      <% if @lessons == [] %>
+      <div class="col-sm-8  col-sm-offset-2 text-center wow animated bounceIn">
+        <p> <%= t('.no_lesson')  %> </p>
+      </div>
+      <% end %>
+
+    </div>
+
+    <% if @lessons.where('start_date >= ?', DateTime.now) != [] %>
+    <div class="row">
+      <div class="col-sm-12 center-title wow animated bounceIn padded-custom">
+        <h2><%= t('.next_lessons') %></h2>
+      </div>
+      <% @lessons.where('start_date >= ?', DateTime.now).order(:start_date).each do |lesson| %>
+      <div class="col-sm-4">
+        <div class="item" id='search-item-list'>
+          <h3 class="home"><a href='/lessons/<%=lesson.id%>'><%= lesson.name%></a></h3>
+          <ul class="list-inline">
+            <li><a href="#"><i class="ti-user"></i><%= lesson.bookings.count %> inscrits</a></li>
+            <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+          </ul>
+          <% if lesson.status == 'confirmed' %>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Modifier <i class="fa fa-angle-right"></i></a>
+          <a href="/lessons/<%= lesson.id%>/cancel" class="btn btn-default card"> Annuler <i class="fa fa-angle-right"></i></a>
+          <% else %>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer <i class="fa fa-angle-right"></i></a>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if @lessons.where('start_date < ?', DateTime.now) != [] %>
+    <div class="row">
+      <div class="col-sm-12 center-title wow animated bounceIn">
+        <h2><%= t('.past_lessons') %></h2>
+      </div>      <% @lessons.where('start_date < ?', DateTime.now).order(:start_date).each do |lesson| %>
+      <div class="col-sm-4">
+        <div class="item" id='search-item-list'>
+          <h3 class="home"><a href="/lessons/<%=lesson.id%>"> <%= lesson.name%></a></h3>
+          <ul class="list-inline">
+            <li><a href="#"><i class="ti-user"></i> <%= lesson.bookings.count %> inscrits</a></li>
+            <li><i class="ti-calendar"></i><%= lesson.start_date.to_time.to_formatted_s(:short) %></li>
+            <li><a href="#"><i class="ti-comments"></i><%= lesson.price %> €</a></li>
+          </ul>
+          <a href="/lessons/<%= lesson.id%>/edit" class="btn btn-default card"> Reproposer <i class="fa fa-angle-right"></i></a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+  </div>
+</section>
+<!--
   <div class="container">
     <div class="row">
       <% if @lessons == [] %>
@@ -46,9 +110,9 @@
                 </div>
               <% end %>
             </div><!--price box end-->
-          </div>
+          <!-- </div>
         </div><!--price col end-->
-        <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <!-- <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
           <% if lesson.status == 'confirmed' %>
             <%= link_to t('.show_lesson'), lesson_path(lesson), class:"btn btn-default btn-radius option" %>
             <%= link_to t('.edit_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
@@ -84,7 +148,7 @@
                 <%= lesson.price %> €
               </div>
             </div><!--price box end-->
-          </div>
+          <!-- </div>
           <div class="col-sm-3 options wow  fadeInUp animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <%= link_to t('.reoffer_lesson'), edit_lesson_path(lesson), class:"btn btn-default btn-radius option" %>
           </div>
@@ -93,4 +157,4 @@
     </div>
     <% end %>
     <% end %>
-  </div>
+  </div> --> --> -->
