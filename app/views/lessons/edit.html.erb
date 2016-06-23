@@ -1,19 +1,13 @@
-<!-- Include Google Maps JS API -->
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_API_BROWSER_KEY']%>">
-</script>
-
-<script type="text/javascript" src="autocomplete.js"></script>
+<section id="home" class="home-newsletter">
+    <div class="row">
+        <div class="col-sm-12 center-title">
+            <h2><i class="fa fa-file-text-o"></i> <%= t(".lesson", default: "Fiche de cours") %></h2>
+        </div>
+    </div>
+</section>
 
 <section id="contact" class="contact-section">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 center-title">
-        <i class="fa fa-file-text-o"></i>
-        <h2><%= t(".lesson", default: "Fiche de cours") %></h2>
-      </div>
-    </div><!--center title row end-->
-
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <div class="wrapper-grey">
