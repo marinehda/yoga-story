@@ -31,6 +31,8 @@ user1 = User.first
 user1.is_admin = true
 user1.save
 
+teacher_description = ["Bonjour à tous, je suis professeur de Yoga depuis maintenant plusieurs années, diplomée de l'école Nationale de Yoga de Montréal","Passionné de Yoga, j'organise régulièrement des séances de Yoga à destination d'un public débutant","Le Yoga, c'est toute ma vie depuis 10 ans. J'ai passé les 5 dernières années à parcourir le monde et découvrir les nouvelles formes de Yoga que j'ai plaisir à partager avec vous","Ancien sportif de haut niveau, à l'arrêt suite à une blessure, je mets à profit ma reconversion profesionnelle pour vous faire partager ma passion","A la retraite, j'ai suivi une formation de Yogi. Je profite de mon temps libre pour vous faire découvrir cet art"]
+
 (11..15).each do |i|
   user = User.new(
     first_name: Faker::Name.first_name,
@@ -42,7 +44,7 @@ user1.save
     password: 'aaaaaa',
     type: 'Teacher',
     experience: (1970..2015).to_a.sample,
-    description: Faker::Lorem.sentence
+    description: teacher_description.sample
     )
     user.remote_photo_url = user_photos[i - 1]
   user.save!
