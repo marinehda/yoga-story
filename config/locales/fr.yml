@@ -9,7 +9,7 @@ fr:
     show:
       view_public_profile: "Voir mon profil public"
       become_teacher: "S'inscrire en tant que professeur"
-      my_lessons: "Mon offre de cours"
+      my_lessons: "Voir mon offre de cours"
       profile: "Mon profil"
       profile_teacher: "Mes informations en tant que professeur"
     update:
