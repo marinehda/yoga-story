@@ -4,6 +4,8 @@ class TeachersController < ApplicationController
   def show
     @teacher = Teacher.find(params[:id])
     authorize @teacher
+    @message = current_user.messages.new
+    authorize @message
   end
 
   def new

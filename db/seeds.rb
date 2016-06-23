@@ -13,7 +13,11 @@ yoga_type = [['Ashtanga Vinyasa Yoga'], ['Iyengar Yoga'], ['Vinyasa Yoga'], ['Ha
   user = User.new(
     email: 'user' + i.to_s + '@yogastory.com',
     password: 'aaaaaa',
+<<<<<<< HEAD
     #yoga_type: yoga_type.sample
+=======
+    # yoga_type: yoga_type.sample
+>>>>>>> 1ff93970e9edc3792c08c7a3aeea991e68f55c9e
     )
   user.save!
   p 'user' + i.to_s
@@ -28,7 +32,7 @@ user1.save
     email: 'user' + i.to_s + '@yogastory.com',
     password: 'aaaaaa',
     type: 'Teacher',
-    yoga_type: yoga_type.sample,
+    # yoga_type: yoga_type.sample,
     experience: (1970..2015).to_a.sample,
     description: Faker::Lorem.sentence
     )
@@ -62,7 +66,7 @@ end
 
 (1..50).each do |i|
   booking = Booking.new(
-  user_id: User.all.sample,
+  user_id: User.all.sample.id,
   #lesson_id: (1..20).to_a.sample,
   status: 'confirmed'
   )
