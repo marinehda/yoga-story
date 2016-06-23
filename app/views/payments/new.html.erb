@@ -12,11 +12,13 @@
   <div class="row">
     <div id="owl-news">
       <div class="col-md-4 col-md-offset-4">
-        <div class="item">
+        <div class="item" id="payment">
           <%= cl_image_tag @booking.lesson.photo %>
           <h3 class="home"><a href='#'><%= @booking.lesson.name %></a></h3>
-
-              <h5><i class="fa fa-clock-o fa-lg"></i>&nbsp; <%= @booking.lesson.start_date.strftime("%d/%M/%Y - %Hh%M") %></h5>
+              <ul class="list-inline">
+                <li class="ti-user"><a href="#"><i class="ti-user"></i> By &nbsp;<%= @booking.lesson.teacher.first_name %></a></li>
+                <li><i class="ti-calendar"></i><%= @booking.lesson.start_date.to_time.to_formatted_s(:short) %></li>
+              </ul>
 
               <%= form_tag booking_payments_path(@booking) do %>
                 <article>
