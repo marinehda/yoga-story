@@ -1,6 +1,6 @@
 .datepicker-btn-padding {
   padding-top: 28px;
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding-top: 10px;
     padding-left: 0;
     padding-right: 0;
@@ -12,7 +12,7 @@
 .form-control {
 	height: 47px;
 	width: 110%;
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     margin-bottom: 5px;
   }
