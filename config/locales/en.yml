@@ -109,6 +109,7 @@ en:
         street: 'Street'
         city: 'City'
         zipcode: 'Zipcode'
+        email: 'Email'
       teacher:
         first_name: 'First name'
         last_name: 'Last name'

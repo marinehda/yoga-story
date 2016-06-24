@@ -5,6 +5,7 @@ fr:
         forgot_your_password?: "Mot de passe oublié ?"
         hello: "Bonjour"
         sign_in: "Se connecter"
+        sign_up: "S'enregistrer"
   users:
     show:
       view_public_profile: "Voir mon profil public"
