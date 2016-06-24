@@ -51,7 +51,7 @@
         <% @teacher.lessons.first(3).each do |lesson| %>
         <div class="col-md-4">
           <div class="item">
-            <%= image_tag("http://res.cloudinary.com/dj8owx8ry/image/upload/v1466591298/Photo%20cours/cours19.jpg") %>
+            <%= cl_image_tag(lesson.photo) %>
             <h3 class="home"><a href='#'><%= lesson.name%></a></h3>
             <ul class="list-inline">
               <li><a href="#"><i class="ti-user"></i> By <%= lesson.teacher.first_name %></a></li>
