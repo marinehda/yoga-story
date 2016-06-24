@@ -50,18 +50,18 @@
       <div class="col-sm-12">
         <%= f.input :address, input_html: { id: 'user_input_autocomplete_address' } %>
       </div>
-      <!-- <div class="col-sm-12">
-        <%= f.input :street_number, input_html: { id: 'street_number', class: 'form-control'} %>
+      <div class="col-sm-12">
+        <%= f.input :street_number, input_html: { id: 'street_number', class: 'form-control'}, as: :hidden %>
       </div>
       <div class="col-sm-12">
-        <%= f.input :street, input_html: { id: 'route', class: 'form-control'} %>
+        <%= f.input :street, input_html: { id: 'route', class: 'form-control'}, as: :hidden %>
       </div>
       <div class="col-sm-12">
-        <%= f.input :city, input_html: { id: 'locality', class: 'form-control'} %>
+        <%= f.input :city, input_html: { id: 'locality', class: 'form-control'}, as: :hidden %>
       </div>
       <div class="col-sm-12">
-        <%= f.input :zipcode, input_html: { id: 'postal_code', class: 'form-control'} %>
-      </div> -->
+        <%= f.input :zipcode, input_html: { id: 'postal_code', class: 'form-control'}, as: :hidden %>
+      </div>
       <% if @user.teacher? %>
       <p> Vos informations en tant que professeur </p>
       <div class="col-sm-12">
