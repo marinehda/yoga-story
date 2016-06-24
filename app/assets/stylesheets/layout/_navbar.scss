@@ -1,6 +1,9 @@
 .navbar-nav{
 	float: right;
-	font-size: 16px;	
+	font-size: 16px;
+  @media screen and (max-width: 768px) { 
+    float: initial
+  }	
 }
 
 i {
